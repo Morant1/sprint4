@@ -1,15 +1,17 @@
-// import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 
 //Redirect to Edit event
 // Map // Review // Attanding //Chat
-//  export class EventDetails extends Component {
+ export class EventiDetails extends Component {
  
-//   render() {
-//     return (
-    
-//     );
-//   }
-// }
+  render() {
+    return (
+    <div></div>
+    )
+  }
+}
+
+
 

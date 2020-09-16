@@ -6,7 +6,7 @@ import {Header} from './cmps/Header';
 import {EventiApp} from './pages/EventiApp';
 import {EventEdit} from './pages/EventiEdit';
 import {HomePage} from './pages/HomePage';
-import {EventDetails} from './pages/EventiDetails';
+import {EventiDetails} from './pages/EventiDetails';
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Header />
         <Switch>
           <Route component={EventEdit} path='event/edit/:_id?' />
-          <Route component={EventDetails} path='/:tag/:_id' />
+          <Route component={EventiDetails} path='/:tag/:_id' />
           <Route component={EventiApp} path='/:tag' />
           <Route component={HomePage} path='/' />
         </Switch>
