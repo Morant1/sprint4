@@ -11,13 +11,13 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <Header/>
-      <Switch>
-        {/* <Route component={ToyEdit} path='/event/edit/:_id?' /> */}
-        <Route component={EventDetails} path='/event/category:_id' />
-        <Route component={EventCategory} path='/event/category' />
-        <Route component={EventApp} path='/' />
-      </Switch>
+        <Header />
+        <Switch>
+          <Route component={EventEdit} path='event/edit/:_id?' />
+          <Route component={EventDetails} path='/:category/:_id' />
+          <Route component={EventCategory} path='/:category' />
+          <Route component={EventApp} path='/' />
+        </Switch>
       </Router>
     </div>
   );

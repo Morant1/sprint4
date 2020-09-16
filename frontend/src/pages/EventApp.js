@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { loadReviews, addReview } from '../actions/reviewActions.js';
-import { loadUsers } from '../actions/userActions.js';
+import { loadReviews, addReview } from '../../store/actions/reviewActions.js';
+import { loadUsers } from '../../store/actions/userActions.js';
 import { Link } from 'react-router-dom';
+
+
+// Upcoming events
+// renders Grid categories -> // Send user to '/category' -> shows list and filter;
+
 
 // class EventApp extends Component {
 
