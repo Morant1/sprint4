@@ -20,7 +20,6 @@
         "capacity": 100,
         "price": 20,
         "tags": ["family", "stand-up"],
-        "category":["stand-up"],
         "attenders": [
           {
             "_id": "u104",
@@ -33,7 +32,7 @@
             "imgUrl": "http://some-img"
           }
         ],
-        "review": [
+        "comments": [
           {
             "id": "r3243",
             "createdAt": 12122134434,

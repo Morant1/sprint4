@@ -5,7 +5,7 @@ import { loadEvents } from '../store/actions/eventActions'
 import { Link } from 'react-router-dom';
 
 // Upcoming events
-// renders Grid categories -> // Send user to '/category' -> shows list and filter;
+// shows list and filter;
 
 
 class _EventApp extends Component {
