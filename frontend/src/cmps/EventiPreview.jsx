@@ -12,7 +12,7 @@ export function EventiPreview({ eventi }) {
             <img className="card-img" src={eventi.imgUrls}/>
             <div className="card-title">{eventi.title}</div>
             <div className="card-date">{eventi.startsAt}</div>
-            <Link to={`/event/${eventi._id}`}></Link>
+            <Link to={`/event/${eventi._id}`}>Event Details</Link>
         </div>
     )
 }
