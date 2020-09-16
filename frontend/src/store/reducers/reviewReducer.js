@@ -2,8 +2,7 @@ const initialState = {
   reviews: [],
   selectedReview: null
 };
-
-export default function(state = initialState, action = {}) {
+export function reviewReducer(state = initialState, action = {}) {
   switch (action.type) {
     case 'SET_REVIEWS':
       return { ...state, reviews: action.reviews };

@@ -1,6 +1,8 @@
+import axios from 'axios'
 const BASE_URL = 'http://localhost:3000/eventi'
 
-export const itemService = {
+
+export const eventService = {
     query,
     getById,
     remove
