@@ -11,16 +11,11 @@
         "imgUrl": "https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
       },
       "startsAt": 12122212134,
-      "location": {
-        "lat": 35.42,
-        "lng": 34.22,
-        "address": "13 Alenby, Tel-Aviv"
-      },
+      "duration":1.5,
       "imgUrls": ["default.jpg", "user_upload.jpg"],
       "capacity": 100,
-      "price": 20,
       "tags": ["Sport", "Football"],
-      "attenders": [
+      "participants": [
         {
           "_id": "u104",
           "fullName": "Suki",
@@ -56,16 +51,11 @@
         "imgUrl": "https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
       },
       "startsAt": 12122212134,
-      "location": {
-        "lat": 35.42,
-        "lng": 34.22,
-        "address": "13 Alenby, Tel-Aviv"
-      },
+      "duration":1.5,
       "imgUrls": ["default.jpg", "user_upload.jpg"],
       "capacity": 100,
-      "price": 20,
       "tags": ["Sport", "Music"],
-      "attenders": [
+      "participants": [
         {
           "_id": "u104",
           "fullName": "Suki",
