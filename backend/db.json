@@ -2,7 +2,7 @@
   "eventi": [
     {
       "_id": "ev101",
-      "title": "The best of Shahar Hason",
+      "title": "Football Watch Party",
       "description": "Proident duis ex ullamco nostrud deserunt sunt in.",
       "createdAt": 121221453343,
       "createdBy": {
@@ -14,13 +14,13 @@
       "location": {
         "lat": 35.42,
         "lng": 34.22,
-        "address": "13 Alenby, Tel-Aviv"
+        "address": "Zoom meeting #13"
       },
       "imgUrls": ["default.jpg", "user_upload.jpg"],
       "capacity": 100,
       "price": 20,
-      "tags": ["family", "stand-up"],
-      "category":["stand-up"],
+      "tags": ["sports", "football"],
+      "category":["real life"],
       "attenders": [
         {
           "_id": "u104",
@@ -78,7 +78,7 @@
           "isRead": true,
           "eventi": {
             "_id": "ev101",
-            "title": "The best of Shahar Hason",
+            "title": "Football watch party",
             "imgUrl": "http://some-img"
           },
           "by": {
