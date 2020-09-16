@@ -4,14 +4,19 @@ import { Link } from 'react-router-dom';
 
 export class HomePage extends Component {
 
+  redirectClick = (tag) => {
+    this.props.history.push(`/${tag}`)
+  }
 
   render() {
     return (
       <section className="events-grid">
-          <Link to={'/Football'}><div className="tag tag-1">Football</div></Link>
-          <Link to={'/LifeStyle'}><div className="tag tag-2">LifeStyle</div></Link>
-          <Link to={'/Sport'}><div className="tag tag-3">Sport</div></Link>
-          <Link to={'/Music'}><div className="tag tag-4">Music</div></Link>
+          <div className="tag tag-1" onClick={(ev)=>{this.redirectClick('Football')}}>
+              Football
+            </div>
+          <div className="tag tag-2" onClick={(ev)=>{this.redirectClick('LifeStyle')}}>LifeStyle</div>
+          <div className="tag tag-3" onClick={(ev)=>{this.redirectClick('Sport')}}>Sport</div>
+          <div className="tag tag-3" onClick={(ev)=>{this.redirectClick('Music')}}>Music</div>
       </section>
     );
   }

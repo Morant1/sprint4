@@ -6,19 +6,16 @@ import {EventiList} from '../cmps/EventiList'
 
 export class _EventiApp extends Component {
 
-    // state = {
-    //     FilteredEvents: null,
-    // }
-
+ 
     componentDidMount() {
         this.props.loadEvents();
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevProps.match.params.tag !== this.props.match.params.tag) {
-            this.loadFilteredEvents()
-        }
-    }
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (prevProps.match.params.tag !== this.props.match.params.tag) {
+    //         this.loadFilteredEvents()
+    //     }
+    // }
 
     loadFilteredEvents = () => {
       const currTag = this.props.match.params.tag;
@@ -31,7 +28,6 @@ export class _EventiApp extends Component {
 
    render() {
      const filteredEvents = this.loadFilteredEvents();
-     console.log(filteredEvents)
       if (!filteredEvents) return <div>Loading...</div>
 
         return (
