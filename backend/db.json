@@ -1,0 +1,93 @@
+{
+  "eventi": [
+    {
+      "_id": "ev101",
+      "title": "The best of Shahar Hason",
+      "description": "Proident duis ex ullamco nostrud deserunt sunt in.",
+      "createdAt": 121221453343,
+      "createdBy": {
+        "_id": "u101",
+        "fullName": "Puki Muki",
+        "imgUrl": "https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
+      },
+      "startsAt": 12122212134,
+      "location": {
+        "lat": 35.42,
+        "lng": 34.22,
+        "address": "13 Alenby, Tel-Aviv"
+      },
+      "imgUrls": ["default.jpg", "user_upload.jpg"],
+      "capacity": 100,
+      "price": 20,
+      "tags": ["family", "stand-up"],
+      "category":["stand-up"],
+      "attenders": [
+        {
+          "_id": "u104",
+          "fullName": "Suki",
+          "imgUrl": "http://some-img"
+        },
+        {
+          "_id": "u103",
+          "fullName": "Kuki",
+          "imgUrl": "http://some-img"
+        }
+      ],
+      "review": [
+        {
+          "id": "r3243",
+          "createdAt": 12122134434,
+          "author": {
+            "_id": "u103",
+            "fullName": "Kuki",
+            "imgUrl": "http://some-img"
+          },
+          "txt": "good one!"
+        }
+      ]
+    }
+  ],
+  "user": [
+    {
+      "_id": "u101",
+      "createdAt": 12122134434,
+      "fullName": "Puki Muki",
+      "userName": "muki@puki.com",
+      "password": "123456",
+      "isGuest": false,
+      "imgUrl": "http://some-img",
+      "followers": [
+        {
+          "_id": "u104",
+          "fullName": "Suki",
+          "imgUrl": "http://some-img"
+        }
+      ],
+      "following": [
+        {
+          "_id": "u105",
+          "fullName": "Bob",
+          "imgUrl": "http://some-img"
+        }
+      ],
+
+      "msgs": [
+        {
+          "id": "msg101",
+          "txt": "whats up?",
+          "isRead": true,
+          "eventi": {
+            "_id": "ev101",
+            "title": "The best of Shahar Hason",
+            "imgUrl": "http://some-img"
+          },
+          "by": {
+            "_id": "u105",
+            "fullName": "Bob",
+            "imgUrl": "http://some-img"
+          }
+        }
+      ]
+    }
+  ]
+}
