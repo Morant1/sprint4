@@ -1,15 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-// Renders preview component
-// Renders Filter component (Date,Budget,sortBy date,price , order by asc/desc)
-export class EventList extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+import { EventiPreview } from './EventiPreview'
+
+export function EventiList({ events }) {
+    return (
+        <React.Fragment>
+            {
+                events.map(eventi => <EventiPreview eventi={eventi} key={eventi._id} />)
+            }
+        </React.Fragment>
+    )
 }
-
-export default EventList

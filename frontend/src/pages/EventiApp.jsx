@@ -1,28 +1,48 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadEvents } from '../store/actions/eventActions'
-// import { CategoryGrid } from '../store/actions/eventActions'
-import { Link } from 'react-router-dom';
-
-// Upcoming events
-// shows list and filter;
+import {EventiList} from '../cmps/EventiList'
 
 
-class _EventApp extends Component {
+export class _EventiApp extends Component {
+
+    // state = {
+    //     FilteredEvents: null,
+    // }
 
     componentDidMount() {
         this.props.loadEvents();
     }
 
-  render() {
-    const { events } = this.props
-    if (!events ) return <div>Loading....</div>
-    return (
-      <div>EVENT APP</div>
-      // <CategoryGrid events = {events}/>
-    );
-  }
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.match.params.tag !== this.props.match.params.tag) {
+            this.loadFilteredEvents()
+        }
+    }
+
+    loadFilteredEvents = () => {
+      const currTag = this.props.match.params.tag;
+      const filteredEvents = this.props.events.filter(event => 
+      event.tags.includes(currTag)
+      );
+
+      return filteredEvents;
+    }
+
+   render() {
+     const filteredEvents = this.loadFilteredEvents();
+     console.log(filteredEvents)
+      if (!filteredEvents) return <div>Loading...</div>
+
+        return (
+            <div className="list-events">
+                <EventiList events={filteredEvents} />
+            </div>
+        )
+    }
 }
+
+
 
 const mapStateToProps = state => {
   return {
@@ -33,4 +53,4 @@ const mapDispatchToProps = {
   loadEvents
 };
 
-export const EventApp  = connect(mapStateToProps, mapDispatchToProps)(_EventApp)
+export const EventiApp  = connect(mapStateToProps, mapDispatchToProps)(_EventiApp)

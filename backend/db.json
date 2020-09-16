@@ -2,7 +2,7 @@
   "eventi": [
     {
       "_id": "ev101",
-      "title": "Football Watch Party",
+      "title": "The best of Shahar Hason",
       "description": "Proident duis ex ullamco nostrud deserunt sunt in.",
       "createdAt": 121221453343,
       "createdBy": {
@@ -14,12 +14,57 @@
       "location": {
         "lat": 35.42,
         "lng": 34.22,
-        "address": "Zoom meeting #13"
+        "address": "13 Alenby, Tel-Aviv"
       },
       "imgUrls": ["default.jpg", "user_upload.jpg"],
       "capacity": 100,
       "price": 20,
-      "tags": ["sports", "football"],
+      "tags": ["Sport", "Football"],
+      "attenders": [
+        {
+          "_id": "u104",
+          "fullName": "Suki",
+          "imgUrl": "http://some-img"
+        },
+        {
+          "_id": "u103",
+          "fullName": "Kuki",
+          "imgUrl": "http://some-img"
+        }
+      ],
+      "comments": [
+        {
+          "id": "r3243",
+          "createdAt": 12122134434,
+          "author": {
+            "_id": "u103",
+            "fullName": "Kuki",
+            "imgUrl": "http://some-img"
+          },
+          "txt": "good one!"
+        }
+      ]
+    },
+    {
+      "_id": "ev102",
+      "title": "The best of Shahar Hason",
+      "description": "Proident duis ex ullamco nostrud deserunt sunt in.",
+      "createdAt": 121221453343,
+      "createdBy": {
+        "_id": "u101",
+        "fullName": "Puki Muki",
+        "imgUrl": "https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
+      },
+      "startsAt": 12122212134,
+      "location": {
+        "lat": 35.42,
+        "lng": 34.22,
+        "address": "13 Alenby, Tel-Aviv"
+      },
+      "imgUrls": ["default.jpg", "user_upload.jpg"],
+      "capacity": 100,
+      "price": 20,
+      "tags": ["Sport", "Music"],
       "attenders": [
         {
           "_id": "u104",
@@ -77,7 +122,7 @@
           "isRead": true,
           "eventi": {
             "_id": "ev101",
-            "title": "Football watch party",
+            "title": "The best of Shahar Hason",
             "imgUrl": "http://some-img"
           },
           "by": {

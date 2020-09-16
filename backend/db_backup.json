@@ -30,7 +30,38 @@
             "_id": "u103",
             "fullName": "Kuki",
             "imgUrl": "http://some-img"
-          }
+          },
+          {
+            "_id": "ev102",
+            "title": "The best of Shahar Hason",
+            "description": "Proident duis ex ullamco nostrud deserunt sunt in.",
+            "createdAt": 121221453343,
+            "createdBy": {
+              "_id": "u102",
+              "fullName": "Puki Muki",
+              "imgUrl": "https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
+            },
+            "startsAt": 12122212134,
+            "location": {
+              "lat": 35.42,
+              "lng": 34.22,
+              "address": "13 Alenby, Tel-Aviv"
+            },
+            "imgUrls": ["default.jpg", "user_upload.jpg"],
+            "capacity": 100,
+            "price": 20,
+            "tags": ["family", "stand-up"],
+            "attenders": [
+              {
+                "_id": "u104",
+                "fullName": "Suki",
+                "imgUrl": "http://some-img"
+              },
+              {
+                "_id": "u103",
+                "fullName": "Kuki",
+                "imgUrl": "http://some-img"
+              }
         ],
         "comments": [
           {

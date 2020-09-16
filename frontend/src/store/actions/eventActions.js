@@ -7,7 +7,7 @@ export function loadEvents() {
       dispatch({ type: 'SET_EVENTS', events });
 
     } catch (err) {
-      console.log('ReviewActions: err in loadEvents', err);
+      console.log('EventActions: err in loadEvents', err);
     }
   };
 }

@@ -1,0 +1,17 @@
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12, 1fr));
+    grid-auto-rows: 100px;
+    grid-gap: 10px;
+}
+
+.tag {
+    height: 100%;
+    width:100%;
+    border-radius: 21px;
+    text-align: center;
+    border:2px solid black;
+    background-color: rgb(20, 229, 236);
+    
+}
+
