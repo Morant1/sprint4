@@ -2,9 +2,11 @@ import React from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 
-import EventApp from './pages/EventApp.js';
-import EventCategory from './pages/EventCategory.js';
-import EventDetails from './pages/EventDetails.js';
+import {Header} from './cmps/Header';
+import {EventApp} from './pages/EventApp';
+import {EventEdit} from './pages/EventEdit';
+import {EventCategory} from './pages/EventCategory';
+import {EventDetails} from './pages/EventDetails';
 
 
 function App() {

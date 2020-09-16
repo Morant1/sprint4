@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Serach //login // userProfile
-export default function Header() {
+export function Header() {
     return (
         <div>
             
