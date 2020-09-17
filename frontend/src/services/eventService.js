@@ -1,24 +1,70 @@
-import axios from 'axios'
-const BASE_URL = 'http://localhost:3000/eventi'
 
+import httpService from './httpService';
 
 export const eventService = {
     query,
     getById,
-    remove
+    remove,
+    save
 }
 
 function query(filterBy) {
-    return axios.get(`${BASE_URL}`)
-        .then(res => res.data)
+    let queryStr ='?';
+
+    for (const key in filterBy) {
+        queryStr += `${key}=${filterBy[key]}&`;
+
+    }
+    // return httpService.get(`event${queryStr || ''}`);
+    return httpService.get(`event`);
+  }
+
+  
+async function getById(eventId) {
+    const eventi = await httpService.get(`event/${eventId}`);
+    return eventi
+
 }
 
-function getById(itemId) {
-    return axios.get(`${BASE_URL}/${itemId}`)
-        .then(res => res.data)
+function remove(eventId) {
+    return httpService.delete(`event/${eventId}`);
+  }
 
+
+async function save(eventi) {
+    if (eventi._id) {
+        const editedEventi  = await httpService.put(`event/${eventi._id}`, eventi);
+        return editedEventi
+    } else {
+        const addedEventi  = await httpService.post(`event`, eventi);
+        console.log("addEventi",addedEventi)
+        return addedEventi
+    }
 }
 
-function remove(itemId) {
-    return axios.delete(`${BASE_URL}/${itemId}`)
-}
+
+// import axios from 'axios'
+// const BASE_URL = 'http://localhost:3000/eventi'
+
+
+// export const eventService = {
+//     query,
+//     getById,
+//     remove
+// }
+
+// function query(filterBy) {
+//     return axios.get(`${BASE_URL}`)
+//         .then(res => res.data)
+// }
+
+// function getById(itemId) {
+//     return axios.get(`${BASE_URL}/${itemId}`)
+//         .then(res => res.data)
+
+// }
+
+// function remove(itemId) {
+//     return axios.delete(`${BASE_URL}/${itemId}`)
+// }
+

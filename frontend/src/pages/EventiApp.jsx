@@ -22,6 +22,7 @@ export class _EventiApp extends Component {
 
     loadFilteredEvents = () => {
       const currTag = this.props.match.params.tag;
+      console.log("events",this.props.events)
       const filteredEvents = this.props.events.filter(event => 
       event.tags.includes(currTag)
       );
