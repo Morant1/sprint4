@@ -12,7 +12,7 @@ const img = eventi.ImgUrl ? require(`../assets/img/${eventi._id}.jpg`) : require
             <img className="card-img" alt="event-01" src={img}/>
             <button className="attend-btn">40/100 going{eventi.members}</button>
             <div className="card-title">{eventi.title}</div>
-            <div className="card-date">{eventi.duration} hours</div>
+            <div className="card-date">{eventi.duration}hours</div>
             <Link to={`/${currTag}/${eventi._id}`}>More Details</Link>
         </div>
     )

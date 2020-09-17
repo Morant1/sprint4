@@ -1,0 +1,25 @@
+.card-preview {
+    @include aspect-ratio(4, 3);
+
+    font-family: kite-one;
+    font-size: rem(50px);
+    color: $clr5;
+    background-color: $clr2;
+    &:hover {
+        background-color: $clr1;
+        color: $clr3;
+        h3 {
+            color: $clr3;
+        }
+        button {
+            color: $clr3;
+        }
+    }
+    h3 {
+        z-index: 1;
+    }
+    a {
+        z-index: 1;
+    }
+
+}
