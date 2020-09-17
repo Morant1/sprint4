@@ -1,25 +1,16 @@
-.card-preview {
-    @include aspect-ratio(1, 1);
+.eventi-preview {
+    width:300px;
+    background-color: $clr3;
+    color:$clr5;  
 
-    font-family: kite-one;
-    font-size: rem(50px);
-    color: $clr5;
-    background-color: $clr2;
-    &:hover {
-        background-color: $clr1;
-        color: $clr3;
-        h3 {
-            color: $clr3;
-        }
-        button {
-            color: $clr3;
-        }
+    img{
+        height:250px; 
+        object-fit: cover;
     }
-    h3 {
-        z-index: 1;
+    a{
+        color:$clr4; 
     }
-    a {
-        z-index: 1;
-    }
+
+
 
 }
