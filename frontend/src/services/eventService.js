@@ -8,7 +8,7 @@ export const eventService = {
     remove
 }
 
-function query() {
+function query(filterBy) {
     return axios.get(`${BASE_URL}`)
         .then(res => res.data)
 }

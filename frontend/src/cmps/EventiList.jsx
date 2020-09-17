@@ -1,13 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 
 import { EventiPreview } from './EventiPreview'
+import { EventiFilter } from './EventiFilter'
 
-export function EventiList({ events }) {
+export function EventiList({ events ,onSetFilter }) {
     return (
         <React.Fragment>
+            <EventiFilter onSetFilter={onSetFilter}/>
             {
-                events.map(eventi => <EventiPreview eventi={eventi} key={eventi._id} />)
+                events.map(eventi => <EventiPreview eventi={eventi} key={eventi._id}/>)
             }
         </React.Fragment>
     )
