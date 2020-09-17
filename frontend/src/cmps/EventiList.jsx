@@ -1,13 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import { EventiPreview } from './EventiPreview'
 
-export function EventiList({ events }) {
+export function EventiList({ events, currTag }) {
     return (
         <React.Fragment>
             {
-                events.map(eventi => <EventiPreview eventi={eventi} key={eventi._id} />)
+                events.map(eventi => <EventiPreview eventi={eventi} key={eventi._id} currTag={currTag} />)
             }
         </React.Fragment>
     )

@@ -32,7 +32,7 @@ export class _EventiApp extends Component {
 
         return (
             <div className="list-events">
-                <EventiList events={filteredEvents} />
+                <EventiList events={filteredEvents} currTag={this.props.match.params.tag} />
             </div>
         )
     }
