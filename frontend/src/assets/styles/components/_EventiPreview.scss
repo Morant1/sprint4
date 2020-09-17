@@ -1,5 +1,5 @@
 .card-preview {
-    @include aspect-ratio(4, 3);
+    @include aspect-ratio(1, 1);
 
     font-family: kite-one;
     font-size: rem(50px);
