@@ -11,12 +11,11 @@
 @import "basics/links.scss";
 @import "basics/buttons.scss";
 
-// Cmps
+// Components
 @import "components/eventiFilter";
 @import "components/navbar.scss";
 @import "components/EventiPreview.scss";
+@import "components/EventiDetails.scss";
 
 // Pages
 @import "views/home-page.scss";
-
-
