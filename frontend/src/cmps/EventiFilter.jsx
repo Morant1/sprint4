@@ -5,8 +5,8 @@ import { Select, MenuItem, InputLabel,Button } from '@material-ui/core';
 export class EventiFilter extends Component {
     state = {
         filter: {
-            date: '',
-            orderBy: '',
+            date: 'all',
+            order: '',
             sort: ''
 
         }
@@ -26,26 +26,25 @@ export class EventiFilter extends Component {
     }
 
     render() {
-        const { date, sort, orderBy } = this.state.filter
+        const { date, sort, order } = this.state.filter
         return (
-            // onSubmit={this.onFilter}
-            <form className="main-filter-container flex">
+            <form className="main-filter-container flex" onSubmit={this.onFilter}>
                 <InputLabel id="date">Date</InputLabel>
                 <Select labelId="date" name="date" value={date} onChange={this.handleChange}>
-                    <MenuItem value="">Any Time</MenuItem>
+                    <MenuItem value="all">Any Time</MenuItem>
                     <MenuItem value="today">Today</MenuItem>
-                    <MenuItem value="week">This week</MenuItem>
+                    {/* <MenuItem value="week">This week</MenuItem>
                     <MenuItem value="month">This month</MenuItem>
-                    <MenuItem value="year">This year</MenuItem>
+                    <MenuItem value="year">This year</MenuItem> */}
                 </Select>
                     <InputLabel id="sort">Sort By</InputLabel>
                     <Select labelId="sort" name="sort" value={sort} onChange={this.handleChange}>
-                        <MenuItem value="date">date</MenuItem>
+                        <MenuItem value="date">Date</MenuItem>
                         <MenuItem value="rank">Rank</MenuItem>
                         <MenuItem value="participants">Nu. of participants</MenuItem>
                     </Select>
                     <InputLabel id="order">order By</InputLabel>
-                    <Select labelId="order" name="orderBy" value={orderBy} onChange={this.handleChange}>
+                    <Select labelId="order" name="order" value={order} onChange={this.handleChange}>
                         <MenuItem value="desc">Descending</MenuItem>
                         <MenuItem value="asc">Ascending</MenuItem>
                     </Select>

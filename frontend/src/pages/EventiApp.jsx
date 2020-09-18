@@ -7,7 +7,9 @@ import {EventiList} from '../cmps/EventiList'
 export class _EventiApp extends Component {
 
   state = {
-    filterBy: {}
+    filterBy: {
+      date: 'all'
+    }
   }
 
  

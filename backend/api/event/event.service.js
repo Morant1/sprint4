@@ -1,6 +1,8 @@
 
 const dbService = require('../../services/db.service')
 const ObjectId = require('mongodb').ObjectId
+const moment = require('moment');
+
 
 module.exports = {
     query,
@@ -18,8 +20,7 @@ async function query(filterBy = {}) {
     const collection = await dbService.getCollection('eventi')
     try {
         const events = await collection.find().toArray();
-        return events
-        // return _sortToys(events, filterBy.sort)
+        return _sortEvents(events, filterBy.date, filterBy.sort, filterBy.order)
 
     } catch (err) {
         console.log('ERROR: cannot find events')
@@ -28,13 +29,38 @@ async function query(filterBy = {}) {
 }
 
 
-// function _sortEvents(events, sortBy) {
-//     if (!sortBy) return events
-//     return toys.sort((a, b) => {
-//         return a[sortBy] < b[sortBy] ? -1 : a[sortBy] < b[sortBy] ? 1 : 0;
-//     })
+function _sortEvents(events, date, sort, order) {
+    console.log("events:", events, "Date:", date, "sort:", sort, "order:", order)
 
-// }
+    if (!sort & !date & !order) return events;
+    let sortedEvents;
+    const todayStr = moment(Date.now()).format('L')
+
+    // DATES
+    if (date === 'all') sortedEvents = events;
+    if (date === 'today') {
+        sortedEvents = events.filter(eventi => {
+            return moment(eventi.createdAt).format('L') === todayStr;
+        })
+    }
+
+    //ORDER
+
+    if (order === 'desc') {
+        sortedEvents = sortedEvents.sort((a, b) => {
+            return a['createdAt'] > b['createdAt'] ? -1 : a['createdAt'] < b['createdAt'] ? 1 : 0
+        })
+    }
+    if (order === 'asc') {
+        sortedEvents = sortedEvents.sort((a, b) => {
+            return a['createdAt'] < b['createdAt'] ? -1 : a['createdAt'] < b['createdAt'] ? 1 : 0
+        })
+    }
+    return sortedEvents;
+}
+
+
+
 
 
 
@@ -91,22 +117,22 @@ async function add(eventi) {
 
 
 
-// function _buildCriteria(filterBy) {
-//     console.log("filterBy",filterBy)
-//     const criteria = {};
-//     if (filterBy.name) {
-//         criteria.name = new RegExp(filterBy.name, 'ig');
-//     }
-//     if (filterBy.inStock === true || filterBy.inStock === false) {
-//         criteria.inStock = filterBy.inStock
-//     }
+function _buildCriteria(filterBy) {
+    console.log("filterBy", filterBy)
+    const criteria = {};
+    // if (filterBy.name) {
+    //     criteria.name = new RegExp(filterBy.name, 'ig');
+    // }
+    if (filterBy.date === 'today') {
+        criteria.inStock = filterBy.inStock
+    }
 
-//     if (filterBy.type) {
-//         criteria.type = filterBy.type
-//     }
+    if (filterBy.type) {
+        criteria.type = filterBy.type
+    }
 
-//     return criteria;
-// }
+    return criteria;
+}
 
 
 

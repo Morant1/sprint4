@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 
-// redirect to details 'category:_id'
+{/* Lital dont forget to put date -> <h3>CreatedAt:{new Date(toy.createdAt).toDateString()}</h3> */}
 export function EventiPreview({ eventi, currTag }) {
 console.log(eventi._id);
 const img = eventi.ImgUrl ? require(`../assets/img/${eventi._id}.jpg`) : require(`../assets/img/default.jpg`)

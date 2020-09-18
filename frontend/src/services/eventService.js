@@ -15,8 +15,7 @@ function query(filterBy) {
         queryStr += `${key}=${filterBy[key]}&`;
 
     }
-    // return httpService.get(`event${queryStr || ''}`);
-    return httpService.get(`event`);
+    return httpService.get(`event${queryStr || ''}`);
   }
 
   
