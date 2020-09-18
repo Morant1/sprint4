@@ -15,11 +15,10 @@ module.exports = {
 
 
 async function query(filterBy = {}) {
-    // const criteria = _buildCriteria(filterBy)
-    // console.log("criteria",criteria)
+    const criteria = _buildCriteria(filterBy)
     const collection = await dbService.getCollection('eventi')
     try {
-        const events = await collection.find().toArray();
+        const events = await collection.find(criteria).toArray();
         return _sortEvents(events, filterBy.date, filterBy.sort, filterBy.order)
 
     } catch (err) {
@@ -43,17 +42,44 @@ function _sortEvents(events, date, sort, order) {
             return moment(eventi.createdAt).format('L') === todayStr;
         })
     }
+    if (date === 'week') {
+        sortedEvents = events.filter(eventi => {
+            return moment(eventi.createdAt).isSame(Date.now(),'week');
+        })
+    }
+    if (date === 'month') {
+        sortedEvents = events.filter(eventi => {
+            return moment(eventi.createdAt).isSame(Date.now(),'month');
+        })
+    }
+    if (date === 'year') {
+        sortedEvents = events.filter(eventi => {
+            return moment(eventi.createdAt).isSame(Date.now(),'year');
+        })
+    }
 
     //ORDER
 
-    if (order === 'desc') {
+    if (order === 'desc' || sort === 'date') {
         sortedEvents = sortedEvents.sort((a, b) => {
             return a['createdAt'] > b['createdAt'] ? -1 : a['createdAt'] < b['createdAt'] ? 1 : 0
         })
     }
     if (order === 'asc') {
         sortedEvents = sortedEvents.sort((a, b) => {
-            return a['createdAt'] < b['createdAt'] ? -1 : a['createdAt'] < b['createdAt'] ? 1 : 0
+            return a['createdAt'] < b['createdAt'] ? -1 : a['createdAt'] > b['createdAt'] ? 1 : 0
+        })
+    }
+
+    if (sort === 'rank') {
+        sortedEvents = sortedEvents.sort((a, b) => {
+            return a['rank'] < b['rank'] ? -1 : a['rank'] < b['rank'] ? 1 : 0
+        })
+    }
+
+    if (sort === 'participants') {
+        sortedEvents = sortedEvents.sort((a, b) => {
+            return a['participants'].length > b['participants'].length  ? -1 : a['participants'].length  < b['participants'].length ? 1 : 0
         })
     }
     return sortedEvents;
@@ -118,21 +144,15 @@ async function add(eventi) {
 
 
 function _buildCriteria(filterBy) {
-    console.log("filterBy", filterBy)
+    console.log("filterBy",filterBy)
     const criteria = {};
-    // if (filterBy.name) {
-    //     criteria.name = new RegExp(filterBy.name, 'ig');
-    // }
-    if (filterBy.date === 'today') {
-        criteria.inStock = filterBy.inStock
+    if (filterBy.title) {
+        criteria.title = new RegExp(filterBy.title, 'ig');
     }
-
-    if (filterBy.type) {
-        criteria.type = filterBy.type
-    }
-
     return criteria;
 }
+
+
 
 
 

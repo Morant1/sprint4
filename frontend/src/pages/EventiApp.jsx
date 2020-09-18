@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect, ReactReduxContext } from 'react-redux';
 import { loadEvents } from '../store/actions/eventActions'
 import {EventiList} from '../cmps/EventiList'
 
