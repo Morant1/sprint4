@@ -6,7 +6,7 @@ import {NavBar} from './cmps/Navbar';
 import {EventiApp} from './pages/EventiApp';
 // import {EventiEdit} from './pages/EventiEdit';
 import {HomePage} from './pages/HomePage';
-// import {EventiDetails} from './pages/EventiDetails';
+import {EventiDetails} from './pages/EventiDetails';
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <NavBar />
         <Switch>
           {/* <Route component={EventiEdit} path='event/edit/:_id?' /> */}
-          {/* <Route component={EventiDetails} path='/:tag/:_id' /> */}
+          <Route component={EventiDetails} path='/:tag/:_id' />
           <Route component={EventiApp} path='/:tag' />
           <Route component={HomePage} path='/' />
         </Switch>
