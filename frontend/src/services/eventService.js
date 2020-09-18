@@ -30,6 +30,7 @@ function remove(eventId) {
   }
 
 
+//Updating/Creating new event
 async function save(eventi) {
     if (eventi._id) {
         const editedEventi  = await httpService.put(`event/${eventi._id}`, eventi);
