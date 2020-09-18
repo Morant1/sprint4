@@ -71,6 +71,8 @@ function _sortEvents(events, date, sort, order) {
         })
     }
 
+    // sort
+
     if (sort === 'rank') {
         sortedEvents = sortedEvents.sort((a, b) => {
             return a['rank'] < b['rank'] ? -1 : a['rank'] < b['rank'] ? 1 : 0

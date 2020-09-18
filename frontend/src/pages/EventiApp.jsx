@@ -8,7 +8,9 @@ export class _EventiApp extends Component {
 
   state = {
     filterBy: {
-      date: 'all'
+      date: 'all',
+      order: 'desc',
+      sort: 'date',
     }
   }
 
