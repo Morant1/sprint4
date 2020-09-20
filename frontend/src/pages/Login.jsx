@@ -7,7 +7,7 @@ import {
   login,
   logout,
   signup
-} from '../actions/userActions';
+} from '../store/actions/userActions';
 
 class _LoginSignup extends Component {
   state = {
@@ -54,7 +54,6 @@ class _LoginSignup extends Component {
     this.setState({ loginCred: { email: '', password: '' } });
   };
 
-  //Requiring all fields for sign up
   doSignup = async ev => {
     ev.preventDefault();
     const { email, password, username } = this.state.signupCred;
