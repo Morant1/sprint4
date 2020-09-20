@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 
-import {NavBar} from './cmps/Navbar';
+import {Navbar} from './cmps/Navbar';
 import {EventiApp} from './pages/EventiApp';
 import {EventiAdd} from './pages/EventiAdd';
 import {HomePage} from './pages/HomePage';
@@ -13,10 +13,10 @@ function App() {
   return (
     <div className="App main-container">
       <Router>
-        <NavBar />
+        <Navbar />
         <Switch>
-          <Route component={EventiDetails} path='/:tag/:id' /> 
-          <Route component={EventiAdd} path='event/add'/>
+          <Route component={EventiDetails} path='/:tag/:_id' /> 
+          <Route component={EventiAdd} path='/event/add'/>
           <Route component={EventiApp} path='/:tag' />
           <Route component={HomePage} path='/' />
         </Switch>

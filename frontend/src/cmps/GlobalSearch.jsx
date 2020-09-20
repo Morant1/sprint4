@@ -5,16 +5,7 @@ export function GlobalSearch() {
     return (
         <div className="global-search">
               <SearchIcon />
-            <input type="text" autoComplete='off' placeholder="What are you up to?"/>
-            
-  {/* <SearchIcon /> */}
-{/* 
-<InputBase
-  placeholder="Search…"
-  inputProps={{ 'aria-label': 'search' }}
-/> */}
-
-            {/* <img className="search-icon" src={require('../assets/icons/search-outline.svg')} alt="search" /> */}
+            <input className="input" type="text" autoComplete='off' placeholder="What are you up to?"/>
         </div>
    
     )

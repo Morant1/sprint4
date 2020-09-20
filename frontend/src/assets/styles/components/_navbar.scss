@@ -3,11 +3,17 @@
     grid-column: 1/ span all;
     background-color: #3d2f2f;
     padding: 5px;
+    position: fixed;
+    width:100%;
+    z-index: 2;
+
 
    
 
     .nav-option {
-        margin-left: 12px;
+        &:last-child {
+            margin: 0 10px;
+        }
 
         a {
             cursor: pointer;
@@ -19,32 +25,67 @@
             font-size: 1.2rem;
         }
     }
+
+    .btn-nav-option {
+        margin-left: 10px;
+        border-radius: 21px;
+        color: #fff;
+        border: 1.5px solid white;
+        background-color: transparent;
+        padding: 6px 10px;
+        font-family: montserrat;
+        a {
+            cursor: pointer;
+            color:$clr6;  
+            transition: font-size .3s;
+        }
+
+        a:hover {
+            color:lightgreen;
+        }
+
+    }
 }
 
 .global-search {
     color: $clr6;
     position: relative;
 }
-.global-search input {
-    width: 120%;
+.input {
+    // width: 120%;
     height: 2rem;
     border-radius: 1rem;
     background-color: #cccccc05;
-    color: #fff;
+    color:lightgrey;
     line-height: 1.8rem;
     font-size: 1rem;
     border: none;
     padding: 0px 3rem;
     outline: none;
-    margin-left: 50px;
+    font-family: montserrat;
+
 }
 
 .MuiSvgIcon-root {
     position: absolute;
-    right: -103px;
+    right: 8px;
     top: 5px;
 }
 
 .search-icon {
     width:20px;
+}
+
+.logo {
+    margin-right: 10px;
+}
+
+.local-search {
+    height: 100px;
+    margin-top: 50px;
+
+}
+
+.scrolled {
+    opacity: 0.8;
 }
