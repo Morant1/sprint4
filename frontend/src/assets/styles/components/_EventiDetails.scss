@@ -1,0 +1,25 @@
+
+.eventi-details{
+    .eventi-subtitle{
+        *{
+            line-height: 1.7;
+            margin:0; 
+        }
+    }
+    .eventi-title{
+        justify-content: space-between;
+    }
+    img{
+        width:200px;
+        height:200px;  
+        margin:5px; 
+        object-fit: cover;
+    }
+    *{
+        margin-right:5px; 
+    }
+    a{
+        background-color:$clr1;
+        color:$clr5; 
+    }
+}
