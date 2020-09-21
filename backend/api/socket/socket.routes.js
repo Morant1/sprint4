@@ -16,7 +16,7 @@ function connectSockets(io) {
             socket.myTopic = topic;
         })
         socket.on('chat newMsg', msg => {
-            console.log(msg)
+            console.log("msg",msg)
             if (msgs[socket.myTopic]) msgs[socket.myTopic].push(msg)
             else msgs[socket.myTopic] = [msg]
             console.log(msgs[socket.myTopic])

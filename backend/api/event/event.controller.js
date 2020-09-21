@@ -26,12 +26,21 @@ async function deleteEventi(req, res) {
     res.end()
 }
 
-//UPDATE
+//UPDATE EVENT
 async function updateEventi(req, res) {
     const eventi = {...req.body};
     await eventService.update(eventi)
     res.send(eventi)
 }
+
+
+//UPDATE COMMENT
+async function updateComments(req, res) {
+    const comment = {...req.body};
+    await eventService.updateComments(comment)
+    res.send(comment)
+}
+
 
 //ADD
 async function addEventi(req, res) {
@@ -46,5 +55,6 @@ module.exports = {
     getEvents,
     deleteEventi,
     updateEventi,
+    updateComments,
     addEventi
 }

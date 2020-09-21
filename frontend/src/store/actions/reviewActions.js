@@ -1,16 +1,16 @@
 import reviewService from '../services/reviewService';
 
-export function loadReviews() {
-  return async dispatch => {
-    try {
-      const reviews = await reviewService.query();
-      dispatch({ type: 'SET_REVIEWS', reviews });
+// export function loadReviews() {
+//   return async dispatch => {
+//     try {
+//       const reviews = await reviewService.query();
+//       dispatch({ type: 'SET_REVIEWS', reviews });
 
-    } catch (err) {
-      console.log('ReviewActions: err in loadReviews', err);
-    }
-  };
-}
+//     } catch (err) {
+//       console.log('ReviewActions: err in loadReviews', err);
+//     }
+//   };
+// }
 
 export function addReview(review) {
   return async dispatch => {
