@@ -22,17 +22,20 @@
         }
     }
 
-    .add-event-btn {
+    button {
         background-color: $clr3;
-        // color: $clr7;
-        color:$clr6;
-        font-family: montserrat;
+        a {
+            color: $clr7;
+            &:hover {
+                color: $clr6;
+            }
+        }
         height: 100%;
-        transition: background-color 0.3s;
+        transition: all 0.3s;
         cursor: pointer;
         &:hover {
             background-color: $clr1;
-            
+            color: $clr6;
         }
     }
 }

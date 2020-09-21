@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { eventService } from '../services/eventService'
 import Button from '@material-ui/core/Button';
-import { addEvent} from '../store/actions/eventActions'
+import { addEventi} from '../store/actions/eventActions'
 
 export class _EventiAdd extends Component {
     state = {
@@ -19,12 +19,13 @@ export class _EventiAdd extends Component {
         }
     }
     componentDidMount = async () => {
-        const eventiId = this.props.match.params.eventiId
-        if (eventiId) {
-            const eventi = await eventService.getById(eventiId)
-            console.log(eventi);
-            this.setState({ ...eventi })
-        }
+        // const eventiId = this.props.match.params.eventiId
+        // if (eventiId) {
+        //     const eventi = await eventService.getById(eventiId)
+        //     console.log(eventi);
+        //     this.setState({ ...eventi })
+        // }
+        console.log('mounted');
     }
     handleChange = ({ target }) => {
         const field = target.name
@@ -43,8 +44,7 @@ export class _EventiAdd extends Component {
     onSubmit = async (ev) => {
         ev.preventDefault()
         console.log(this.state);
-        console.log(this.state.eventi.location)
-        await this.props.addEvent(this.state.eventi);
+        await this.props.addEventi(this.state.eventi);
     }
 
     render() {
@@ -60,16 +60,16 @@ export class _EventiAdd extends Component {
                     <input type="text" name="description" id="description" onChange={this.handleChange} value={eventi.description} placeholder="Description" /><br></br>
                     <label htmlFor="date">Date:</label>
                     <input type="datetime-local" name="startsAt" id="date" onChange={this.handleChange} value={eventi.startsAt}/><br></br>
-                    <label htmlFor="location">Location:</label>
-                    <input type="text" name="location" id="location" onChange={this.handleChange} value={eventi.location} placeholder="(city,country)" /><br></br>
+                    {/* <label htmlFor="location">Location:</label>
+                    <input type="text" name="location" id="location" onChange={this.handleChange} value={eventi.location} placeholder="(city,country)" /><br></br> */}
                     <label htmlFor="duration">Duration:</label>
                     <input type="text" name="duration" id="duration" onChange={this.handleChange} value={eventi.duration} placeholder="Duration" /><br></br>
                     <label htmlFor="capacity">Capacity:</label>
                     <input type="number" name="capacity" id="capacity" onChange={this.handleChange} value={eventi.capacity} placeholder="Capacity" /><br></br>
-                    <label htmlFor="tags">Tags:</label>
-                    <input type="text" name="tags" id="tags" onChange={this.handleChange} value={eventi.tags} placeholder="(seperated by comma)"/><br></br>
+                    {/* <label htmlFor="tags">Tags:</label>
+                    <input type="text" name="tags" id="tags" onChange={this.handleChange} value={eventi.tags} placeholder="(seperated by comma)"/><br></br> */}
 
-                    <button className="save-btn">Save</button>
+                    <button className="save-btn" onClick={()=>{console.log('added event')}}>Save</button>
                 </form>
             </div>
         )
@@ -82,6 +82,6 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    addEvent
+    addEventi
 }
 export const EventiAdd = connect(mapStateToProps, mapDispatchToProps)(_EventiAdd)

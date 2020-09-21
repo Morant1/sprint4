@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import AccessTime from '@material-ui/icons/AccessTime'
-import StarIcon from '@material-ui/icons/Star'
+// import StarIcon from '@material-ui/icons/Star'
+import { Avatar } from '@material-ui/core';
 
 // import { connect } from 'react-redux';
 
 import { eventService } from '../services/eventService';
-import { Avatar } from '@material-ui/core';
+import StarRate from '../cmps/StarRate';
+
 // import { loadEvents } from '../store/actions/eventActions';
 //Redirect to Edit event
 // Map // Review // Attanding //Chat
 
+
+
 export class EventiDetails extends Component {
   state = {
-    eventi: null
+    eventi: null,
+    isGoing: false
   }
   componentDidMount() {
     this.loadEventi()
@@ -21,7 +26,7 @@ export class EventiDetails extends Component {
 
   loadEventi = () => {
     const { _id } = this.props.match.params
-    console.log("id",_id)
+    // console.log("id", _id)
     eventService.getById(_id)
       .then(eventi => {
         this.setState({ eventi })
@@ -29,12 +34,19 @@ export class EventiDetails extends Component {
 
   }
 
+  addParticipant = () => {
+    console.log('click click- u added another one')
+    this.setState({
+      isGoing: !this.state.isGoing
+    })
+
+  }
+
   render() {
-    const { eventi } = this.state
-    const { events } = this.props
+    const { eventi ,isGoing } = this.state
     if (!eventi) return <div>Loading...</div>
     return (
-      <section className="eventi-details">
+      <section className="eventi-details margin">
         <div className="eventi-photo-grid">
           <img src={require('../assets/img/game-1.jpg')} alt="event-1" />
           <img src={require('../assets/img/game-2.jpg')} alt="event-2" />
@@ -42,10 +54,14 @@ export class EventiDetails extends Component {
         </div>
         <div className="eventi-title flex">
           <h2>{eventi.title}</h2>
-          <Link to={`/event/edit/${eventi._id}`}>Edit Event</Link>
+          <div className="eventi-btns">
+            <button className="join" onClick={this.addParticipant}>I am {isGoing ? 'going' : 'not going'}</button>
+            <Link to={`/event/edit/${eventi._id}`}>Edit Event</Link>
+          </div>
         </div>
+        <StarRate/>
         <div className="eventi-subtitle flex">
-          <StarIcon />
+          {/* <StarIcon /> */}
           <h5>{eventi.rank}(3147)</h5>
           <h5>| {eventi.location.city},{eventi.location.country}</h5>
           <h5>| Hosted By:{eventi.createdBy.fullName}</h5>
@@ -80,15 +96,15 @@ export class EventiDetails extends Component {
           <ul className="comment-container">
             {
               eventi.comments.map(comment => {
-                return <li className= "list-item flex column" key={comment._id}>
+                return <li className="list-item flex column" key={comment._id}>
                   <div className="author-details flex align-center">
-                 <Avatar>H</Avatar>
-                  <span className="author">{comment.author.fullName}</span>
+                    <Avatar>H</Avatar>
+                    <span className="author">{comment.author.fullName}</span>
                   </div>
                   <div className="comment-section">
-                  {comment.txt}
+                    {comment.txt}
                   </div>
-                  
+
                 </li>
               })
             }

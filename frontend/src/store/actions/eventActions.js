@@ -12,21 +12,21 @@ export function loadEvents(filterBy) {
   };
 }
 
-export function addEvent(event) {
+export function addEventi(eventi) {
   return async dispatch => {
     try {
-      event.createdAt = Date.now();
-      event.tags = event.tags.split(',');
-      event.location = event.location.split(',');
-      event.location.city = event.location[0];
-      event.location.country = event.location[1];
-      event.startsAt = Date.parse(event.startsAt)/1000;
-      event.participants = [];
-      event.comments = [];
-      event.rank = 0;
-      event.createdby ={};
-      const addedEvent = await eventService.save(event);
-      dispatch({ type: 'EVENT_ADD', event: addedEvent });
+      eventi.createdAt = Date.now();
+      // eventi.tags = eventi.tags.split(',');
+      // eventi.location = eventi.location.split(',');
+      // eventi.location.city = eventi.location[0];
+      // eventi.location.country = eventi.location[1];
+      eventi.startsAt = Date.parse(eventi.startsAt)/1000;
+      eventi.participants = [];
+      eventi.comments = [];
+      eventi.rank = 0;
+      eventi.createdby ={};
+      const addedEventi = await eventService.save(eventi);
+      dispatch({ type: 'EVENT_ADD', addedEventi });
     } catch (err) {
       console.log('eventActions: err in addEvent', err);
     }
