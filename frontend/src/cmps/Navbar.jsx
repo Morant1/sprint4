@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router";
 import { GlobalSearch } from './GlobalSearch';
-import LocalSearch from './LocalSearch';
 
 
 export class _Navbar extends Component {
@@ -23,16 +22,17 @@ export class _Navbar extends Component {
     render() {
         return (
             <React.Fragment>
-                <nav className="nav-container flex align-center justify-between">
-                    <div className="links flex">
-                        <div className="logo">LOGO</div>
-                        <div className="nav-option"><Link to="/">Home</Link></div>
-                        <div className="nav-option"><Link to="/">About</Link></div>
-                    </div>
+                <nav className="nav-container flex align-center space-between">
+                    <ul className="nav-list flex">
+                        <li className="logo">LOGO</li>
+                        <div className="main-nav flex">
+                        <li className="nav-option"><Link to="/">Home</Link></li>
+                        <li className="nav-option"><Link to="/">About</Link></li>
+                        </div>
+                    </ul>
                     {this.props.location.pathname !== "/" && <GlobalSearch />}
                     <button className="btn-nav-option"><Link to="/add">Add Event</Link></button>
                 </nav>
-                { this.props.location.pathname === "/" && <LocalSearch />}
             </React.Fragment >
         )
     }

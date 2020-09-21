@@ -1,111 +1,112 @@
 .events-grid {
+    // @include aspect-ratio(1, 1);
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-auto-rows: 200px;
-    grid-gap: 10px;
-    margin: 10px 0;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    // grid-auto-rows: 200px;
+    grid-gap: 20px;
+    // margin: 10px 0;
 }
 
-.tag {
+.event-card {
+    @include aspect-ratio(1, 1);
+    font-size: rem(50px);
+    color: $clr6;
+    background-color: $clr1;
     cursor: pointer;
-    color:$clr6;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width:100%;
-    border-radius: 21px;
-    opacity: 0.8;
-    transition: transform 1s;
+
+    &:hover {
+        background-color: $clr4;
+        color: $clr5;
+        h3 {
+            color: $clr5;
+        }
+    }
+
+
+
+    img {
+        mix-blend-mode: multiply;
+        filter: grayscale(1);
+    }
 
 
     a {
         text-decoration: none;
     }
-
-    &.tag-1 {
-        grid-column: span 2;
-        background-image: url('../../img/game-1.jpg');
-        background-size: cover;
-    }
-    
-    &.tag-2 {
-        background-image: url('../../img/game-2.jpg');
-        background-size: cover;
-    }
-    &.tag-3 {
-        background-image: url('../../img/game-3.jpg');
-        background-size: cover;
-    }
-    &.tag-4 {
-        grid-column: span 2;
-        background-image: url('../../img/game-3.jpg');
-        background-size: cover;
-    }
-   
-}
-
-.tag-title {
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    background-color: #24212194;
-    top: 20px;
-    
-}
-
-.tag::after {
-    transition: bottom 1s;
-    position: absolute;
-    content: "See more";
-    opacity: 0;
-    bottom: -5px;
-    left: 10px;
-
 }
 
 
-.tag:hover {
-    opacity: 1;
-    transform:scale(1.015);
-}
-.tag:hover::after {
-    bottom: 1px;
-    opacity: 1;
-    
-}
 
 
-@include for-normal-layout {
-    .events-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    }
-}
 
-@include for-narrow-layout {
-    .events-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-}
+//     &.tag-1 {
+//         grid-column: span 2;
+//         background-image: url("../../img/game1.jpg");
+//         background-size: cover;
+//     }
 
-@include for-ex_narrow-layout {
-    .tag-2,
-    .tag-3 {
-    grid-column: span 2;
-}
-}
+//     &.tag-2 {
+//         background-image: url("../../img/game2.jpg");
+//         background-size: cover;
+//     }
+//     &.tag-3 {
+//         background-image: url("../../img/game3.jpg");
+//         background-size: cover;
+//     }
+//     &.tag-4 {
+//         grid-column: span 2;
+//         background-image: url("../../img/game4.jpg");
+//         background-size: cover;
+//     }
+// }
 
 // @include for-normal-layout {
-//     grid-template-columns: 
-//         minmax(20px, 1fr)
-//         minmax(auto, $narrow-breakpoint)
-//         minmax(20px, 1fr);
+//     .events-grid {
+//         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+//     }
 // }
-// @include for-wide-layout {
-//     grid-template-columns: 
-//         minmax(20px, 1fr)
-//         minmax(auto, $normal-breakpoint)
-//         minmax(20px, 1fr);
+
+// @include for-narrow-layout {
+//     .events-grid {
+//         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+//     }
 // }
+
+// @include for-ex_narrow-layout {
+//     .tag-2,
+//     .tag-3 {
+//         grid-column: span 2;
+//     }
 // }
+
+// .tag
+    // cursor: pointer;
+    // color: $clr4;
+
+    // position: relative;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // height: 100%;
+    // width: 100%;
+    // border-radius: 21px;
+    // opacity: 0.8;
+    // transition: transform 1s;
+
+
+    // &:hover {
+    //     opacity: 1;
+    //     transform: scale(1.015);
+    //     &::after {
+    //         bottom: 1px;
+    //         opacity: 1;
+    //     }
+    // }
+    // &::after {
+    //     transition: bottom 1s;
+    //     position: absolute;
+    //     content: "See more";
+    //     opacity: 0;
+    //     bottom: -5px;
+    //     left: 10px;
+    // }

@@ -28,7 +28,7 @@ export function addEvent(event) {
       const addedEvent = await eventService.save(event);
       dispatch({ type: 'EVENT_ADD', event: addedEvent });
     } catch (err) {
-      console.log('ReviewActions: err in addReview', err);
+      console.log('eventActions: err in addEvent', err);
     }
   };
 }

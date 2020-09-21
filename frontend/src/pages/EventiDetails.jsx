@@ -45,7 +45,7 @@ export class EventiDetails extends Component {
         <div className="eventi-subtitle flex">
           <StarIcon />
           <h5>{eventi.rank}(3147)</h5>
-          <h5>| Paris, France</h5>
+          <h5>| {eventi.location.city},{eventi.location.country}</h5>
           <h5>| Hosted By:{eventi.createdBy.fullName}</h5>
         </div>
         <div className="eventi-info">
