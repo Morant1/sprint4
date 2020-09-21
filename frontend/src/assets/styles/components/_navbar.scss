@@ -1,54 +1,45 @@
 .nav-container {
     height: 50px;
-    grid-column: 1/ span all;
-    background-color: #3d2f2f;
-    padding: 5px;
+    grid-column: 1 / span all;
+    background-color: $clr6;
+    border-bottom: 1px solid $clr7;
+    line-height: 1rem;
     position: fixed;
-    width:100%;
+    width: 100%;
     z-index: 2;
-
-
-   
+    color: $clr7;
 
     .nav-option {
         &:last-child {
             margin: 0 10px;
         }
-
         a {
             cursor: pointer;
-            color:$clr6;  
-            transition: font-size .3s;
-        }
-
-        a:hover {
-            font-size: 1.2rem;
+            color: $clr7;
+            transition: font-size 0.3s;
+            &:hover {
+                color: $clr3;
+            }
         }
     }
 
-    .btn-nav-option {
-        margin-left: 10px;
-        border-radius: 21px;
-        color: #fff;
-        border: 1.5px solid white;
-        background-color: transparent;
-        padding: 6px 10px;
+    .add-event-btn {
+        background-color: $clr3;
+        // color: $clr7;
+        color:$clr6;
         font-family: montserrat;
-        a {
-            cursor: pointer;
-            color:$clr6;  
-            transition: font-size .3s;
+        height: 100%;
+        transition: background-color 0.3s;
+        cursor: pointer;
+        &:hover {
+            background-color: $clr1;
+            
         }
-
-        a:hover {
-            color:lightgreen;
-        }
-
     }
 }
 
 .global-search {
-    color: $clr6;
+    color: $clr7;
     position: relative;
 }
 .input {
@@ -56,14 +47,13 @@
     height: 2rem;
     border-radius: 1rem;
     background-color: #cccccc05;
-    color:lightgrey;
+    color: $clr7;
     line-height: 1.8rem;
     font-size: 1rem;
     border: none;
     padding: 0px 3rem;
     outline: none;
     font-family: montserrat;
-
 }
 
 .MuiSvgIcon-root {
@@ -73,7 +63,7 @@
 }
 
 .search-icon {
-    width:20px;
+    width: 20px;
 }
 
 .logo {
@@ -83,7 +73,6 @@
 .local-search {
     height: 100px;
     margin-top: 50px;
-
 }
 
 .scrolled {
