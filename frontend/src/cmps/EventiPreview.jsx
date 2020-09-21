@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 {/* Lital dont forget to put date -> <h3>CreatedAt:{new Date(toy.createdAt).toDateString()}</h3> */}
 export function EventiPreview({ eventi, currTag }) {
-    const img = eventi.ImgUrl ? require(`../assets/img/${eventi._id}.jpg`) : require(`../assets/img/default.jpg`)
+    const img = eventi.ImgUrl ? require(`../assets/img/${eventi.title}.jpg`) : require(`../assets/img/${eventi.title}.jpg`)
     return (
         <div className="eventi-preview card">
             <img className="preview-img" alt="event-01" src={img} />
