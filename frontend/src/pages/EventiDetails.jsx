@@ -85,7 +85,7 @@ export class EventiDetails extends Component {
                  <Avatar>H</Avatar>
                   <span className="author">{comment.author.fullName}</span>
                   </div>
-                  <div class="comment-section">
+                  <div className="comment-section">
                   {comment.txt}
                   </div>
                   

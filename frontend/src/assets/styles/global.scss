@@ -12,12 +12,17 @@
 @import "basics/buttons.scss";
 
 // Components
-@import "components/eventiFilter";
-@import "components/navbar.scss";
+@import "components/EventiFilter";
+@import "components/Navbar.scss";
 @import "components/EventiPreview.scss";
 @import "components/EventiDetails.scss";
+<<<<<<< HEAD
 @import "components/eventiUpvoming.scss";
 @import "components/chat.scss";
+=======
+@import "components/EventiUpcoming.scss";
+>>>>>>> 1fe0dff7ccdc60ba0493e2c80f37bb8e217413df
 
 // Pages
-@import "views/home-page.scss";
+@import "views/HomePage.scss";
+@import "views/EventiAdd.scss";
