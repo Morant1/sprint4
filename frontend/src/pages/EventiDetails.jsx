@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import {Chat} from '../cmps/Chat'
 import AccessTime from '@material-ui/icons/AccessTime'
 import StarIcon from '@material-ui/icons/Star'
 
@@ -31,7 +32,6 @@ export class EventiDetails extends Component {
 
   render() {
     const { eventi } = this.state
-    const { events } = this.props
     if (!eventi) return <div>Loading...</div>
     return (
       <section className="eventi-details">
@@ -74,8 +74,8 @@ export class EventiDetails extends Component {
           </ul>
 
         </div>
-
-        <div className="eventi-comments">
+            <Chat eventi={eventi}/>
+        {/* <div className="eventi-comments">
           <h3>Comment and Reviews</h3>
           <ul className="comment-container">
             {
@@ -94,7 +94,7 @@ export class EventiDetails extends Component {
             }
           </ul>
 
-        </div>
+        </div> */}
       </section>
 
 

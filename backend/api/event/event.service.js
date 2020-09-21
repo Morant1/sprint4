@@ -4,7 +4,6 @@ const ObjectId = require('mongodb').ObjectId
 const moment = require('moment');
 
 
-
 module.exports = {
     query,
     getById,
@@ -20,7 +19,7 @@ async function query(filterBy = {}) {
     const collection = await dbService.getCollection('eventi')
     try {
         const events = await collection.find(criteria).toArray();
-        return _sortEvents(events, filterBy.date, filterBy.sort, filterBy.order)
+        return _sortFilterEvents(events, filterBy.date, filterBy.sort, filterBy.order)
 
     } catch (err) {
         console.log('ERROR: cannot find events')
@@ -29,7 +28,7 @@ async function query(filterBy = {}) {
 }
 
 
-function _sortEvents(events, date, sort, order) {
+function _sortFilterEvents(events, date, sort, order) {
     console.log("events:", events, "Date:", date, "sort:", sort, "order:", order)
 
     if (!sort & !date & !order) return events;
@@ -40,22 +39,22 @@ function _sortEvents(events, date, sort, order) {
     if (date === 'all') sortedEvents = events;
     if (date === 'today') {
         sortedEvents = events.filter(eventi => {
-            return moment(eventi.createdAt).format('L') === todayStr;
+            return moment(eventi.startsdAt).format('L') === todayStr;
         })
     }
     if (date === 'week') {
         sortedEvents = events.filter(eventi => {
-            return moment(eventi.createdAt).isSame(Date.now(),'week');
+            return moment(eventi.startsdAt).isSame(Date.now(),'week');
         })
     }
     if (date === 'month') {
         sortedEvents = events.filter(eventi => {
-            return moment(eventi.createdAt).isSame(Date.now(),'month');
+            return moment(eventi.startsdAt).isSame(Date.now(),'month');
         })
     }
     if (date === 'year') {
         sortedEvents = events.filter(eventi => {
-            return moment(eventi.createdAt).isSame(Date.now(),'year');
+            return moment(eventi.startsdAt).isSame(Date.now(),'year');
         })
     }
 
@@ -63,16 +62,14 @@ function _sortEvents(events, date, sort, order) {
 
     if (order === 'desc' || sort === 'date') {
         sortedEvents = sortedEvents.sort((a, b) => {
-            return a['createdAt'] > b['createdAt'] ? -1 : a['createdAt'] < b['createdAt'] ? 1 : 0
+            return a['startsdAt'] > b['startsdAt'] ? -1 : a['startsdAt'] < b['startsdAt'] ? 1 : 0
         })
     }
     if (order === 'asc') {
         sortedEvents = sortedEvents.sort((a, b) => {
-            return a['createdAt'] < b['createdAt'] ? -1 : a['createdAt'] > b['createdAt'] ? 1 : 0
+            return a['startsdAt'] < b['startsdAt'] ? -1 : a['startsdAt'] > b['startsdAt'] ? 1 : 0
         })
     }
-
-    // sort
 
     if (sort === 'rank') {
         sortedEvents = sortedEvents.sort((a, b) => {
@@ -132,6 +129,8 @@ async function update(eventi) {
         throw err;
     }
 }
+
+
 
 async function add(eventi) {
     const collection = await dbService.getCollection('eventi')

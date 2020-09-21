@@ -32,6 +32,8 @@ export function addEvent(event) {
     }
   };
 }
+
+
 export function updateEvent(event) {
   return async dispatch => {
     try {

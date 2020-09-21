@@ -30,7 +30,6 @@ function remove(eventId) {
   }
 
 
-//Updating/Creating new event
 async function save(eventi) {
     if (eventi._id) {
         const editedEventi  = await httpService.put(`event/${eventi._id}`, eventi);
@@ -41,30 +40,4 @@ async function save(eventi) {
         return addedEventi
     }
 }
-
-
-// import axios from 'axios'
-// const BASE_URL = 'http://localhost:3000/eventi'
-
-
-// export const eventService = {
-//     query,
-//     getById,
-//     remove
-// }
-
-// function query(filterBy) {
-//     return axios.get(`${BASE_URL}`)
-//         .then(res => res.data)
-// }
-
-// function getById(itemId) {
-//     return axios.get(`${BASE_URL}/${itemId}`)
-//         .then(res => res.data)
-
-// }
-
-// function remove(itemId) {
-//     return axios.delete(`${BASE_URL}/${itemId}`)
-// }
 

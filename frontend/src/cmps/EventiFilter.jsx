@@ -13,11 +13,16 @@ export class EventiFilter extends Component {
 
         }
     }
+    unsubscribe;
 
     componentDidMount() {
-        BusService.on('searchUpdated',this.handleChange)
+        this.unsubscribe = BusService.on('searchUpdated',this.handleChange);
+        // unsubscribe();
     }
-    
+
+    componentWillUnmount() {
+        this.unsubscribe()
+    }
     handleChange = ({ target }) => {
         const field = target.name;
         let value = target.value;
