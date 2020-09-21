@@ -16,7 +16,7 @@ export function addEvent(event) {
   return async dispatch => {
     try {
       event.createdAt = Date.now();
-      event.tags = event.tags.split('');
+      event.tags = event.tags.split(',');
       event.startsAt = Date.parse(event.startsAt)/1000;
       event.participants = [];
       event.comments = [];
@@ -25,7 +25,7 @@ export function addEvent(event) {
       const addedEvent = await eventService.save(event);
       dispatch({ type: 'EVENT_ADD', event: addedEvent });
     } catch (err) {
-      console.log('ReviewActions: err in addReview', err);
+      console.log('eventActions: err in addEvent', err);
     }
   };
 }

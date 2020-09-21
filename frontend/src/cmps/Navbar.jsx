@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router";
 import { GlobalSearch } from './GlobalSearch';
-import LocalSearch from './LocalSearch';
+
 
 
 export class _Navbar extends Component {
@@ -32,7 +32,6 @@ export class _Navbar extends Component {
                     {this.props.location.pathname !== "/" && <GlobalSearch />}
                     <button className="btn-nav-option"><Link to="/event/add">Add Event</Link></button>
                 </nav>
-                { this.props.location.pathname === "/" && <LocalSearch />}
             </React.Fragment >
         )
     }
