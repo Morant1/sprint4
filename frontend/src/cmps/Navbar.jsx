@@ -1,14 +1,40 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { withRouter } from "react-router";
+import { GlobalSearch } from './GlobalSearch';
+import LocalSearch from './LocalSearch';
 
 
-function _NavBar(props) {
+export class _Navbar extends Component {
 
-    return (
-        <nav className="nav-container flex align-center justify-center">
-            <div className="nav-option"><Link to="/">Home</Link></div>
-        </nav>
-    )
+    componentDidMount() {
+        const navbar = document.querySelector('nav')
+
+        window.onscroll = function () {
+
+            // pageYOffset or scrollY
+            if (window.pageYOffset > 0) {
+                navbar.classList.add('scrolled')
+            } else {
+                navbar.classList.remove('scrolled')
+            }
+        }
+    }
+    render() {
+        return (
+            <React.Fragment>
+                <nav className="nav-container flex align-center justify-between">
+                    <div className="links flex">
+                        <div className="logo">LOGO</div>
+                        <div className="nav-option"><Link to="/">Home</Link></div>
+                        <div className="nav-option"><Link to="/">About</Link></div>
+                    </div>
+                    {this.props.location.pathname !== "/" && <GlobalSearch />}
+                    <button className="btn-nav-option"><Link to="/event/add">Add Event</Link></button>
+                </nav>
+                { this.props.location.pathname === "/" && <LocalSearch />}
+            </React.Fragment >
+        )
+    }
 }
-export const NavBar = withRouter(_NavBar)
+export const Navbar = withRouter(_Navbar)

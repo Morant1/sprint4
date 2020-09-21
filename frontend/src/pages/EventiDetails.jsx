@@ -19,7 +19,7 @@ export class EventiDetails extends Component {
 
   loadEventi = () => {
     const { _id } = this.props.match.params
-    // console.log(_id)
+    console.log("id",_id)
     eventService.getById(_id)
       .then(eventi => {
         this.setState({ eventi })
