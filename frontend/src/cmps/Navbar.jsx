@@ -31,7 +31,7 @@ export class _Navbar extends Component {
                         </div>
                     </ul>
                     {this.props.location.pathname !== "/" && <GlobalSearch />}
-                    <button className="add-event-btn"><Link to="/event/add">Add Event</Link></button>
+                    <button className="add-event-btn"><Link to="/add">Add Event</Link></button>
                 </nav>
             </React.Fragment >
         )
