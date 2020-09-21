@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchIcon from '@material-ui/icons/Search';
-import { eventBus } from '../services/event-bus-service';
+import {  BusService } from '../services/event-bus-service';
 
 export function GlobalSearch() {
     return (
@@ -8,9 +8,10 @@ export function GlobalSearch() {
             <SearchIcon />
             <input className="input"
                 type="text"
+                name="title"
                 autoComplete='off'
-                // onChange={(ev) => {
-                //     BusService.emit('searchUpdated', ev.target.value)}}
+                onChange={(ev) => {
+                    BusService.emit('searchUpdated', ev)}}
                     placeholder = "What are you up to?" />
         </div>
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { FormControl,Select, MenuItem, InputLabel } from '@material-ui/core';
+import {  BusService } from '../services/event-bus-service';
 
 
 export class EventiFilter extends Component {
@@ -12,12 +13,20 @@ export class EventiFilter extends Component {
 
         }
     }
+
+    componentDidMount() {
+        BusService.on('searchUpdated',this.handleChange)
+    }
+    
     handleChange = ({ target }) => {
         const field = target.name;
         let value = target.value;
+        console.log(value)
 
         this.setState(prevState => ({ filter: { ...prevState.filter, [field]: value } }),
-            () => this.props.onSetFilter(this.state.filter));
+            () => {
+                this.props.onSetFilter(this.state.filter)
+            });
 
     }
 
@@ -26,10 +35,10 @@ export class EventiFilter extends Component {
         const { date, sort, order , name } = this.state.filter
         return (
             <form className="main-filter-container">
-                <div className="serach">
+                {/* <div className="serach">
                     <label className="title">By title</label>
                     <input type="text" name='title' value={name} onChange={this.handleChange} />
-                </div>
+                </div> */}
                 <div className="filter flex justify-space">
                 <FormControl>
                 <InputLabel id="date">Date</InputLabel>

@@ -24,3 +24,19 @@
         color:$clr7; 
     }
 }
+.participant-container{
+    background-color: aquamarine;
+    .list-item{
+        padding: 10px 10px; 
+    }
+}
+
+.comment-container{
+    background-color: rgb(242, 250, 167);
+    .list-item{
+        padding: 10px 10px; 
+    }
+    .comment-section{
+        padding: 5px 5px; 
+    }
+}

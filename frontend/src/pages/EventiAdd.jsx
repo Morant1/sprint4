@@ -51,7 +51,7 @@ export class _EventiAdd extends Component {
         const { eventi } = this.state
         return (
             
-            <div className="edit-area">
+            <div className="edit-area margin">
                 <form onSubmit={(event) => this.onSubmit(event)} className="edit-form container">
                     <h1> Add Event</h1>
                     <label htmlFor="title">Title:</label>
@@ -69,7 +69,7 @@ export class _EventiAdd extends Component {
                     <label htmlFor="tags">Tags:</label>
                     <input type="text" name="tags" id="tags" onChange={this.handleChange} value={eventi.tags} placeholder="(seperated by comma)"/><br></br>
 
-                    <button>Save</button>
+                    <button className="save-btn">Save</button>
                 </form>
             </div>
         )

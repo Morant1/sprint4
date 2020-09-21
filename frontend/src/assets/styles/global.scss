@@ -12,11 +12,12 @@
 @import "basics/buttons.scss";
 
 // Components
-@import "components/eventiFilter";
-@import "components/navbar.scss";
+@import "components/EventiFilter";
+@import "components/Navbar.scss";
 @import "components/EventiPreview.scss";
 @import "components/EventiDetails.scss";
-@import "components/eventiUpvoming.scss";
+@import "components/EventiUpcoming.scss";
 
 // Pages
-@import "views/home-page.scss";
+@import "views/HomePage.scss";
+@import "views/EventiAdd.scss";

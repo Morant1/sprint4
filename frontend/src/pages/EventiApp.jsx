@@ -4,6 +4,7 @@ import { loadEvents } from '../store/actions/eventActions'
 import {EventiList} from '../cmps/EventiList'
 
 
+
 export class _EventiApp extends Component {
 
   state = {
@@ -39,7 +40,7 @@ export class _EventiApp extends Component {
       if (!filteredEvents) return <div>Loading...</div>
 
         return (
-            <div className="list-events">
+            <div className="list-events margin">
                 <EventiList events={filteredEvents} onSetFilter={this.onSetFilter}  currTag={this.props.match.params.tag}/>
             </div>
         )

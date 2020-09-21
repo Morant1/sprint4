@@ -22,7 +22,7 @@ export class _Navbar extends Component {
     render() {
         return (
             <React.Fragment>
-                <nav className="nav-container flex align-center space-between">
+                <nav className="nav-container flex align-center justify-between">
                     <ul className="nav-list flex">
                         <li className="logo">LOGO</li>
                         <div className="main-nav flex">
@@ -31,7 +31,7 @@ export class _Navbar extends Component {
                         </div>
                     </ul>
                     {this.props.location.pathname !== "/" && <GlobalSearch />}
-                    <button className="btn-nav-option"><Link to="/add">Add Event</Link></button>
+                    <button className="add-event-btn"><Link to="/add">Add Event</Link></button>
                 </nav>
             </React.Fragment >
         )
