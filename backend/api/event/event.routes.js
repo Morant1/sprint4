@@ -4,6 +4,7 @@ const {getEvents, getEventi, deleteEventi, updateEventi,addEventi} = require('./
 const router = express.Router()
 
 
+
 router.get('/', getEvents)
 router.get('/:id', getEventi)
 router.put('/:id',requireAdmin, updateEventi)

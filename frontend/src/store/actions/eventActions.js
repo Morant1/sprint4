@@ -17,6 +17,9 @@ export function addEvent(event) {
     try {
       event.createdAt = Date.now();
       event.tags = event.tags.split(',');
+      event.location = event.location.split(',');
+      event.location.city = event.location[0];
+      event.location.country = event.location[1];
       event.startsAt = Date.parse(event.startsAt)/1000;
       event.participants = [];
       event.comments = [];

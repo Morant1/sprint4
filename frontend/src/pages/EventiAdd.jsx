@@ -10,7 +10,7 @@ export class _EventiAdd extends Component {
             title: '',
             description: '',
             duration: '',
-            country: '',
+            location: '',
             capacity: '',
             tags: '',
             imgs: '',
@@ -43,6 +43,7 @@ export class _EventiAdd extends Component {
     onSubmit = async (ev) => {
         ev.preventDefault()
         console.log(this.state);
+        console.log(this.state.eventi.location)
         await this.props.addEvent(this.state.eventi);
     }
 
@@ -54,19 +55,19 @@ export class _EventiAdd extends Component {
                 <form onSubmit={(event) => this.onSubmit(event)} className="edit-form container">
                     <h1> Add Event</h1>
                     <label htmlFor="title">Title:</label>
-                    <input type="text" name="title" id="title" onChange={this.handleChange} value={eventi.title} placeholder="Title" />
+                    <input type="text" name="title" id="title" onChange={this.handleChange} value={eventi.title} placeholder="Title" /><br></br>
                     <label htmlFor="description">Description:</label>
-                    <input type="text" name="description" id="description" onChange={this.handleChange} value={eventi.description} placeholder="Description" />
+                    <input type="text" name="description" id="description" onChange={this.handleChange} value={eventi.description} placeholder="Description" /><br></br>
                     <label htmlFor="date">Date:</label>
-                    <input type="datetime-local" name="date" id="date" onChange={this.handleChange} value={eventi.startsAt}/>
-                    <label htmlFor="country">Country:</label>
-                    <input type="text" name="country" id="country" onChange={this.handleChange} value={eventi.country} placeholder="Country" />
+                    <input type="datetime-local" name="startsAt" id="date" onChange={this.handleChange} value={eventi.startsAt}/><br></br>
+                    <label htmlFor="location">Location:</label>
+                    <input type="text" name="location" id="location" onChange={this.handleChange} value={eventi.location} placeholder="(city,country)" /><br></br>
                     <label htmlFor="duration">Duration:</label>
-                    <input type="text" name="duration" id="duration" onChange={this.handleChange} value={eventi.duration} placeholder="Duration" />
+                    <input type="text" name="duration" id="duration" onChange={this.handleChange} value={eventi.duration} placeholder="Duration" /><br></br>
                     <label htmlFor="capacity">Capacity:</label>
-                    <input type="number" name="capacity" id="capacity" onChange={this.handleChange} value={eventi.capacity} placeholder="Capacity" />
+                    <input type="number" name="capacity" id="capacity" onChange={this.handleChange} value={eventi.capacity} placeholder="Capacity" /><br></br>
                     <label htmlFor="tags">Tags:</label>
-                    <input type="text" name="tags" id="tags" onChange={this.handleChange} value={eventi.tags} placeholder="(seperated by comma)"/>
+                    <input type="text" name="tags" id="tags" onChange={this.handleChange} value={eventi.tags} placeholder="(seperated by comma)"/><br></br>
 
                     <button>Save</button>
                 </form>
