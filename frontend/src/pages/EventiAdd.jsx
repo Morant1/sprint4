@@ -57,7 +57,7 @@ export class _EventiAdd extends Component {
                     <input type="text" name="title" id="title" onChange={this.handleChange} value={eventi.title} placeholder="Title" />
                     <label htmlFor="description">Description:</label>
                     <input type="text" name="description" id="description" onChange={this.handleChange} value={eventi.description} placeholder="Description" />
-                    <label htmlFor="date">Tags:</label>
+                    <label htmlFor="date">Date:</label>
                     <input type="datetime-local" name="date" id="date" onChange={this.handleChange} value={eventi.startsAt}/>
                     <label htmlFor="country">Country:</label>
                     <input type="text" name="country" id="country" onChange={this.handleChange} value={eventi.country} placeholder="Country" />

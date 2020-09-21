@@ -15,8 +15,8 @@ function App() {
       <Router>
         <NavBar />
         <Switch>
-           <Route component={EventiAdd} exact path='/add'/>
           <Route component={EventiDetails} path='/:tag/:id' /> 
+          <Route component={EventiAdd} exact path='/edit'/>
           <Route component={EventiApp} path='/:tag' />
           <Route component={HomePage} path='/' />
         </Switch>

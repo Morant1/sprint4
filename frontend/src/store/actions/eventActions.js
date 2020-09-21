@@ -18,6 +18,10 @@ export function addEvent(event) {
       event.createdAt = Date.now();
       event.tags = event.tags.split('');
       event.startsAt = Date.parse(event.startsAt)/1000;
+      event.participants = [];
+      event.comments = [];
+      event.rank = 0;
+      event.createdby ={};
       const addedEvent = await eventService.save(event);
       dispatch({ type: 'EVENT_ADD', event: addedEvent });
     } catch (err) {
