@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import AccessTime from '@material-ui/icons/AccessTime'
 import StarIcon from '@material-ui/icons/Star'
+
 // import { connect } from 'react-redux';
 
 import { eventService } from '../services/eventService';
+import { Avatar } from '@material-ui/core';
 // import { loadEvents } from '../store/actions/eventActions';
 //Redirect to Edit event
 // Map // Review // Attanding //Chat
@@ -60,29 +62,37 @@ export class EventiDetails extends Component {
         </div>
         <div className="eventi-participants">
           <h3>Who's coming?</h3>
-          <div>
+          <ul className="participant-container">
             {
               eventi.participants.map(participant => {
-                return <div key={participant._id}>
+                return <li className="list-item flex align-center" key={participant._id}>
+                  <Avatar>H</Avatar>
                   {participant.fullName}
-                </div>
+                </li>
               })
             }
-          </div>
+          </ul>
 
         </div>
 
         <div className="eventi-comments">
           <h3>Comment and Reviews</h3>
-          <div>
+          <ul className="comment-container">
             {
               eventi.comments.map(comment => {
-                return <div key={comment._id}>
+                return <li className= "list-item flex column" key={comment._id}>
+                  <div className="author-details flex align-center">
+                 <Avatar>H</Avatar>
+                  <span className="author">{comment.author.fullName}</span>
+                  </div>
+                  <div class="comment-section">
                   {comment.txt}
-                </div>
+                  </div>
+                  
+                </li>
               })
             }
-          </div>
+          </ul>
 
         </div>
       </section>

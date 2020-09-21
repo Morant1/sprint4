@@ -12,6 +12,7 @@ export function EventiPreview({ eventi, currTag }) {
             <div className="preview-info">
                 <button className="attend-btn">40/100 going
                 </button>
+                <h3>CreatedAt:{new Date(`${eventi.createdAt}`).toDateString()}</h3>
                 <div className="preview-title">{eventi.title}</div>
                 <div className="preview-date">{eventi.duration}1.5 hours</div>
                 <Link to={`/${currTag}/${eventi._id}`}>More Details</Link>
