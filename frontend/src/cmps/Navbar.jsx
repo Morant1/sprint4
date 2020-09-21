@@ -30,7 +30,7 @@ export class _Navbar extends Component {
                         <div className="nav-option"><Link to="/">About</Link></div>
                     </div>
                     {this.props.location.pathname !== "/" && <GlobalSearch />}
-                    <button className="btn-nav-option"><Link to="/event/add">Add Event</Link></button>
+                    <button className="btn-nav-option"><Link to="/add">Add Event</Link></button>
                 </nav>
                 { this.props.location.pathname === "/" && <LocalSearch />}
             </React.Fragment >
