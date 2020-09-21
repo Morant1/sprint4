@@ -10,7 +10,8 @@ export function EventiPreview({ eventi, currTag }) {
         <div className="eventi-preview card">
             <img className="preview-img" alt="event-01" src={img} />
             <div className="preview-info">
-                <button className="attend-btn">40/100 going{eventi.participants}</button>
+                <button className="attend-btn">40/100 going
+                </button>
                 <div className="preview-title">{eventi.title}</div>
                 <div className="preview-date">{eventi.duration}1.5 hours</div>
                 <Link to={`/${currTag}/${eventi._id}`}>More Details</Link>
