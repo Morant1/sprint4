@@ -20,7 +20,7 @@ export function addEvent(event) {
       event.location = event.location.split(',');
       event.location.city = event.location[0];
       event.location.country = event.location[1];
-      event.startsAt = Date.parse(event.startsAt)/1000;
+      event.startsAt = Date.parse(event.startsAt);
       event.participants = [];
       event.comments = [];
       event.rank = 0;
