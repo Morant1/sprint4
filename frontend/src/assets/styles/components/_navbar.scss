@@ -1,0 +1,83 @@
+.nav-container {
+    height: 50px;
+    background-color: $clr6;
+    border-bottom: 1px solid $clr7;
+    line-height: 1rem;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    color: $clr7;
+
+    .nav-option {
+        &:last-child {
+            margin: 0 10px;
+        }
+        a {
+            cursor: pointer;
+            color: $clr7;
+            transition: font-size 0.3s;
+            &:hover {
+                color: $clr3;
+            }
+        }
+    }
+
+    button {
+        background-color: $clr3;
+        a {
+            color: $clr7;
+            &:hover {
+                color: $clr6;
+            }
+        }
+        height: 100%;
+        transition: all 0.3s;
+        cursor: pointer;
+        &:hover {
+            background-color: $clr1;
+            color: $clr6;
+        }
+    }
+}
+
+.global-search {
+    color: $clr7;
+    position: relative;
+}
+.input {
+    // width: 120%;
+    border: 1px solid lightgray;
+    height: 2rem;
+    border-radius: 1rem;
+    background-color: #cccccc05;
+    color: $clr7;
+    line-height: 1.8rem;
+    font-size: 1rem;
+    padding: 0px 3rem;
+    outline: none;
+    font-family: montserrat;
+}
+
+.MuiSvgIcon-root {
+    position: absolute;
+    right: 8px;
+    top: 14px;
+    color:$clr7;
+}
+
+.search-icon {
+    width: 20px;
+}
+
+.logo {
+    margin-right: 10px;
+}
+
+.local-search {
+    height: 100px;
+    margin-top: 50px;
+}
+
+.scrolled {
+    opacity: 0.8;
+}

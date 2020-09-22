@@ -1,0 +1,45 @@
+.eventi-preview {
+    width:300px;
+    // background-color: $clr3;
+    color:$clr1;  
+    display:inline-block; 
+    margin-right:5px; 
+
+.preview-title{
+    font-weight: bolder;
+}
+    button{
+        padding:10px;
+        background-color: $clr3; 
+    }
+    button:hover{
+        background-color:$clr4;
+        color:$clr6; 
+    }
+
+    img{
+        border-radius:5%;
+        height:250px; 
+        object-fit: cover;
+    }
+    a{
+        color:$clr7; 
+    }
+    .preview-time{
+        color:$clr7; 
+    }
+    .event-creator-section{
+        border-top: 1px solid #bebebe; 
+        margin-bottom:10px; 
+        .creator{
+            margin-left:10px; 
+        }
+        .avatar{
+            width:rem(25px); 
+            height:rem(25px); 
+            border-radius: 50%;
+        }
+    }
+
+
+}

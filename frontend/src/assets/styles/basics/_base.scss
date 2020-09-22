@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+::selection {
+    background-color: $clr3;
+    color: $clr7;
+}
+
+html {
+    font-family: montserrat;
+    line-height: 1.6;
+    font-size: 16px;
+    color: $clr2;
+}
+
+body {
+    font-size: rem(18px);
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: caveat;
+    margin: 0 0 0.6em;
+    padding:0 ; 
+    line-height: 1;
+}
+
+h1 {
+    font-size: rem(68px);
+}
+
+img {
+    width: 100%;
+}
+
+p {
+    margin: 0 0 1em;
+    max-width: 40ch;
+}
+a{
+    text-decoration: none;
+    color:$clr7; 
+    
+}
+
+li {
+    list-style-type: none;
+}

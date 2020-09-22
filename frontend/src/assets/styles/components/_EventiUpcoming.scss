@@ -1,0 +1,94 @@
+
+#tickr-box 
+{
+max-width: 550px;
+padding: 3px;
+margin: 50px auto 50px auto;
+border-radius: 4px;
+border: 2px lightgray solid;
+}
+
+.tickr-title 
+{
+text-align: center;
+height: 30px;
+color: #FFFFFF;
+font-family: montserrat;
+background: $clr3; 
+padding: 5px;
+border-radius: 4px;
+}
+
+#tickr-scroll ul
+{
+margin: 0px;
+padding: 0px;
+border: 0px;
+vertical-align: baseline;
+list-style: none;
+}
+
+#tickr-scroll 
+{
+background: $clr6;
+height: 180px;
+margin: 3px auto 0px auto;
+overflow: hidden;
+padding: 0px;
+border-radius: 4px;
+text-align: center;
+}
+
+#tickr-scroll li 
+    {
+    color: black;
+    font-family: montserrat;
+    line-height: 26px;
+    }
+
+#tickr-scroll a 
+{
+color: #FFFFFF;
+text-decoration: none;
+}
+
+#tickr-scroll a:hover 
+{
+color: #CCFF99;
+text-decoration: none;
+}
+
+#tickr-scroll ul
+{
+transform:translateX(100%);
+padding: 0px 6px 0px 6px;
+animation: ticker 15s linear infinite;
+// animation: tickr 10s infinite;
+}
+
+// #tickr-scroll ul:hover {
+// animation-play-state: paused;
+// }
+
+#tickr-scroll li:hover {
+    color:$clr1;
+}
+    
+
+
+// @keyframes tickr {
+// 0%   { margin-top: 0; }
+// 25%  { margin-top: 10px; }
+// 50%  { margin-top: 11px; }
+// 75%  { margin-top: 12px; }
+// 100% { margin-top: 250px; }
+// }
+
+@keyframes ticker {
+    0%   { 
+    transform: translateX(100%);       
+    }
+    100% { 
+    transform: translateX(-100%); 
+    }
+   }
