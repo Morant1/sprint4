@@ -1,6 +1,6 @@
 const express = require('express')
-const {requireAdmin} = require('../../middlewares/requireAuth.middleware')
-const {getEvents, getEventi, deleteEventi, updateEventi,addEventi,updateComments} = require('./event.controller')
+// const {requireAdmin} = require('../../middlewares/requireAuth.middleware')
+const {getEvents, getEventi, deleteEventi, updateEventi,addEventi} = require('./event.controller')
 const router = express.Router()
 
 

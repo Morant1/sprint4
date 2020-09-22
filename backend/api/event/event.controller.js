@@ -34,6 +34,8 @@ async function updateEventi(req, res) {
 }
 
 
+<<<<<<< HEAD
+=======
 //UPDATE COMMENT
 async function updateComments(req, res) {
     const comment = {...req.body};
@@ -41,6 +43,7 @@ async function updateComments(req, res) {
     res.send(comment)
 }
 
+>>>>>>> d54d3a960f94d18aac28d556f44cad08dc519b4c
 
 //ADD
 async function addEventi(req, res) {
@@ -55,6 +58,9 @@ module.exports = {
     getEvents,
     deleteEventi,
     updateEventi,
+<<<<<<< HEAD
+=======
     updateComments,
+>>>>>>> d54d3a960f94d18aac28d556f44cad08dc519b4c
     addEventi
 }

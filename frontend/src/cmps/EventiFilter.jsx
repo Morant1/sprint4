@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { FormControl,Select, MenuItem, InputLabel } from '@material-ui/core';
 import {  BusService } from '../services/event-bus-service';
+import { withRouter } from "react-router";
 
 
-export class EventiFilter extends Component {
+export class _EventiFilter extends Component {
     state = {
         filter: {
             date: 'all',
@@ -76,5 +77,6 @@ export class EventiFilter extends Component {
     }
 }
 
+export const EventiFilter = withRouter(_EventiFilter)
 
 
