@@ -26,7 +26,7 @@ export class _HomePage extends Component {
     return (
       <React.Fragment>
         <section className="main-content flex">
-          <img src={require('../assets/img/main.jpg')} />
+          <img className="main-img" src={require('../assets/img/main.jpg')} />
           <div className="header">
             <p><span>Even{`{t}`} Better </span>helps you socialize while social distancing</p>
             <GlobalSearch />

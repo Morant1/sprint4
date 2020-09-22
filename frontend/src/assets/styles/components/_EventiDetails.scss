@@ -1,8 +1,8 @@
 .eventi-details {
-    border-radius: 136px;
     color: #2f2f2f;
-    margin-top: 59px;
+    padding-top: 45px;
     background-size: cover;
+    grid-column: 1/-1;
 
 
         .btn-details {
@@ -86,4 +86,11 @@
     .chat-btn {
         background-color: $clr3 !important;
     }
+}
+
+.close {
+    margin: 5px;
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
 }
