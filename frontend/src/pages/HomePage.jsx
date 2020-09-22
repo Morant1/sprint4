@@ -29,14 +29,13 @@ export class _HomePage extends Component {
           <img className="main-img" src={require('../assets/img/main.jpg')} />
           <div className="header">
             <p><span>Even{`{t}`} Better </span>helps you socialize while social distancing</p>
-            <GlobalSearch />
+            {/* <GlobalSearch /> */}
           </div>
 
         </section>
 
       <section className="events-grid">
-      <div className="event-card span-all" onClick={(ev) => { this.redirectClick('All') }}>
-          <img src={require('../assets/img/Sport.jpg')}></img>
+      <div className="event-card all-events span-all" onClick={(ev) => { this.redirectClick('All') }}>
         <span className="tag-all">All events</span>
             </div>
         <div className="event-card" onClick={(ev) => { this.redirectClick('Sport') }}>

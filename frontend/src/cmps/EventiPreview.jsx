@@ -9,7 +9,7 @@ import StarIcon from '@material-ui/icons/Star';
 export function EventiPreview({ eventi, currTag }) {
    const img = eventi.ImgUrl ? require(`../assets/img/${eventi.title}.jpg`) : require(`../assets/img/${eventi.title}.jpg`)
     return (
-        <div className="eventi-preview card">
+        <div className="eventi-preview card margin">
             <Link to={`/${currTag}/${eventi._id}`}>
                 <div className="img-area">
             <button className="attend-btn" ><span>who's going?</span></button>

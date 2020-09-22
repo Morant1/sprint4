@@ -55,12 +55,12 @@ export class EventiDetails extends Component {
     const { eventi, isGoing } = this.state
     if (!eventi) return <div>Loading...</div>
     return (
-      <section className="eventi-details"
+      <section className="eventi-details margin"
         style={{ backgroundImage: `url(${require(`../assets/img/details-img.jpg`)})` }}>
           <div className="close" onClick={this.onBack}>X</div>
           <div className="btn-details flex justify-center">
           <Button className="join" onClick={this.addParticipant}>I am {isGoing ? 'going' : 'not going'}</Button>
-          <Button><Link to={`/event/edit/${eventi._id}`}>Edit</Link></Button>
+          <Button><Link to={`/edit/${eventi._id}`}>Edit</Link></Button>
           <Button>Delete</Button>
           <Button onClick={this.addRank}><img className="star-icon" src={require('../assets/icons/rank.svg')}/></Button>
           </div>

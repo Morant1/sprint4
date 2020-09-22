@@ -44,7 +44,7 @@ export class _EventiAdd extends Component {
         const { eventi } = this.state
         return (
             
-            <div className="edit-area margin">
+            <div className="edit-area ">
                 <form onSubmit={(event) => this.onSubmit(event)} className="edit-form container">
                     <h1> Add Event</h1>
                     <label htmlFor="title">Title:</label>
