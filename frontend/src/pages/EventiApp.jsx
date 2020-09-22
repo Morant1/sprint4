@@ -42,8 +42,8 @@ export class _EventiApp extends Component {
 
     return (
       <div className="list-events">
-        <SideNav />
-        <EventiList events={filteredEvents} onSetFilter={this.onSetFilter} currTag={this.props.match.params.tag} />
+        <SideNav onSetFilter={this.onSetFilter} />
+        <EventiList events={filteredEvents} currTag={this.props.match.params.tag} />
       </div>
     )
   }
