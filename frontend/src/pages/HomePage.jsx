@@ -34,6 +34,7 @@ export class _HomePage extends Component {
 
         </section>
 
+<<<<<<< HEAD
         <section className="main-container">
           <div className="events-grid">
             <div className="event-card span-all" onClick={(ev) => { this.redirectClick('all') }}>
@@ -72,6 +73,38 @@ export class _HomePage extends Component {
           <div id="tickr-scroll">
             {
               filteredList.map(eventi => <ul><EventiUpComing eventi={eventi} key={eventi._id} currTag={eventi.tags[0]} /></ul>)
+=======
+      <section className="events-grid">
+      <div className="event-card span-all" onClick={(ev) => { this.redirectClick('All') }}>
+          <img src={require('../assets/img/Sport.jpg')}></img>
+        <span className="tag-all">All events</span>
+            </div>
+        <div className="event-card" onClick={(ev) => { this.redirectClick('Sport') }}>
+          <img src={require('../assets/img/Sport.jpg')}></img>
+        <span className="tag-sport">Sport</span>
+            </div>
+        <div className="event-card span" onClick={(ev) => { this.redirectClick('Movies') }}>
+        <img src={require('../assets/img/Movies.jpg')}></img>
+          <span className="tag-movies">Movies</span>
+        </div>
+        <div className="event-card" onClick={(ev) => { this.redirectClick('Books') }}>
+        <img src={require('../assets/img/Books.jpg')}></img>
+          <span className="tag-books">Books</span>
+          </div>
+        <div className="event-card span" onClick={(ev) => { this.redirectClick('Art') }}>
+        <img src={require('../assets/img/Art.jpg')}></img>
+          <span className="tag-art">Art</span>
+        </div>        
+        <div className="event-card" onClick={(ev) => { this.redirectClick('TVShows') }}>
+        <img src={require('../assets/img/TVShows.jpg')}></img>
+          <span className="tag-tvshows">TV Shows</span>
+        </div>
+        <div className="event-card" onClick={(ev) => { this.redirectClick('Comics') }}>
+        <img src={require('../assets/img/Comics.jpg')}></img>
+          <span className="tag-comics">Comics</span>
+        </div>
+      </section>
+>>>>>>> e8d3d9f247f1681ac83912efdd66d3cfe41406fb
 
             }
           </div>

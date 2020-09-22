@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import {Chat} from '../cmps/Chat'
+import { Chat } from '../cmps/Chat'
 import AccessTime from '@material-ui/icons/AccessTime'
-import { Avatar } from '@material-ui/core';
+import { Avatar,Button } from '@material-ui/core';
 
 import { eventService } from '../services/eventService';
-import {StarRate} from '../cmps/StarRate';
+import { StarRate } from '../cmps/StarRate';
 
 
 
@@ -14,7 +14,8 @@ import {StarRate} from '../cmps/StarRate';
 export class EventiDetails extends Component {
   state = {
     eventi: null,
-    isGoing: false
+    isGoing: false,
+    isOpen: false
   }
   componentDidMount() {
     this.loadEventi()
@@ -22,12 +23,14 @@ export class EventiDetails extends Component {
 
   loadEventi = () => {
     const { _id } = this.props.match.params
-    // console.log("id", _id)
     eventService.getById(_id)
       .then(eventi => {
         this.setState({ eventi })
       })
 
+  }
+  openChat = () => {
+    this.setState({isOpen:!this.state.isOpen})
   }
 
   addParticipant = () => {
@@ -39,75 +42,66 @@ export class EventiDetails extends Component {
   }
 
   render() {
-    const { eventi ,isGoing } = this.state
+    const { eventi, isGoing } = this.state
     if (!eventi) return <div>Loading...</div>
     return (
-      <section className="eventi-details margin">
-        <div className="eventi-photo-grid">
-          <img src={require('../assets/img/game-1.jpg')} alt="event-1" />
-          <img src={require('../assets/img/game-2.jpg')} alt="event-2" />
-          <img src={require('../assets/img/game-3.jpg')} alt="event-3" />
-        </div>
-        <div className="eventi-title flex">
-          <h2>{eventi.title}</h2>
-          <div className="eventi-btns">
-            <button className="join" onClick={this.addParticipant}>I am {isGoing ? 'going' : 'not going'}</button>
-            <Link to={`/event/edit/${eventi._id}`}>Edit Event</Link>
+      <section className="eventi-details"
+        style={{ backgroundImage: `url(${require(`../assets/img/details-img.jpg`)})` }}>
+          <div className="btn-details flex justify-center">
+          <Button className="join" onClick={this.addParticipant}>I am {isGoing ? 'going' : 'not going'}</Button>
+          <Button><Link to={`/event/edit/${eventi._id}`}>Edit</Link></Button>
+          <Button>Delete</Button>
+          </div>
+        <div className="eventi-photo flex justify-center">
+          <div className="details-img"
+            style={{ backgroundImage: `url(${require(`../assets/img/${eventi.tags[0]}.jpg`)})` }}>
+          </div>
+          <div className="details-img"
+            style={{ backgroundImage: `url(${require(`../assets/img/${eventi.tags[0]}2.jpg`)})` }}>
+          </div>
+          <div className="details-img"
+            style={{ backgroundImage: `url(${require(`../assets/img/${eventi.tags[0]}3.jpg`)})` }}>
           </div>
         </div>
-        <StarRate/>
-        <div className="eventi-subtitle flex">
-          {/* <StarIcon /> */}
-          <h5>{eventi.rank}(3147)</h5>
+        <div className="eventi-title flex justify-center align-center">
+          <h2>{eventi.title}</h2>
+          <p>{eventi.description}</p>
+        </div>
+      
+          
+        
+        {/* <StarRate/>
+        <div className="eventi-subtitle flex"> */}
+    {/* <StarIcon /> */ }
+    {/* <h5>{eventi.rank}(3147)</h5>
           <h5>| {eventi.location.city},{eventi.location.country}</h5>
           <h5>| Hosted By:{eventi.createdBy.fullName}</h5>
         </div>
         <div className="eventi-info">
           <h3><AccessTime />{eventi.duration} hours</h3>
           <h4>Join with your computer, phone or tablet</h4>
-          <h4>Hosted in English</h4>
-          {/* <h3>{eventi.participants}</h3> */}
-        </div>
-        <div className="eventi-description">
-          <h3>What it's all About:</h3>
-          <p>{eventi.description}</p>
-        </div>
-        <div className="eventi-participants">
-          <h3>Who's coming?</h3>
-          <ul className="participant-container">
+          <h4>Hosted in English</h4> */}
+    {/* <h3>{eventi.participants}</h3> */ }
+    {/* </div> */}
+        <div className="eventi-participants flex justify-center align-center">
+          <div className="title">Who is coming?</div>
+          <div className="participant-container flex align-center">
             {
               eventi.participants.map(participant => {
-                return <li className="list-item flex align-center" key={participant._id}>
+                return <div className="list-item" key={participant._id} style={{color:'white'}}>
                   <Avatar>H</Avatar>
                   {participant.fullName}
-                </li>
+                </div>
               })
             }
-          </ul>
+          </div> 
 
-        </div>
-            <Chat eventi={eventi}/>
-        {/* <div className="eventi-comments">
-          <h3>Comment and Reviews</h3>
-          <ul className="comment-container">
-            {
-              eventi.comments.map(comment => {
-                return <li className="list-item flex column" key={comment._id}>
-                  <div className="author-details flex align-center">
-                    <Avatar>H</Avatar>
-                    <span className="author">{comment.author.fullName}</span>
-                  </div>
-                  <div className="comment-section">
-                    {comment.txt}
-                  </div>
-
-                </li>
-              })
-            }
-          </ul>
-
-        </div> */}
-      </section>
+    </div> 
+    <div className="chat-box flex justify-center">
+    <Button className="chat-btn" onClick={this.openChat}>Open chat</Button>
+    </div>
+    {this.state.isOpen && <Chat eventi={eventi} />}
+      </section >
 
 
 
