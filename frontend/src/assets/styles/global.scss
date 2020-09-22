@@ -16,12 +16,9 @@
 @import "components/Navbar.scss";
 @import "components/EventiPreview.scss";
 @import "components/EventiDetails.scss";
-<<<<<<< HEAD
-@import "components/eventiUpvoming.scss";
-@import "components/chat.scss";
-=======
 @import "components/EventiUpcoming.scss";
->>>>>>> 1fe0dff7ccdc60ba0493e2c80f37bb8e217413df
+@import "components/chat.scss";
+@import "components/StarRate.scss";
 
 // Pages
 @import "views/HomePage.scss";
