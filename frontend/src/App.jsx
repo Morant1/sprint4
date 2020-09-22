@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import {Navbar} from './cmps/Navbar';
 import {EventiApp} from './pages/EventiApp';
 import {EventiAdd} from './pages/EventiAdd';
+import {EventiEdit} from './pages/EventiEdit';
 import {HomePage} from './pages/HomePage';
 import {EventiDetails} from './pages/EventiDetails';
 
@@ -15,6 +16,7 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
+          <Route component={EventiEdit} path = '/edit/:_id'/>
           <Route component={EventiDetails} path='/:tag/:_id' /> 
           <Route component={EventiAdd} path='/add'/>
           <Route component={EventiApp} path='/:tag' />

@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import { eventService } from '../services/eventService'
 import { addEventi } from '../store/actions/eventActions'
 
-export class _EventiAdd extends Component {
+ class _EventiEdit extends Component {
     state = {
         eventi: {
-            name: '',
+            title: '',
             description: '',
             duration: '',
             location: '',
@@ -18,11 +18,11 @@ export class _EventiAdd extends Component {
         }
     }
     componentDidMount = async () => {
-        const eventiId = this.props.match.params.eventiId
+        const eventiId = this.props.match.params._id
         if (eventiId) {
             const eventi = await eventService.getById(eventiId)
-            console.log(eventi);
-            this.setState({ ...eventi })
+            console.log("Event loaded",eventi);
+            this.setState({eventi})
         }
         console.log('mounted');
     }
@@ -48,13 +48,14 @@ export class _EventiAdd extends Component {
 
     render() {
         const { eventi } = this.state
+        if (!eventi.title) return "Loading..."
         return (
 
             <div className="edit-area margin">
                 <form onSubmit={(event) => this.onSubmit(event)} className="edit-form container">
-                    <h1> Add Event</h1>
-                    <label htmlFor="title">Title:</label>
-                    <input type="text" name="title" id="title" onChange={this.handleChange} value={eventi.title} placeholder="Title" /><br></br>
+                    <h1> Edit Event</h1>
+                    <label htmlFor="name">Title:</label>
+                    <input type="text" name="name" id="name" onChange={this.handleChange} value={eventi.title} placeholder="title" /><br></br>
                     <label htmlFor="description">Description:</label>
                     <input type="text" name="description" id="description" onChange={this.handleChange} value={eventi.description} placeholder="Description" /><br></br>
                     <label htmlFor="date">Date:</label>
@@ -82,4 +83,4 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
     addEventi
 }
-export const EventiAdd = connect(mapStateToProps, mapDispatchToProps)(_EventiAdd)
+export const EventiEdit= connect(mapStateToProps, mapDispatchToProps)(_EventiEdit)
