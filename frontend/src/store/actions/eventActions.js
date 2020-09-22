@@ -17,10 +17,8 @@ export function addEventi(eventi) {
     try {
       eventi.createdAt = Date.now();
       eventi.tags = eventi.tags.split(',');
-      eventi.location = eventi.location.split(',');
-      eventi.location.city = eventi.location[0];
-      eventi.location.country = eventi.location[1];
-      eventi.startsAt = Date.parse(eventi.startsAt);
+      eventi.location.city = eventi.city;
+      eventi.location.country = eventi.country;
       eventi.participants = [];
       eventi.comments = [];
       eventi.rank = 0;
