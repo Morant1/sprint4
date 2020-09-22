@@ -9,7 +9,6 @@ function on(eventName, listener) {
 }
 
 function emit(eventName, data) {
-    console.log("data",data)
     window.dispatchEvent(new CustomEvent(eventName, { detail: data }));
 }
 
