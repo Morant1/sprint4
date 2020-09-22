@@ -56,7 +56,7 @@ import { addEventi } from '../store/actions/eventActions'
 
             <div className="edit-area margin">
                 <form onSubmit={(event) => this.onSubmit(event)} className="edit-form container">
-                    <h1> Add Event</h1>
+                    <h1> Edit Event</h1>
                     <label htmlFor="title">Title:</label>
                     <input type="text" name="title" id="title" onChange={this.handleChange} value={eventi.title} placeholder="Title" /><br></br>
                     <label htmlFor="description">Description:</label>

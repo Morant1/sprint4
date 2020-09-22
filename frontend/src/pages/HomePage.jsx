@@ -32,32 +32,32 @@ export class _HomePage extends Component {
         </section>
 
       <section className="events-grid">
-      <div className="event-card span-all" onClick={(ev) => { this.redirectClick('all') }}>
-          <img src={require('../assets/img/sport.jpg')}></img>
+      <div className="event-card span-all" onClick={(ev) => { this.redirectClick('All') }}>
+          <img src={require('../assets/img/Sport.jpg')}></img>
         <span className="tag-all">All events</span>
             </div>
         <div className="event-card" onClick={(ev) => { this.redirectClick('Sport') }}>
-          <img src={require('../assets/img/sport.jpg')}></img>
+          <img src={require('../assets/img/Sport.jpg')}></img>
         <span className="tag-sport">Sport</span>
             </div>
         <div className="event-card span" onClick={(ev) => { this.redirectClick('Movies') }}>
-        <img src={require('../assets/img/movies.jpg')}></img>
+        <img src={require('../assets/img/Movies.jpg')}></img>
           <span className="tag-movies">Movies</span>
         </div>
         <div className="event-card" onClick={(ev) => { this.redirectClick('Books') }}>
-        <img src={require('../assets/img/books.jpg')}></img>
+        <img src={require('../assets/img/Books.jpg')}></img>
           <span className="tag-books">Books</span>
           </div>
         <div className="event-card span" onClick={(ev) => { this.redirectClick('Art') }}>
-        <img src={require('../assets/img/art.jpg')}></img>
+        <img src={require('../assets/img/Art.jpg')}></img>
           <span className="tag-art">Art</span>
         </div>        
         <div className="event-card" onClick={(ev) => { this.redirectClick('TVShows') }}>
-        <img src={require('../assets/img/tvshows.jpg')}></img>
+        <img src={require('../assets/img/TVShows.jpg')}></img>
           <span className="tag-tvshows">TV Shows</span>
         </div>
         <div className="event-card" onClick={(ev) => { this.redirectClick('Comics') }}>
-        <img src={require('../assets/img/comics.jpg')}></img>
+        <img src={require('../assets/img/Comics.jpg')}></img>
           <span className="tag-comics">Comics</span>
         </div>
       </section>
