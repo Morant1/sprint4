@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { EventiPreview } from './EventiPreview'
 import { EventiFilter } from './EventiFilter'
+import { withRouter } from "react-router";
 
 
-export class EventiList extends Component {
+export class _EventiList extends Component {
 
     redirectClick = (tag) => {
         this.props.history.push(`/${tag}`)
@@ -31,5 +32,7 @@ export class EventiList extends Component {
     )
 }
 }
+
+export const EventiList = withRouter(_EventiList)
 
 
