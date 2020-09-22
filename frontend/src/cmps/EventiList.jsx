@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+const { withRouter } = ReactRouterDOM
 import { EventiPreview } from './EventiPreview'
 import { EventiFilter } from './EventiFilter'
 
@@ -32,4 +33,6 @@ export class EventiList extends Component {
 }
 }
 
+
+export const Modal = withRouter(_Modal);
 
