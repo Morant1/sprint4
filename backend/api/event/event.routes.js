@@ -7,8 +7,8 @@ const router = express.Router()
 
 router.get('/', getEvents)
 router.get('/:id', getEventi)
-router.put('/:id',requireAdmin, updateEventi)
-router.post('/',requireAdmin, addEventi)
+router.put('/:id', updateEventi)
+router.post('/', addEventi)
 router.post('/comment/:id',requireAdmin, updateComments)
 router.delete('/:id',requireAdmin, deleteEventi)
 

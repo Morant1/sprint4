@@ -37,6 +37,7 @@ async function save(eventi) {
     } else {
         const addedEventi  = await httpService.post(`event`, eventi);
         console.log("addEventi",addedEventi)
+        
         return addedEventi
     }
 }
