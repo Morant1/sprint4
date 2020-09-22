@@ -36,38 +36,63 @@ function _sortFilterEvents(events, date, sort, order) {
     const todayStr = moment(Date.now()).format('L')
 
     // DATES
+    // switch(date) {
+    //     case date === 'all':
+    //         sortedEvents = events;
+    //       break;
+    //     case date === 'today':
+    //         sortedEvents = events.filter(eventi => {
+    //             return moment(eventi.startsAt).format('L') === todayStr;
+    //         })
+    //       break;
+    //       case date === 'week':
+    //         sortedEvents = events.filter(eventi => {
+    //             return moment(eventi.startsAt).isSame(Date.now(),'week');
+    //         })
+    //       break;
+    //       case date === 'month':
+    //         sortedEvents = events.filter(eventi => {
+    //             return moment(eventi.startsAt).isSame(Date.now(),'week');
+    //         })
+    //       break;
+    //       case date === 'year':
+    //         sortedEvents = events.filter(eventi => {
+    //             return moment(eventi.startsAt).isSame(Date.now(),'year');
+    //         })
+    //       break;
+    //   }
+
     if (date === 'all') sortedEvents = events;
     if (date === 'today') {
         sortedEvents = events.filter(eventi => {
-            return moment(eventi.startsdAt).format('L') === todayStr;
+            return moment(eventi.startsAt).format('L') === todayStr;
         })
     }
     if (date === 'week') {
         sortedEvents = events.filter(eventi => {
-            return moment(eventi.startsdAt).isSame(Date.now(),'week');
+            return moment(eventi.startsAt).isSame(Date.now(),'week');
         })
     }
     if (date === 'month') {
         sortedEvents = events.filter(eventi => {
-            return moment(eventi.startsdAt).isSame(Date.now(),'month');
+            return moment(eventi.startsAt).isSame(Date.now(),'week');
         })
     }
     if (date === 'year') {
         sortedEvents = events.filter(eventi => {
-            return moment(eventi.startsdAt).isSame(Date.now(),'year');
+            return moment(eventi.startsAt).isSame(Date.now(),'year');
         })
     }
 
     //ORDER
-
     if (order === 'desc' || sort === 'date') {
         sortedEvents = sortedEvents.sort((a, b) => {
-            return a['startsdAt'] > b['startsdAt'] ? -1 : a['startsdAt'] < b['startsdAt'] ? 1 : 0
+            return a['startsAt'] > b['startsAt'] ? -1 : a['startsAt'] < b['startsAt'] ? 1 : 0
         })
     }
     if (order === 'asc') {
         sortedEvents = sortedEvents.sort((a, b) => {
-            return a['startsdAt'] < b['startsdAt'] ? -1 : a['startsdAt'] > b['startsdAt'] ? 1 : 0
+            return a['startsAt'] < b['startsAt'] ? -1 : a['startsAt'] > b['startsAt'] ? 1 : 0
         })
     }
 

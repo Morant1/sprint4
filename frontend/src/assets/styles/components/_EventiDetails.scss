@@ -1,38 +1,69 @@
 .eventi-details {
-    color: $clr7;
-    margin-top: 100px;
-    *{
-        font-family: FiraSans-light;
-        font-size: rem(16px);
-        margin-right: 5px;
+    border-radius: 136px;
+    color: #2f2f2f;
+    margin-top: 59px;
+    background-size: cover;
 
-        .eventi-subtitle {
-            &* {
-                line-height: 1.7;
-                margin: 0;
+
+        .btn-details {
+            margin-top:10px;
+            button {
+                background-color: white;
+                margin:3px;
+
+                &:hover {
+                    background-color: $clr2 !important;
+                }
             }
+
         }
-        &.eventi-title {
-            justify-content: space-between;
+        .eventi-title {
+            background-color: #ffffff3b;
+            flex-direction: column;
+            margin-top:10px;
+            color:white;
             h2 {
                 font-family: PermanentMarker;
                 font-size: rem(36px);
             }
-        }
-        img {
-            width: 200px;
-            height: 200px;
-            margin: 5px;
-            object-fit: cover;
+            p {
+                text-align: center;
+                width: 40ch;
+                font-size: rem(16px);
+            }
         }
 
-        a {
-            background-color: $clr3;
-            color: $clr7;
+        .eventi-photo {
+            margin-top:30px;
+        }
+        
+        .details-img {
+            width: 200px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border: 5px solid $clr2;
+            border-radius: 21px;
+            margin: -5px;
+        
+
+            &:nth-child(odd) {
+                margin:15px;
+            }
+        }
+        
+        .eventi-participants {
+            flex-direction: column;
+            background-color: #ffffff3b;
+            margin: 10px 0;
+            .title{
+                font-family: PermanentMarker;
+                font-size: rem(18px);
+                color:$clr2;
+            }
         }
 
         .participant-container {
-            background-color: aquamarine;
             .list-item {
                 padding: 10px 10px;
             }
@@ -47,5 +78,12 @@
                 padding: 5px 5px;
             }
         }
+    }
+
+.chat-box {
+    margin-bottom: 20px;
+
+    .chat-btn {
+        background-color: $clr3 !important;
     }
 }
