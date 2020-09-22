@@ -34,46 +34,6 @@ export class _HomePage extends Component {
 
         </section>
 
-<<<<<<< HEAD
-        <section className="main-container">
-          <div className="events-grid">
-            <div className="event-card span-all" onClick={(ev) => { this.redirectClick('all') }}>
-              <img src={require('../assets/img/sport.jpg')}></img>
-              <span className="tag-all">All events</span>
-            </div>
-            <div className="event-card" onClick={(ev) => { this.redirectClick('Sport') }}>
-              <img src={require('../assets/img/sport.jpg')}></img>
-              <span className="tag-sport">Sport</span>
-            </div>
-            <div className="event-card span" onClick={(ev) => { this.redirectClick('Movies') }}>
-              <img src={require('../assets/img/movies.jpg')}></img>
-              <span className="tag-movies justify-center align-center">Movies</span>
-            </div>
-            <div className="event-card" onClick={(ev) => { this.redirectClick('Books') }}>
-              <img src={require('../assets/img/books.jpg')}></img>
-              <span className="tag-books">Books</span>
-            </div>
-            <div className="event-card span" onClick={(ev) => { this.redirectClick('Art') }}>
-              <img src={require('../assets/img/art.jpg')}></img>
-              <span className="tag-art">Art</span>
-            </div>
-            <div className="event-card" onClick={(ev) => { this.redirectClick('TVShows') }}>
-              <img src={require('../assets/img/tvshows.jpg')}></img>
-              <span className="tag-tvshows">TV Shows</span>
-            </div>
-            <div className="event-card" onClick={(ev) => { this.redirectClick('Comics') }}>
-              <img src={require('../assets/img/comics.jpg')}></img>
-              <span className="tag-comics">Comics</span>
-            </div>
-          </div>
-        </section>
-
-        <section id="tickr-box">
-          <div className="tickr-title flex justify-center align-center">Upcoming events</div>
-          <div id="tickr-scroll">
-            {
-              filteredList.map(eventi => <ul><EventiUpComing eventi={eventi} key={eventi._id} currTag={eventi.tags[0]} /></ul>)
-=======
       <section className="events-grid">
       <div className="event-card span-all" onClick={(ev) => { this.redirectClick('All') }}>
           <img src={require('../assets/img/Sport.jpg')}></img>
@@ -104,8 +64,11 @@ export class _HomePage extends Component {
           <span className="tag-comics">Comics</span>
         </div>
       </section>
->>>>>>> e8d3d9f247f1681ac83912efdd66d3cfe41406fb
-
+      <section id="tickr-box">
+          <div className="tickr-title flex justify-center align-center">Upcoming events</div>
+          <div id="tickr-scroll">
+            {
+              filteredList.map(eventi => <ul><EventiUpComing eventi={eventi} key={eventi._id} currTag={eventi.tags[0]} /></ul>)
             }
           </div>
         </section>
