@@ -2,17 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import {Chat} from '../cmps/Chat'
 import AccessTime from '@material-ui/icons/AccessTime'
-// import StarIcon from '@material-ui/icons/Star'
 import { Avatar } from '@material-ui/core';
 
-// import { connect } from 'react-redux';
-
 import { eventService } from '../services/eventService';
-import StarRate from '../cmps/StarRate';
+import {StarRate} from '../cmps/StarRate';
 
-// import { loadEvents } from '../store/actions/eventActions';
-//Redirect to Edit event
-// Map // Review // Attanding //Chat
+
 
 
 
