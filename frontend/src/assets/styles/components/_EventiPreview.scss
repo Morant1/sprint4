@@ -1,5 +1,9 @@
+.preview-grid{
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column: 2/-1;
+}
+
 .eventi-preview {
-    width: 300px;
     // background-color: $clr3;
     color: $clr1;
     display: inline-block;
@@ -16,12 +20,19 @@
         background-color: $clr4;
         color: $clr6;
     }
-
+.img-area{
     img {
         border-radius: 5%;
         height: 250px;
         object-fit: cover;
+
     }
+    button{
+        position:absolute; 
+
+    }
+}
+
     a {
         color: $clr7;
     }
@@ -40,7 +51,7 @@
             border-radius: 50%;
         }
     }
-
+    
     button:hover span {
         display: none;
     }

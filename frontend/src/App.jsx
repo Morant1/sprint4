@@ -11,7 +11,7 @@ import {EventiDetails} from './pages/EventiDetails';
 
 function App() {
   return (
-    <div className="App main-container">
+    <div className="App">
       <Router>
         <Navbar />
         <Switch>

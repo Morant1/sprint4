@@ -1,0 +1,14 @@
+.side-nav {
+    margin-top:50px; 
+    display: block;
+    background-color: $clr6;
+    align-content: space-between;
+    height: 100%;
+    z-index:1; 
+
+    .tag-list{
+        &*{
+            background-color: blueviolet;
+        }
+    }
+}

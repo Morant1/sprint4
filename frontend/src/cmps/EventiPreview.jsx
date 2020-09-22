@@ -11,12 +11,11 @@ export function EventiPreview({ eventi, currTag }) {
     return (
         <div className="eventi-preview card">
             <Link to={`/${currTag}/${eventi._id}`}>
-          
+                <div className="img-area">
+            <button className="attend-btn" ><span>who's going?</span></button>
                 <img className="preview-img" alt="event-01" src={img} />
-                <button className="attend-btn" ><span>who's going?</span></button>
+                </div>
                 <div className="preview-info">
-
-              
                     {eventi.participants.length} of your friends are going
                     <div className="preview-title">{eventi.title}</div>
                     <span className="preview-time"> {new Date(eventi.startsAt).toDateString()}</span>
