@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Avatar } from '@material-ui/core';
+import StarIcon from '@material-ui/icons/Star';
 
 
 
@@ -10,10 +11,13 @@ export function EventiPreview({ eventi, currTag }) {
     return (
         <div className="eventi-preview card">
             <Link to={`/${currTag}/${eventi._id}`}>
+          
                 <img className="preview-img" alt="event-01" src={img} />
+                <button className="attend-btn" ><span>who's going?</span></button>
                 <div className="preview-info">
-                    <button className="attend-btn" ><span>{eventi.participants.length} of your friends are going</span>
-                    </button>
+
+              
+                    {eventi.participants.length} of your friends are going
                     <div className="preview-title">{eventi.title}</div>
                     <span className="preview-time"> {new Date(eventi.startsAt).toDateString()}</span>
                     <div className="preview-date">{eventi.duration} hours</div>
