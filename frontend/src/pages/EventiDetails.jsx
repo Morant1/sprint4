@@ -15,7 +15,8 @@ export class EventiDetails extends Component {
   state = {
     eventi: null,
     isGoing: false,
-    isOpen: false
+    isOpen: false,
+    isRankPressed: false
   }
   componentDidMount() {
     this.loadEventi()
@@ -29,12 +30,21 @@ export class EventiDetails extends Component {
       })
 
   }
+
+  onBack = () => {
+    this.props.history.goBack();
+  }
   openChat = () => {
     this.setState({isOpen:!this.state.isOpen})
   }
-
+  addRank = () => {
+    const {eventi,isRankPressed} = this.state;
+    const isRankVal = !isRankPressed;
+    this.setState({isRankPressed:isRankVal })
+    const rank = isRankPressed ? eventi.rank + 1 : eventi.rank -1;
+    
+  }
   addParticipant = () => {
-    console.log('click click- u added another one')
     this.setState({
       isGoing: !this.state.isGoing
     })
@@ -47,10 +57,12 @@ export class EventiDetails extends Component {
     return (
       <section className="eventi-details"
         style={{ backgroundImage: `url(${require(`../assets/img/details-img.jpg`)})` }}>
+          <div className="close" onClick={this.onBack}>X</div>
           <div className="btn-details flex justify-center">
           <Button className="join" onClick={this.addParticipant}>I am {isGoing ? 'going' : 'not going'}</Button>
           <Button><Link to={`/event/edit/${eventi._id}`}>Edit</Link></Button>
           <Button>Delete</Button>
+          <Button onClick={this.addRank}><img className="star-icon" src={require('../assets/icons/rank.svg')}/></Button>
           </div>
         <div className="eventi-photo flex justify-center">
           <div className="details-img"
@@ -63,15 +75,16 @@ export class EventiDetails extends Component {
             style={{ backgroundImage: `url(${require(`../assets/img/${eventi.tags[0]}3.jpg`)})` }}>
           </div>
         </div>
+        <StarRate rank={eventi.rank}/>
         <div className="eventi-title flex justify-center align-center">
           <h2>{eventi.title}</h2>
           <p>{eventi.description}</p>
         </div>
+        
       
           
         
-        {/* <StarRate/>
-        <div className="eventi-subtitle flex"> */}
+        {/* <div className="eventi-subtitle flex"> */} 
     {/* <StarIcon /> */ }
     {/* <h5>{eventi.rank}(3147)</h5>
           <h5>| {eventi.location.city},{eventi.location.country}</h5>
@@ -98,7 +111,7 @@ export class EventiDetails extends Component {
 
     </div> 
     <div className="chat-box flex justify-center">
-    <Button className="chat-btn" onClick={this.openChat}>Open chat</Button>
+    <Button className="chat-btn" onClick={this.openChat}>{this.state.isOpen? 'Close ': 'Open '}chat</Button>
     </div>
     {this.state.isOpen && <Chat eventi={eventi} />}
       </section >

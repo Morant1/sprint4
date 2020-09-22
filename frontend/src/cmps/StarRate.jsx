@@ -1,20 +1,32 @@
-import React from 'react';
-import Rating from '@material-ui/lab/Rating';
+
+import React, { Component } from 'react';
 
 
-export function StarRate() {
-  const [value, setValue] = React.useState(2);
+export class StarRate extends Component {
+
+  state = {
+    rank: this.props.rank
+  }
+
+  setValue = (rank) => {
+    this.setState({rank})
+  }
+
+  render() {
+
+  const stars = []
+  for (let i=0;i<Math.round(this.state.rank);i++) {
+    stars.push(<img className="star-icon" src={require('../assets/icons/rank.svg')}/>)
+  }
 
   return (
     <div className="star-rating">
-        <Rating
-          name="simple-controlled"
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-        />
+      {stars}<span>({Math.round(this.state.rank)})</span>
     </div>
   );
 }
+}
+
+
+
 
