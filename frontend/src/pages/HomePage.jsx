@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addEventi, loadEvents } from '../store/actions/eventActions'
 import { EventiUpComing } from '../cmps/EventiUpComing'
-import { GlobalSearch } from '../cmps/GlobalSearch'
 
 export class _HomePage extends Component {
 
@@ -29,7 +28,6 @@ export class _HomePage extends Component {
           <img src={require('../assets/img/main.jpg')} />
           <div className="header">
             <p><span>Even{`{t}`} Better </span>helps you socialize while social distancing</p>
-            <GlobalSearch />
           </div>
 
         </section>

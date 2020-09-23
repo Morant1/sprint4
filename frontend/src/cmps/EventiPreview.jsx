@@ -5,7 +5,7 @@ import StarIcon from '@material-ui/icons/Star';
 
 
 
-{/* Lital dont forget to put date -> <h3>CreatedAt:{new Date(toy.createdAt).toDateString()}</h3> */ }
+
 export function EventiPreview({ eventi, currTag }) {
    const img = eventi.ImgUrl ? require(`../assets/img/${eventi.title}.jpg`) : require(`../assets/img/${eventi.title}.jpg`)
     return (
