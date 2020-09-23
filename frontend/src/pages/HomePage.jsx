@@ -40,7 +40,7 @@ export class _HomePage extends Component {
 
         </section>
 
-        <section className="events-grid margin">
+        <section className="events-grid margin container">
 
           <div className="event-card" onClick={(ev) => { this.redirectClick('Sport') }}>
             <span className="tag-sport">Sport</span>

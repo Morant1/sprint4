@@ -23,7 +23,7 @@ export class _Navbar extends Component {
     render() {
         return (
             <React.Fragment>
-                <nav className="main-nav flex align-center justify-between">
+                <nav className="main-nav flex align-center justify-between container">
                     <ul className="nav-list flex">
                         <li className="logo"><Link to="/"><img src={require('../assets/img/logo.png')}/></Link></li>
                     </ul>

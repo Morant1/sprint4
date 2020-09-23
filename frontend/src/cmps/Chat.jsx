@@ -85,7 +85,7 @@ export class Chat extends Component {
         </div>
         {eventi.comments.map((comment, index) => {
           return (
-            <div key={comment.id} className={`container ${index % 2 === 0 ? 'blue' : ''}`}>
+            <div key={comment.id} className={`chat-container ${index % 2 === 0 ? 'blue' : ''}`}>
               {/* {comment.author.imgUrl? 
                         <img src={`${comment.author.imgUrl}`} alt="Avatar" style={{width:'100%'}}/>
                         : */}

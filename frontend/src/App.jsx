@@ -14,7 +14,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-     
         <Navbar />
         <Switch>
           <Route component={EventiEdit} path = '/edit/:_id'/>

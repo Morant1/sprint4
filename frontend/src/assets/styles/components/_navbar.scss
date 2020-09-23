@@ -9,6 +9,7 @@
     width: 100%;
     z-index: 999;
     color: $clr7;
+    padding:0; 
 
     .nav-option {
         &:last-child {
@@ -71,8 +72,6 @@
 .search-icon {
     width: 20px;
 }
-
-
 
 .local-search {
     height: 100px;
