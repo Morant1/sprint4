@@ -10,6 +10,6 @@ router.get('/:id', getEventi)
 router.put('/:id', updateEventi)
 router.post('/', addEventi)
 router.post('/comment/:id',requireAdmin)
-router.delete('/:id',requireAdmin, deleteEventi)
+router.delete('/:id', deleteEventi)
 
 module.exports = router

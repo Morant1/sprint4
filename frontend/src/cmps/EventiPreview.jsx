@@ -6,8 +6,6 @@ import { Avatar } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
 
 
-
-
 class _EventiPreview extends Component {
 
 
@@ -15,7 +13,7 @@ class _EventiPreview extends Component {
     const {eventi,currTag,loggedInUser} = this.props;
     console.log(loggedInUser)
     const user = eventi.participants.find(participant=> participant._id === loggedInUser._id)
-   const img = eventi.ImgUrl ? require(`../assets/img/${eventi.title}.jpg`) : require(`../assets/img/${eventi.title}.jpg`)
+   const img = eventi.ImgUrl ? require(`../assets/img/${eventi.title}.jpg`) : require(`../assets/img/${eventi.tags}.jpg`)
     return (
         <div className="eventi-preview card margin">
             <Link to={`/${currTag}/${eventi._id}`}>

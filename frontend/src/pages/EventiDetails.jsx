@@ -10,6 +10,7 @@ import { eventService } from '../services/eventService';
 import {updateEvent} from '../store/actions/eventActions'
 import {updateUser} from '../store/actions/userActions'
 import {BusService} from '../services/event-bus-service'
+import {removeEvent} from '../store/actions/eventActions'
 
 
 class _EventiDetails extends Component {
@@ -88,6 +89,11 @@ class _EventiDetails extends Component {
     return {backgroundColor: '#2f2f2f'}
     }
   }
+  removeEvent = (eventId) => {
+    this.props.removeEvent(eventId);
+    console.log(eventId)
+    this.props.history.push(`/${this.state.eventi.tags}`);
+  };
 
   render() {
     const { eventi, isGoing } = this.state
@@ -103,7 +109,7 @@ class _EventiDetails extends Component {
           I am {isGoing ? 'going' : 'not going'}
           </Button>
           <Button><Link to={`/edit/${eventi._id}`}>Edit</Link></Button>
-          <Button>Delete</Button>
+          <Button onClick={()=>this.removeEvent(eventi._id)}>Delete</Button>
           <Button onClick={this.addRank} style={this.getRankStyle()}>
             <img className="star-icon" src={require('../assets/icons/rank.svg')}/>
             </Button>
@@ -131,8 +137,6 @@ class _EventiDetails extends Component {
         </div>
           {/* <h3><img className="clock-icon icon" src={require('../assets/icons/time-outline.svg')}/>{eventi.duration} hours</h3>  */}
      </div>
- 
-
         <div className="eventi-participants flex justify-center align-center">
           <div className="title">Who is coming?</div>
           <div className="participant-container flex align-center">
@@ -153,8 +157,6 @@ class _EventiDetails extends Component {
     {this.state.isOpen && <Chat eventi={eventi} />}
       </section >
 
-
-
     )
   }
 }
@@ -167,7 +169,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   updateEvent,
-  updateUser
+  updateUser,
+  removeEvent
 }
 
 export const EventiDetails = connect(mapStateToProps, mapDispatchToProps)(_EventiDetails)
