@@ -1,10 +1,11 @@
 .main-content {
+    // @include aspect-ratio(1, 1);
     position: relative;
     width: 100%;
     height: 500px;
     flex-direction: column;
     overflow: hidden;
-
+    
     .screen {
         position: absolute;
         top: 0;
@@ -17,6 +18,7 @@
         &.main-img {
             object-fit: cover;
             width: 98vw;
+          
         }
     }
 
@@ -53,6 +55,8 @@
 .event-card {
     @include aspect-ratio(1, 1);
     font-size: rem(50px);
+    font-family: PermanentMarker;
+  text-align: center;
     color: $clr6;
     background-color: $clr1;
     cursor: pointer;
@@ -74,45 +78,8 @@
     }
 }
 
-//     &.tag-1 {
-//         grid-column: span 2;
-//         background-image: url("../../img/game1.jpg");
-//         background-size: cover;
-//     }
 
-//     &.tag-2 {
-//         background-image: url("../../img/game2.jpg");
-//         background-size: cover;
-//     }
-//     &.tag-3 {
-//         background-image: url("../../img/game3.jpg");
-//         background-size: cover;
-//     }
-//     &.tag-4 {
-//         grid-column: span 2;
-//         background-image: url("../../img/game4.jpg");
-//         background-size: cover;
-//     }
-// }
 
-// @include for-normal-layout {
-//     .events-grid {
-//         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-//     }
-// }
-
-// @include for-narrow-layout {
-//     .events-grid {
-//         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-//     }
-// }
-
-// @include for-ex_narrow-layout {
-//     .tag-2,
-//     .tag-3 {
-//         grid-column: span 2;
-//     }
-// }
 
 // .tag
 // cursor: pointer;
