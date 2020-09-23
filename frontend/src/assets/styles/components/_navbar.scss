@@ -1,5 +1,6 @@
 .main-nav {
     height: 50px;
+ 
     background-color: $clr6;
     border-bottom: 1px solid #9e9e9e;
     line-height: 1rem;
@@ -39,6 +40,17 @@
         &:hover {
             background-color: $clr1;
             color: $clr6;
+        }
+    }
+    .logo{
+        color:$clr6; 
+        // color:#000000; 
+        font-family: PermanentMarker;
+        font-size: rem(28px);
+        margin-left:rem(20px); 
+        .gray{
+             color:#464646; 
+            // color:#464646; 
         }
     }
 }
@@ -87,9 +99,10 @@
     margin-right:21px;
     position: relative;
     width: 35px;
+    cursor:pointer; 
 }
 
-.menu-list {
+.user-menu {
     padding: 0;
     position: absolute;
     right:6px;
@@ -99,6 +112,6 @@
     li {
         cursor: pointer;
         list-style-type: none;
-        padding: 2px;
+        padding: 10px;
     }
 }
