@@ -5,11 +5,13 @@ import { withRouter } from "react-router";
 import { GlobalSearch } from './GlobalSearch';
 import PersonIcon from '@material-ui/icons/Person';
 import { logout } from '../store/actions/userActions';
+import {UserNotifications} from '../cmps/UserNotifications'
 
 export class _Navbar extends Component {
 
     state = {
-        isUserProfile: false
+        isUserProfile: false,
+        isNotify: false
     }
 
     onUser = () => {
@@ -22,7 +24,15 @@ export class _Navbar extends Component {
         this.props.logout();
         this.onUser();
     }
-          
+    
+    onNotifiction = () => {
+        const isNotify = !this.state.isNotify
+        this.setState({isNotify})
+    }
+    getStyle = () => {
+        return {'display': this.state.isNotify ? 'flex': 'none'}
+        
+    }
   
 
     componentDidMount() {
@@ -48,9 +58,12 @@ export class _Navbar extends Component {
                     {this.props.location.pathname !== "/" && <GlobalSearch />}
                     <button className="add-event-btn"><Link to="/add">Add Event</Link></button>
                     {this.props.loggedInUser && <div>Welcome {this.props.loggedInUser.username}</div>}
+                    <img className="activities-icon" onClick={this.onNotifiction} src={require('../assets/icons/notification.svg')} />
+                    <div className="user-notification align-center justify-center" style={this.getStyle()}>
+                    <UserNotifications/>
+                    </div>
                     <img onClick={this.onUser} className="user-icon" src={require('../assets/icons/person-circle-outline.svg')} />
                     {this.state.isUserProfile && <ul className="menu-list" >
-                        <li onClick={this.onUser}>Profile</li>
                         <li onClick={this.onUser}><Link to="/login">Login</Link></li>
                         <li onClick={this.onLogout}>Logout</li>
                     </ul>}

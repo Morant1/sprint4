@@ -33,6 +33,7 @@ function remove(eventId) {
 async function save(eventi) {
     if (eventi._id) {
         const editedEventi  = await httpService.put(`event/${eventi._id}`, eventi);
+        console.log("service",editedEventi)
         return editedEventi
     } else {
         const addedEventi  = await httpService.post(`event`, eventi);

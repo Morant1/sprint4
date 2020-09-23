@@ -1,4 +1,6 @@
-import React from 'react'
+
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { Avatar } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
@@ -6,14 +8,19 @@ import StarIcon from '@material-ui/icons/Star';
 
 
 
-export function EventiPreview({ eventi, currTag }) {
-    // Need to be fixed! -> eventi.title
+class _EventiPreview extends Component {
+
+
+   render() {
+    const {eventi,currTag,loggedInUser} = this.props;
+    console.log(loggedInUser)
+    const user = eventi.participants.find(participant=> participant._id === loggedInUser._id)
    const img = eventi.ImgUrl ? require(`../assets/img/${eventi.title}.jpg`) : require(`../assets/img/${eventi.title}.jpg`)
     return (
         <div className="eventi-preview card margin">
             <Link to={`/${currTag}/${eventi._id}`}>
                 <div className="img-area">
-            <button className="attend-btn"><span>going?</span></button>
+            <button className="attend-btn"><span>{user? 'You are going!' : "Join The fun!"}</span></button>
                 <img className="preview-img" alt="event-01" src={img} />
                 </div>
                 <div className="preview-info">
@@ -34,5 +41,15 @@ export function EventiPreview({ eventi, currTag }) {
         </div>
     )
 }
+}
 
+const mapStateToProps = state => {
+    return {
+      loggedInUser: state.userReducer.loggedInUser
+    };
+  };
+  
+  
+  export const EventiPreview = connect(mapStateToProps)(_EventiPreview)
+  
 

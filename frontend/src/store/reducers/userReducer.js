@@ -1,4 +1,4 @@
-let localLoggedinUser = null;
+let localLoggedinUser = {"_id":"123","username":"guest","isGoing":false};
 if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user);
 
 const initialState = {

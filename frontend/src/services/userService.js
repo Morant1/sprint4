@@ -4,7 +4,8 @@ export default {
     login,
     logout,
     signup,
-    getUsers
+    getUsers,
+    update
 }
 
 function getUsers() {
@@ -33,4 +34,10 @@ async function logout() {
 function _handleLogin(user) {
     sessionStorage.setItem('user', JSON.stringify(user))
     return user;
+}
+
+
+async function update(user) {
+        const editedUser  = await httpService.put(`user/${user._id}`, user);
+        return editedUser
 }

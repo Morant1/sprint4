@@ -39,7 +39,7 @@ export class _HomePage extends Component {
           </div>
         </section>
 
-        {/* Lital,Events-grid should be in a component! */}
+        {/* Lital,Events-grid should be in a component */}
         <section className="events-grid margin container">
 
           <div className="event-card" onClick={(ev) => { this.redirectClick('Sport') }}>
