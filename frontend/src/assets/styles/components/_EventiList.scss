@@ -4,25 +4,3 @@
 }
 
 
-.tag-list {
-    margin: 15px 0 15px 0;
-}
-
-.tag-item {
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 21px;
-    background-color: $clr1;
-    padding: 0 10px 0 10px;
-    color:$clr6;
-
-    &:nth-child(even) {
-        background-color: $clr3;
-    }
-}
-
-.tag-item:hover {
-    cursor: pointer;
-    background-color:$clr2;
-
-}

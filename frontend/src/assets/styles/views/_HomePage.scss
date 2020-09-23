@@ -1,24 +1,47 @@
 .main-content {
+    // @include aspect-ratio(1, 1);
     position: relative;
     width: 100%;
-    height: 500px; 
+    height: 500px;
     flex-direction: column;
     overflow: hidden;
-
-
-    &.main-img {
-        object-fit: cover;
-        width: 98vw;
+    
+    .screen {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $clr1;
+        mix-blend-mode: inherit;
+        opacity: 0.4;
+        &.main-img {
+            object-fit: cover;
+            width: 98vw;
+          
+        }
     }
+
     .header {
         position: absolute;
         top: 50%;
         left: 50%;
+        text-align: center;
         transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         color: $clr6;
         font-size: rem(27px);
+        z-index: 12;
         cursor: pointer;
+    }
+    .all-events {
+        border-radius: rem(50px);
+        width: 250px;
+        border: rem(4px) solid $clr6;
+        margin: auto;
+        &:hover {
+            background-color: $clr1;
+        }
     }
 }
 
@@ -32,19 +55,22 @@
 .event-card {
     @include aspect-ratio(1, 1);
     font-size: rem(50px);
+    font-family: PermanentMarker;
+  text-align: center;
     color: $clr6;
     background-color: $clr1;
     cursor: pointer;
 
     &:hover {
-        background-color: $clr4;
-        color: $clr5;
+        background-color: #8219c8;
+        color: $clr6;
         h3 {
-            color: $clr5;
+            color: $clr6;
         }
     }
 
     img {
+        filter: grayscale(0.5);
         mix-blend-mode: multiply;
     }
     a {
@@ -52,45 +78,8 @@
     }
 }
 
-//     &.tag-1 {
-//         grid-column: span 2;
-//         background-image: url("../../img/game1.jpg");
-//         background-size: cover;
-//     }
 
-//     &.tag-2 {
-//         background-image: url("../../img/game2.jpg");
-//         background-size: cover;
-//     }
-//     &.tag-3 {
-//         background-image: url("../../img/game3.jpg");
-//         background-size: cover;
-//     }
-//     &.tag-4 {
-//         grid-column: span 2;
-//         background-image: url("../../img/game4.jpg");
-//         background-size: cover;
-//     }
-// }
 
-// @include for-normal-layout {
-//     .events-grid {
-//         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-//     }
-// }
-
-// @include for-narrow-layout {
-//     .events-grid {
-//         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-//     }
-// }
-
-// @include for-ex_narrow-layout {
-//     .tag-2,
-//     .tag-3 {
-//         grid-column: span 2;
-//     }
-// }
 
 // .tag
 // cursor: pointer;

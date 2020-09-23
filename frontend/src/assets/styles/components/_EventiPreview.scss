@@ -15,9 +15,11 @@
     button {
         padding: 10px;
         background-color: $clr3;
+        border-top-left-radius: 12%;
+        transition: all .2s;
     }
     button:hover {
-        background-color: $clr4;
+        background-color: $clr1;
         color: $clr6;
     }
 .img-area{

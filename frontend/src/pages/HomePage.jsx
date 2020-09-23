@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addEventi, loadEvents } from '../store/actions/eventActions'
 import { EventiUpComing } from '../cmps/EventiUpComing'
-import { GlobalSearch } from '../cmps/GlobalSearch'
 
 export class _HomePage extends Component {
 
@@ -26,45 +25,54 @@ export class _HomePage extends Component {
     return (
       <React.Fragment>
         <section className="main-content flex">
+          <div class="screen">
+          </div>
           <img className="main-img" src={require('../assets/img/main.jpg')} />
+
           <div className="header">
             <p><span>Even{`{t}`} Better </span>helps you socialize while social distancing</p>
-            <GlobalSearch />
+            <div className="all-events span-all" onClick={(ev) => { this.redirectClick('All') }}>
+              <span className="tag-all">All events</span>
+            </div>
+            {/* <GlobalSearch /> */}
           </div>
 
         </section>
 
-      <section className="events-grid">
-      <div className="event-card span-all" onClick={(ev) => { this.redirectClick('All') }}>
-          <img src={require('../assets/img/Sport.jpg')}></img>
-        <span className="tag-all">All events</span>
-            </div>
-        <div className="event-card" onClick={(ev) => { this.redirectClick('Sport') }}>
-          <img src={require('../assets/img/Sport.jpg')}></img>
-        <span className="tag-sport">Sport</span>
-            </div>
-        <div className="event-card span" onClick={(ev) => { this.redirectClick('Movies') }}>
-        <img src={require('../assets/img/Movies.jpg')}></img>
-          <span className="tag-movies">Movies</span>
-        </div>
-        <div className="event-card" onClick={(ev) => { this.redirectClick('Books') }}>
-        <img src={require('../assets/img/Books.jpg')}></img>
-          <span className="tag-books">Books</span>
+        <section className="events-grid">
+
+          <div className="event-card" onClick={(ev) => { this.redirectClick('Sport') }}>
+            <span className="tag-sport">Sport</span>
+            <img src={require('../assets/img/Sport.jpg')}></img>
+
           </div>
-        <div className="event-card span" onClick={(ev) => { this.redirectClick('Art') }}>
-        <img src={require('../assets/img/Art.jpg')}></img>
-          <span className="tag-art">Art</span>
-        </div>        
-        <div className="event-card" onClick={(ev) => { this.redirectClick('TVShows') }}>
-        <img src={require('../assets/img/TVShows.jpg')}></img>
-          <span className="tag-tvshows">TV Shows</span>
-        </div>
-        <div className="event-card" onClick={(ev) => { this.redirectClick('Comics') }}>
-        <img src={require('../assets/img/Comics.jpg')}></img>
-          <span className="tag-comics">Comics</span>
-        </div>
-      </section>
-      <section id="tickr-box">
+          <div className="event-card span" onClick={(ev) => { this.redirectClick('Movies') }}>
+            <span className="tag-movies">Movies</span>
+            <img src={require('../assets/img/Movies.jpg')} />
+
+          </div>
+          <div className="event-card" onClick={(ev) => { this.redirectClick('Books') }}>
+            <span className="tag-books">Books</span>
+            <img src={require('../assets/img/Books.jpg')} />
+
+          </div>
+          <div className="event-card span" onClick={(ev) => { this.redirectClick('Art') }}>
+            <span className="tag-art">Art</span>
+            <img src={require('../assets/img/Art.jpg')}></img>
+
+          </div>
+          <div className="event-card" onClick={(ev) => { this.redirectClick('TVShows') }}>
+            <span className="tag-tvshows">TV Shows</span>
+            <img src={require('../assets/img/TVShows.jpg')}></img>
+
+          </div>
+          <div className="event-card" onClick={(ev) => { this.redirectClick('Comics') }}>
+            <span className="tag-comics">Comics</span>
+            <img src={require('../assets/img/Comics.jpg')}></img>
+
+          </div>
+        </section>
+        <section id="tickr-box">
           <div className="tickr-title flex justify-center align-center">Upcoming events</div>
           <div id="tickr-scroll">
             {
