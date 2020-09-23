@@ -8,6 +8,8 @@ import { StarRate } from '../cmps/StarRate';
 import { Chat } from '../cmps/Chat'
 import { eventService } from '../services/eventService';
 import {updateEvent} from '../store/actions/eventActions'
+import {updateUser} from '../store/actions/userActions'
+import {BusService} from '../services/event-bus-service'
 
 
 class _EventiDetails extends Component {
@@ -26,6 +28,7 @@ class _EventiDetails extends Component {
     eventService.getById(_id)
       .then(eventi => {
         this.setState({ eventi })
+        BusService.emit('notify', { msg: `You watched ${eventi.title} event details`})
       })
 
   }
@@ -43,19 +46,46 @@ class _EventiDetails extends Component {
     eventi.rank = newRank;
     this.setState({eventi, isRankPressed })
     this.props.updateEvent(eventi);
+    BusService.emit('notify', { msg: `Rank of ${eventi.title} changed`})
 
     
   }
-  addParticipant = () => {
+   addParticipant = () => {
+    let user = this.props.loggedInUser;
+    user.isGoing = !this.state.isGoing;
+    this.props.updateUser(user)
+    // this.props.toggleParticipation()
     this.setState({
       isGoing: !this.state.isGoing
-    })
+    },()=>{
 
+      let eventi = this.state.eventi;
+      if (this.state.isGoing) {
+        eventi.participants.push(user)
+        console.log("push",eventi.participants)
+        BusService.emit('notify', { msg: `You are going to ${eventi.title} event`})
+      } else {
+        const idx = eventi.participants.findIndex(participant=> participant===user);
+        if (idx) eventi.participants.splice(idx,1)
+        BusService.emit('notify', { msg: `You are not going to ${eventi.title} event anymore`})
+        console.log("remove",eventi.participants)
+      }
+      console.log(eventi)
+      this.props.updateEvent(eventi)
+      this.setState({eventi})
+
+    })
   }
 
-  getStyle = () => {
+  getRankStyle = () => {
     if (this.state.isRankPressed) {
-    return {backgroundColor: 'blue'}
+    return {backgroundColor: '#FCCD04'}
+    }
+  }
+
+  getGoingStyle = () => {
+    if (this.state.isGoing) {
+    return {backgroundColor: '#2f2f2f'}
     }
   }
 
@@ -68,10 +98,13 @@ class _EventiDetails extends Component {
         style={{ backgroundImage: `url(${require(`../assets/img/details-img.jpg`)})` }}>
           <div className="close" onClick={this.onBack}>X</div>
           <div className="btn-details flex justify-center">
-          <Button className="join" onClick={this.addParticipant}>I am {isGoing ? 'going' : 'not going'}</Button>
+          <Button className="join" style={this.getGoingStyle()} 
+          onClick={this.addParticipant}>
+          I am {isGoing ? 'going' : 'not going'}
+          </Button>
           <Button><Link to={`/edit/${eventi._id}`}>Edit</Link></Button>
           <Button>Delete</Button>
-          <Button onClick={this.addRank} style={this.getStyle()}>
+          <Button onClick={this.addRank} style={this.getRankStyle()}>
             <img className="star-icon" src={require('../assets/icons/rank.svg')}/>
             </Button>
           </div>
@@ -106,8 +139,8 @@ class _EventiDetails extends Component {
             {
               eventi.participants.map(participant => {
                 return <div className="list-item" key={participant._id} style={{color:'white'}}>
-                  <Avatar>H</Avatar>
-                  {participant.fullName}
+                  <Avatar>{participant.username[0].toUpperCase()}</Avatar>
+                  {participant.username}
                 </div>
               })
             }
@@ -128,12 +161,13 @@ class _EventiDetails extends Component {
 
 const mapStateToProps = state => {
   return {
-    
+    loggedInUser: state.userReducer.loggedInUser
   };
 };
 
 const mapDispatchToProps = {
-  updateEvent
+  updateEvent,
+  updateUser
 }
 
 export const EventiDetails = connect(mapStateToProps, mapDispatchToProps)(_EventiDetails)

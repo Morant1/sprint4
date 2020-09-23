@@ -46,8 +46,9 @@ export function addEventi(eventi) {
 export function updateEvent(eventi) {
   return async dispatch => {
     try {
+      console.log("action",eventi)
       const updatedEventi = await eventService.save(eventi);
-      dispatch({ type: 'EVENT_UPDATE', event: updatedEventi });
+      dispatch({ type: 'EVENT_UPDATE', eventi: updatedEventi });
     } catch (err) {
       console.log('eventActions: err in updateEvent', err);
     }
@@ -65,3 +66,6 @@ export function removeEvent(eventId) {
     }
   };
 }
+
+
+
