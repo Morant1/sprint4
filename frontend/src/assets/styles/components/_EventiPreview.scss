@@ -1,4 +1,5 @@
 .preview-grid{
+    display:grid; 
     grid-template-columns: 1fr 1fr 1fr;
     grid-column: 2/-1;
 }
@@ -8,6 +9,7 @@
     color: $clr1;
     display: inline-block;
     margin-right: 5px;
+    margin-top: 70px;
 
     .preview-title {
         font-weight: bolder;
@@ -17,10 +19,12 @@
         background-color: $clr3;
         border-top-left-radius: 12%;
         transition: all .2s;
+        width:100px;
     }
     button:hover {
         background-color: $clr1;
         color: $clr6;
+        width:100px; 
     }
 .img-area{
     img {
@@ -37,6 +41,11 @@
 
     a {
         color: $clr7;
+    }
+
+    .preview-rank{
+        font-size:rem(16px); 
+        color:#666666; 
     }
     .preview-time {
         color: $clr7;
@@ -58,6 +67,6 @@
         display: none;
     }
     button:hover:before {
-        content: "You are!";
+        content: "going!";
     }
 }
