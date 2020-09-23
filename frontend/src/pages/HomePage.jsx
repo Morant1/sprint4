@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadEvents } from '../store/actions/eventActions'
+import { addEventi, loadEvents } from '../store/actions/eventActions'
 import { EventiUpComing } from '../cmps/EventiUpComing'
-import {GlobalSearch} from '../cmps/GlobalSearch'
+import { GlobalSearch } from '../cmps/GlobalSearch'
 
 export class _HomePage extends Component {
 
@@ -13,7 +13,7 @@ export class _HomePage extends Component {
 
   getFilteredList = () => {
     const now = Date.now();
-    const filteredList = this.props.events.filter(eventi=> eventi.startsAt > now);
+    const filteredList = this.props.events.filter(eventi => eventi.startsAt > now);
     return filteredList;
 
   }
@@ -25,10 +25,13 @@ export class _HomePage extends Component {
     const filteredList = this.getFilteredList();
     return (
       <React.Fragment>
+        <section className="main-content flex">
+          <img className="main-img" src={require('../assets/img/main.jpg')} />
+          <div className="header">
+            <p><span>Even{`{t}`} Better </span>helps you socialize while social distancing</p>
+            <GlobalSearch />
+          </div>
 
-        <section className="header flex align-center justify-center">
-        <p><span>EVENTI </span>levels up your social gaming.</p>
-        <GlobalSearch/>
         </section>
 
       <section className="events-grid">
@@ -61,16 +64,14 @@ export class _HomePage extends Component {
           <span className="tag-comics">Comics</span>
         </div>
       </section>
-
       <section id="tickr-box">
-      <div className="tickr-title flex justify-center align-center">Upcoming events</div>
-      <div id="tickr-scroll">
-      {
-          filteredList.map(eventi => <ul><EventiUpComing eventi={eventi} key={eventi._id} currTag={eventi.tags[0]} /></ul>)
-          
-      }
-      </div>
-      </section>
+          <div className="tickr-title flex justify-center align-center">Upcoming events</div>
+          <div id="tickr-scroll">
+            {
+              filteredList.map(eventi => <ul><EventiUpComing eventi={eventi} key={eventi._id} currTag={eventi.tags[0]} /></ul>)
+            }
+          </div>
+        </section>
       </React.Fragment>
     );
   }

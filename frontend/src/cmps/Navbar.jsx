@@ -23,13 +23,9 @@ export class _Navbar extends Component {
     render() {
         return (
             <React.Fragment>
-                <nav className="nav-container flex align-center justify-between">
+                <nav className="main-nav flex align-center justify-between">
                     <ul className="nav-list flex">
-                        <li className="logo"><Link to="/">LOGO</Link></li>
-                        <div className="main-nav flex">
-                        {/* <li className="nav-option">Home</li> */}
-                        <li className="nav-option"><Link to="/">About</Link></li>
-                        </div>
+                        <li className="logo"><Link to="/"><img src={require('../assets/img/logo.png')}/></Link></li>
                     </ul>
                     {this.props.location.pathname !== "/" && <GlobalSearch />}
                     <button className="add-event-btn"><Link to="/add">Add Event</Link></button>
