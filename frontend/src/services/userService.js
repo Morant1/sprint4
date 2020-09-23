@@ -41,3 +41,4 @@ async function update(user) {
         const editedUser  = await httpService.put(`user/${user._id}`, user);
         return editedUser
 }
+

@@ -139,7 +139,7 @@ class _EventiDetails extends Component {
             {
               eventi.participants.map(participant => {
                 return <div className="list-item" key={participant._id} style={{color:'white'}}>
-                  <Avatar>{this.props.loggedInUser.username[0].toUpperCase()}</Avatar>
+                  <Avatar>{participant.username[0].toUpperCase()}</Avatar>
                   {participant.username}
                 </div>
               })
