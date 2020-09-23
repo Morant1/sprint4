@@ -1,7 +1,7 @@
-.log-sign-container {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.logup-container {
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
     // background-image: linear-gradient(to bottom,#{$clr2},#{$clr1});
 
     &::before {
@@ -18,15 +18,35 @@
         padding:rem(10px);
         width: 300px;
         text-align: center;
-
-        @for $i from 1 through 2 {
-            &:nth-child(#{$i}) {
-                background-color: adjust-hue($clr3, $i*5deg );
-            }
+        // @for $i from 1 through 2 {
+        //     &:nth-child(#{$i}) {
+        //         background-color: adjust-hue($clr3, $i*5deg );
+        //     }
+        // }
+        img{
+            height: 100vh;
+            object-fit: cover;
         }
+        .login-title{
+            flex-direction: column;
+            font-family: FiraSans-bold;
+            font-size: rem(28px);
+            color:$clr7; 
+            
+        }
+
     }
 
 }
+.logup-form{
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    width: 30%;
+   
+background-color: hsla(0, 0%, 100%, 0.452);
+}
+
 
 .logout { //important bacause of UI
     background-color: $clr4 !important;

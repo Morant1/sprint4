@@ -1,5 +1,4 @@
 .main-content {
-    // @include aspect-ratio(1, 1);
     position: relative;
     width: 100%;
     height: 500px;
@@ -33,13 +32,14 @@
         color: $clr6;
         font-size: rem(27px);
         z-index: 12;
-        cursor: pointer;
+        
     }
     .all-events {
         border-radius: rem(50px);
         width: 250px;
         border: rem(4px) solid $clr6;
         margin: auto;
+        cursor:pointer ;
         &:hover {
             background-color: $clr1;
         }
@@ -49,9 +49,7 @@
 .events-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 20px;
-    width:960px; 
-    margin: 0 auto; 
+    grid-gap: 20px; 
 }
 
 .event-card {
@@ -62,10 +60,12 @@
     font-size: rem(36px);
     color: $clr6;
     background-color: $clr1;
+  
     cursor: pointer;
 
     &:hover {
-        background-color: #8219c8;
+        background-color: rgba(130, 25, 200,.5);
+ 
         color: $clr6;
         h3 {
             color: $clr6;
@@ -73,8 +73,9 @@
     }
 
     img {
-        filter: grayscale(0.5);
+        filter: grayscale(0.75);
         mix-blend-mode: multiply;
+
     }
     a {
         text-decoration: none;

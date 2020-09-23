@@ -5,7 +5,7 @@ import { withRouter } from "react-router";
 import { GlobalSearch } from './GlobalSearch';
 import PersonIcon from '@material-ui/icons/Person';
 import { logout } from '../store/actions/userActions';
-import {UserNotifications} from '../cmps/UserNotifications'
+import { UserNotifications } from '../cmps/UserNotifications'
 
 export class _Navbar extends Component {
 
@@ -15,60 +15,67 @@ export class _Navbar extends Component {
     }
 
     onUser = () => {
-        let {isUserProfile} = this.state;
+        let { isUserProfile } = this.state;
         isUserProfile = !isUserProfile
-        this.setState({isUserProfile})
+        this.setState({ isUserProfile })
     }
 
     onLogout = () => {
         this.props.logout();
         this.onUser();
     }
-    
+
     onNotifiction = () => {
         const isNotify = !this.state.isNotify
-        this.setState({isNotify})
+        this.setState({ isNotify })
     }
     getStyle = () => {
-        return {'display': this.state.isNotify ? 'flex': 'none'}
-        
+        return { 'display': this.state.isNotify ? 'flex' : 'none' }
+
     }
-  
+
 
     componentDidMount() {
         const navbar = document.querySelector('nav')
+        const logo = document.querySelector('span')
 
         window.onscroll = function () {
 
             // pageYOffset or scrollY
             if (window.pageYOffset > 0) {
                 navbar.classList.add('scrolled')
+                logo.classList.add('logo-scrolled')
             } else {
                 navbar.classList.remove('scrolled')
+                logo.classList.remove('logo-scrolled')
             }
         }
     }
     render() {
         return (
             <React.Fragment>
-                <nav className="main-nav flex align-center justify-between container">
-                    <ul className="nav-list flex">
-                        <li className="logo"><Link to="/"><img src={require('../assets/img/logo.png')} /></Link></li>
-                    </ul>
+                <nav className="main-nav container flex align-center justify-between ">
+
+                    <article className="logo">
+                        <Link to="/"> Even<span className="gray">{`{`}</span>{`t`}<span className="gray">{`}`}</span> Better</Link></article>
+
                     {this.props.location.pathname !== "/" && <GlobalSearch />}
                     <button className="add-event-btn"><Link to="/add">Add Event</Link></button>
-                    {this.props.loggedInUser && <div>Welcome {this.props.loggedInUser.username}</div>}
+                    {this.props.loggedInUser && <div className="nav-welcome">Welcome {this.props.loggedInUser.username}</div>}
                     <img className="activities-icon" onClick={this.onNotifiction} src={require('../assets/icons/notification.svg')} />
                     <div className="user-notification align-center justify-center" style={this.getStyle()}>
-                    <UserNotifications/>
+                        <UserNotifications />
                     </div>
                     <img onClick={this.onUser} className="user-icon" src={require('../assets/icons/person-circle-outline.svg')} />
-                    {this.state.isUserProfile && <ul className="menu-list" >
-                        <li onClick={this.onUser}><Link to="/login">Login</Link></li>
-                        <li onClick={this.onLogout}>Logout</li>
-                    </ul>}
-
+                    {this.state.isUserProfile &&
+                        <ul className="user-menu">
+                            <li onClick={this.onUser}>Profile</li>
+                            <li onClick={this.onUser}><Link to="/login">Login</Link></li>
+                            <li onClick={this.onLogout}>Logout</li>
+                        </ul>}
                 </nav>
+
+    
             </React.Fragment >
         )
     }
@@ -76,13 +83,13 @@ export class _Navbar extends Component {
 
 const mapStateToProps = state => {
     return {
-        loggedInUser: state.userReducer.loggedInUser
+                    loggedInUser: state.userReducer.loggedInUser
     };
 };
 
 const mapDispatchToProps = {
-    logout
-};
+                    logout
+                };
 
 export const Navbar = connect(mapStateToProps,mapDispatchToProps)(withRouter(_Navbar))
 

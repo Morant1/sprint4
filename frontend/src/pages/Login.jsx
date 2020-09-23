@@ -80,9 +80,12 @@ class _Login extends Component {
     render() {
         return (
             <React.Fragment>
-            <div className="log-sign-container flex">
+            <div className="logup-container">
+            <img src={require('../assets/img/login-bgc.jpg')}/>
+            <div className="logup-form">
                 <form onSubmit={this.doSignup}>
                     <h2>{this.state.msg}</h2>
+                    <span className="login-title flex">Sign Up</span>
                     <input
                         type="text"
                         name="username"
@@ -106,6 +109,7 @@ class _Login extends Component {
                     <Button type="submit" size="small" variant="contained">Signup</Button>
                 </form>
                 <form onSubmit={this.doLogin}>
+                    <span className="login-title flex">Login</span>
                     <input
                         type="text"
                         name="username"
@@ -126,9 +130,11 @@ class _Login extends Component {
                     />
                     <br />
                     <Button type="submit" size="small" variant="contained">Login</Button>
+                
                 </form>
                 {/* <Button className="logout" onClick={this.onLogout} size="small" variant="contained">Logout
                     </Button> */}
+                </div>
             </div>
             </React.Fragment>
         )

@@ -28,7 +28,7 @@ class _EventiPreview extends Component {
                     <div className="preview-title">{eventi.title}</div>
                     <span className="preview-time"> {new Date(eventi.startsAt).toDateString()}</span>
                     <br></br>
-                   <span className="preview-rank"><StarIcon/>🟊{eventi.rank}(40) · {eventi.location.country}</span>
+                   <span className="preview-rank"><div className="star fas fa-star"></div> {eventi.rank}(40) · {eventi.location.country}</span>
                     <div className="event-creator-section flex align-center">
                         <Avatar className="avatar">G</Avatar>
                         <span className="creator">{eventi.createdBy.fullName}</span>

@@ -3,14 +3,13 @@
     background-color: $clr6;
     border-bottom: 1px solid #9e9e9e;
     line-height: 1rem;
-    top:0; 
-    left:0; 
+    top: 0;
+    left: 0;
     position: fixed;
     width: 100%;
     z-index: 999;
     color: $clr7;
-    padding:0; 
-
+    padding: 0;
     .nav-option {
         &:last-child {
             margin: 0 10px;
@@ -24,9 +23,8 @@
             }
         }
     }
-
     button {
-        border-left:1px solid #9e9e9e;
+        border-left: 1px solid #9e9e9e;
         a {
             color: $clr7;
             &:hover {
@@ -41,15 +39,25 @@
             color: $clr6;
         }
     }
-}
 
+    .logo {
+        color: $clr6;
+        // color:#000000;
+        font-family: PermanentMarker;
+        font-size: rem(28px);
+        margin-left: rem(20px);
+        .gray {
+            color: #464646;
+            // color:#464646;
+        }
+    }
+}
 .global-search {
     color: $clr7;
     position: relative;
 }
 .input {
     // width: 120%;
-   
     border: 1px solid lightgray;
     height: 2rem;
     border-radius: 1rem;
@@ -61,46 +69,37 @@
     outline: none;
     font-family: montserrat;
 }
-
 .MuiSvgIcon-root {
     position: absolute;
     right: 8px;
     top: 14px;
-    color:$clr7;
+    color: $clr7;
 }
-
 .search-icon {
     width: 20px;
 }
-
 .local-search {
     height: 100px;
     margin-top: 50px;
 }
-
 .scrolled {
     opacity: 0.8;
 }
-
-
-.user-icon{
-    margin-right:21px;
+.user-icon {
+    margin-right: 21px;
     position: relative;
     width: 35px;
 }
-
 .activities-icon {
     width: 35px;
-    margin-right:5px;
+    margin-right: 5px;
 }
-
-.menu-list {
+.user-menu {
     padding: 0;
     position: absolute;
-    right:6px;
+    right: 6px;
     top: 31px;
     background-color: white;
-
     li {
         cursor: pointer;
         list-style-type: none;
