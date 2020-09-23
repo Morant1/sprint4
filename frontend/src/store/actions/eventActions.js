@@ -15,10 +15,19 @@ export function loadEvents(filterBy) {
 export function addEventi(eventi) {
   return async dispatch => {
     try {
+      eventi.createdBy ={
+        "_id": "u101",
+        "fullname": "guest",
+        "imgUrl": "https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
+      }
+      eventi.startsAt = Date.parse(eventi.startsAt)
       eventi.createdAt = Date.now();
-      eventi.tags = eventi.tags.split(',');
-      eventi.location.city = eventi.city;
-      eventi.location.country = eventi.country;
+      eventi.location = eventi.location.split(',');
+      const location = new Map([
+        ['city', eventi.location[0]],
+        ['country',eventi.location[1]]
+      ]);
+      eventi.location =  Object.fromEntries(location);
       eventi.participants = [];
       eventi.comments = [];
       eventi.rank = 0;
@@ -39,7 +48,19 @@ export function updateEvent(eventi) {
       const updatedEventi = await eventService.save(eventi);
       dispatch({ type: 'EVENT_UPDATE', event: updatedEventi });
     } catch (err) {
-      console.log('ReviewActions: err in addReview', err);
+      console.log('eventActions: err in updateEvent', err);
+    }
+  };
+}
+
+
+export function removeEvent(eventId) {
+  return async dispatch => {
+    try {
+      await eventService.remove(eventId);
+      dispatch({ type: 'EVENT_REMOVE', eventId });
+    } catch (err) {
+      console.log('eventActions: err in removeEvent', err);
     }
   };
 }
