@@ -26,7 +26,7 @@ export class _HomePage extends Component {
     return (
       <React.Fragment>
         <section className="main-content flex">
-          <div class="screen">
+          <div className="screen">
           </div>
           <img className="main-img" src={require('../assets/img/main.jpg')} />
 

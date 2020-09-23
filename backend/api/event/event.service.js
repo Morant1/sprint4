@@ -29,7 +29,7 @@ async function query(filterBy = {}) {
 
 
 function _sortFilterEvents(events, date, sort, order) {
-    console.log("events:", events, "Date:", date, "sort:", sort, "order:", order)
+    
 
     if (!sort & !date & !order) return events;
     let sortedEvents;
@@ -113,7 +113,6 @@ async function update(eventi) {
 
     try {
         await collection.replaceOne({ "_id": eventi._id }, eventi)
-        console.log("updatedEventi",eventi)
         return eventi
     } catch (err) {
         console.log(`ERROR: cannot update eventi ${eventi._id}`)

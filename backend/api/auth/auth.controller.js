@@ -3,7 +3,6 @@ const logger = require('../../services/logger.service')
 
 async function login(req, res) {
     const { username, password } = req.body
-    console.log(username,password)
     try {
         const user = await authService.login(username, password)
         req.session.user = user;
@@ -15,9 +14,9 @@ async function login(req, res) {
 
 async function signup(req, res) {
     try {
-        const { isAdmin, password, username } = req.body
-        logger.debug(isAdmin + ", " + username + ', ' + password)
-        const account = await authService.signup(isAdmin, password, username)
+        const { isGoing, password, username } = req.body
+        logger.debug(isGoing + ", " + username + ', ' + password)
+        const account = await authService.signup(isGoing, password, username)
         logger.debug(`auth.route - new account created: ` + JSON.stringify(account))
         const user = await authService.login(username, password)
         req.session.user = user

@@ -8,6 +8,7 @@ import {EventiAdd} from './pages/EventiAdd';
 import {EventiEdit} from './pages/EventiEdit';
 import {HomePage} from './pages/HomePage';
 import {EventiDetails} from './pages/EventiDetails';
+import {Login} from './pages/Login';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Switch>
           <Route component={EventiEdit} path = '/edit/:_id'/>
           <Route component={EventiDetails} path='/:tag/:_id' /> 
+          <Route component={Login} path='/login'/>
           <Route component={EventiAdd} path='/add'/>
           <Route component={EventiApp} path='/:tag' />
           <Route component={HomePage} path='/' />

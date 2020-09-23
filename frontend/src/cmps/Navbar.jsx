@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 import { GlobalSearch } from './GlobalSearch';
 import PersonIcon from '@material-ui/icons/Person';
+// import {MenuList,MenuItem} from '@material-ui/core';
+
 
 
 export class _Navbar extends Component {
@@ -28,10 +31,26 @@ export class _Navbar extends Component {
                         <li className="logo"><Link to="/"><img src={require('../assets/img/logo.png')}/></Link></li>
                     </ul>
                     {this.props.location.pathname !== "/" && <GlobalSearch />}
+                    {this.props.loggedInUser && <div>Welcome {this.props.loggedInUser.username}</div>}
                     <button className="add-event-btn"><Link to="/add">Add Event</Link></button>
+                    <button className="add-event-btn"><Link to="/login">LOGIN/SIGN UP/SIGNOUT</Link></button>
                 </nav>
             </React.Fragment >
         )
     }
 }
-export const Navbar = withRouter(_Navbar)
+
+const mapStateToProps = state => {
+    return {
+        loggedInUser: state.userReducer.loggedInUser
+    };
+  };
+  
+  export const Navbar = connect(mapStateToProps)(withRouter(_Navbar))
+
+
+//   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+//   <MenuItem onClick={handleClose}>Profile</MenuItem>
+//   <MenuItem onClick={handleClose}>My account</MenuItem>
+//   <MenuItem onClick={handleClose}>Logout</MenuItem>
+// </MenuList>
