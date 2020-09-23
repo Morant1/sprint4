@@ -1,11 +1,13 @@
 .main-nav {
     height: 50px;
     background-color: $clr6;
-    border-bottom: 1px solid $clr7;
+    border-bottom: 1px solid #9e9e9e;
     line-height: 1rem;
+    top:0; 
+    left:0; 
     position: fixed;
     width: 100%;
-    z-index: 2;
+    z-index: 999;
     color: $clr7;
 
     .nav-option {
@@ -23,7 +25,7 @@
     }
 
     button {
-        background-color: $clr3;
+        border-left:1px solid #9e9e9e;
         a {
             color: $clr7;
             &:hover {
@@ -46,7 +48,7 @@
 }
 .input {
     // width: 120%;
-    z-index:12; 
+   
     border: 1px solid lightgray;
     height: 2rem;
     border-radius: 1rem;
