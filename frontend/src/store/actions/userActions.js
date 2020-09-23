@@ -6,18 +6,17 @@ export function loadUsers() {
   return async dispatch => {
     try {
       // example for loading
-      dispatch(loading());
+      // dispatch(loading());
       const users = await userService.getUsers();
       dispatch({ type: 'SET_USERS', users });
     } catch (err) {
       console.log('UserActions: err in loadUsers', err);
-      // example for rerouting - after changing the store
-      // history.push('/some/path');
     } finally {
       dispatch(doneLoading());
     }
   };
 }
+
 // THUNK
 export function removeUser(userId) {
   return async dispatch => {
@@ -34,17 +33,30 @@ export function login(userCreds) {
   return async dispatch => {
     const user = await userService.login(userCreds);
     dispatch({ type: 'SET_USER', user });
+    return user;
   };
 }
 export function signup(userCreds) {
   return async dispatch => {
     const user = await userService.signup(userCreds);
     dispatch({ type: 'SET_USER', user });
+    return user;
   };
 }
 export function logout() {
   return async dispatch => {
     await userService.logout();
     dispatch({ type: 'SET_USER', user: null });
+  };
+}
+
+export function updateUser(user) {
+  return async dispatch => {
+    try {
+      const updatedUser = await userService.update(user);
+      dispatch({ type: 'SET_USER', user: updatedUser });
+    } catch (err) {
+      console.log('userActions: err in updateUser', err);
+    }
   };
 }

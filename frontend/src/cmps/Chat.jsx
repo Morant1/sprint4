@@ -33,7 +33,6 @@ export class Chat extends Component {
   sendMsg = ev => {
     ev.preventDefault();
     socketService.emit('chat newMsg', this.state.msg);
-    // this.props.updateComments(this.props.topic,this.state.msg);
     this.setState({ msg: { ...this.state.msg, txt: '' }, typeMsg: '' });
   };
 
@@ -85,7 +84,7 @@ export class Chat extends Component {
         </div>
         {eventi.comments.map((comment, index) => {
           return (
-            <div key={comment.id} className={`container ${index % 2 === 0 ? 'blue' : ''}`}>
+            <div key={comment.id} className={`chat-container ${index % 2 === 0 ? 'blue' : ''}`}>
               {/* {comment.author.imgUrl? 
                         <img src={`${comment.author.imgUrl}`} alt="Avatar" style={{width:'100%'}}/>
                         : */}

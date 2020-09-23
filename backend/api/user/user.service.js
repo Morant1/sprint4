@@ -5,7 +5,8 @@ const ObjectId = require('mongodb').ObjectId
 module.exports = {
     query,
     getByUsername,
-    add
+    add,
+    update
 }
 
 async function query() {
@@ -45,3 +46,15 @@ async function getByUsername(username) {
     }
 }
 
+async function update(user) {
+    const collection = await dbService.getCollection('user')
+    user._id = ObjectId(user._id);
+
+    try {
+        await collection.replaceOne({ "_id": user._id }, user)
+        return user
+    } catch (err) {
+        console.log(`ERROR: cannot update user ${user._id}`)
+        throw err;
+    }
+}

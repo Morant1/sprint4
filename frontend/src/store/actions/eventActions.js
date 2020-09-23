@@ -16,11 +16,6 @@ export function loadEvents(filterBy) {
 export function addEventi(eventi) {
   return async dispatch => {
     try {
-      eventi.createdBy ={
-        "_id": "u101",
-        "fullname": "guest",
-        "imgUrl": "https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
-      }
 /*       eventi.startsAt = Date.parse(eventi.startsAt) */
       eventi.createdAt = Date.now();
       eventi.location = eventi.location.split(',');
@@ -69,3 +64,6 @@ export function removeEvent(eventId) {
     }
   };
 }
+
+
+

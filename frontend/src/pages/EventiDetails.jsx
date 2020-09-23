@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import { Chat } from '../cmps/Chat'
+import { connect } from 'react-redux';
+
+
 import { Avatar,Button } from '@material-ui/core';
-import { connect } from 'react-redux'
-import {removeEvent} from '../store/actions/eventActions'
-import { eventService } from '../services/eventService';
 import { StarRate } from '../cmps/StarRate';
+import { Chat } from '../cmps/Chat'
+import { eventService } from '../services/eventService';
+import {updateEvent} from '../store/actions/eventActions'
+import {updateUser} from '../store/actions/userActions'
+import {BusService} from '../services/event-bus-service'
+import {removeEvent} from '../store/actions/eventActions'
 
 
 class _EventiDetails extends Component {
@@ -24,6 +29,7 @@ class _EventiDetails extends Component {
     eventService.getById(_id)
       .then(eventi => {
         this.setState({ eventi })
+        BusService.emit('notify', { msg: `You watched ${eventi.title} event details`})
       })
 
   }
@@ -35,17 +41,53 @@ class _EventiDetails extends Component {
     this.setState({isOpen:!this.state.isOpen})
   }
   addRank = () => {
-    const {eventi,isRankPressed} = this.state;
-    const isRankVal = !isRankPressed;
-    this.setState({isRankPressed:isRankVal })
-    const rank = isRankPressed ? eventi.rank + 1 : eventi.rank -1;
+    let {eventi,isRankPressed} = this.state;
+    isRankPressed = !isRankPressed;
+    const newRank = isRankPressed ? eventi.rank + 1 : eventi.rank -1;
+    eventi.rank = newRank;
+    this.setState({eventi, isRankPressed })
+    this.props.updateEvent(eventi);
+    BusService.emit('notify', { msg: `Rank of ${eventi.title} changed`})
+
     
   }
-  addParticipant = () => {
+   addParticipant = () => {
+    let user = this.props.loggedInUser;
+    user.isGoing = !this.state.isGoing;
+    this.props.updateUser(user)
+    // this.props.toggleParticipation()
     this.setState({
       isGoing: !this.state.isGoing
-    })
+    },()=>{
 
+      let eventi = this.state.eventi;
+      if (this.state.isGoing) {
+        eventi.participants.push(user)
+        console.log("push",eventi.participants)
+        BusService.emit('notify', { msg: `You are going to ${eventi.title} event`})
+      } else {
+        const idx = eventi.participants.findIndex(participant=> participant===user);
+        if (idx) eventi.participants.splice(idx,1)
+        BusService.emit('notify', { msg: `You are not going to ${eventi.title} event anymore`})
+        console.log("remove",eventi.participants)
+      }
+      console.log(eventi)
+      this.props.updateEvent(eventi)
+      this.setState({eventi})
+
+    })
+  }
+
+  getRankStyle = () => {
+    if (this.state.isRankPressed) {
+    return {backgroundColor: '#FCCD04'}
+    }
+  }
+
+  getGoingStyle = () => {
+    if (this.state.isGoing) {
+    return {backgroundColor: '#2f2f2f'}
+    }
   }
   removeEvent = (eventId) => {
     this.props.removeEvent(eventId);
@@ -57,14 +99,20 @@ class _EventiDetails extends Component {
     const { eventi, isGoing } = this.state
     if (!eventi) return <div>Loading...</div>
     return (
+
       <section className="eventi-details margin"
         style={{ backgroundImage: `url(${require(`../assets/img/details-img.jpg`)})` }}>
           <div className="close" onClick={this.onBack}>X</div>
           <div className="btn-details flex justify-center">
-          <Button className="join" onClick={this.addParticipant}>I am {isGoing ? 'going' : 'not going'}</Button>
+          <Button className="join" style={this.getGoingStyle()} 
+          onClick={this.addParticipant}>
+          I am {isGoing ? 'going' : 'not going'}
+          </Button>
           <Button><Link to={`/edit/${eventi._id}`}>Edit</Link></Button>
           <Button onClick={()=>this.removeEvent(eventi._id)}>Delete</Button>
-          <Button onClick={this.addRank}><img className="star-icon" src={require('../assets/icons/rank.svg')}/></Button>
+          <Button onClick={this.addRank} style={this.getRankStyle()}>
+            <img className="star-icon" src={require('../assets/icons/rank.svg')}/>
+            </Button>
           </div>
         <div className="eventi-photo flex justify-center">
           <div className="details-img"
@@ -77,7 +125,9 @@ class _EventiDetails extends Component {
             style={{ backgroundImage: `url(${require(`../assets/img/${eventi.tags[0]}3.jpg`)})` }}>
           </div>
         </div>
+
         <StarRate rank={eventi.rank}/>
+
         <div className="eventi-title flex justify-center align-center">
           <h2>{eventi.title}</h2>
           <p>{eventi.description}</p>
@@ -93,8 +143,8 @@ class _EventiDetails extends Component {
             {
               eventi.participants.map(participant => {
                 return <div className="list-item" key={participant._id} style={{color:'white'}}>
-                  <Avatar>H</Avatar>
-                  {participant.fullName}
+                  <Avatar>{participant.username[0].toUpperCase()}</Avatar>
+                  {participant.username}
                 </div>
               })
             }
@@ -111,10 +161,18 @@ class _EventiDetails extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    loggedInUser: state.userReducer.loggedInUser
+  };
+};
+
 const mapDispatchToProps = {
+  updateEvent,
+  updateUser,
   removeEvent
 }
 
-export const EventiDetails = connect(null, mapDispatchToProps)(_EventiDetails)
+export const EventiDetails = connect(mapStateToProps, mapDispatchToProps)(_EventiDetails)
 
 

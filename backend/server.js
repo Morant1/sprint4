@@ -30,14 +30,14 @@ app.use(session({
     cookie: { secure: false }
 }))
 
-// const authRoutes = require('./api/auth/auth.routes')
+const authRoutes = require('./api/auth/auth.routes')
 const eventRoutes = require('./api/event/event.routes')
-// const userRoutes = require('./api/user/user.routes')
+const userRoutes = require('./api/user/user.routes')
 const connectSockets = require('./api/socket/socket.routes')
 
 //routes
-// app.use('/api/auth', authRoutes)
-// app.use('/api/user', userRoutes)
+app.use('/api/auth', authRoutes)
+app.use('/api/user', userRoutes)
 app.use('/api/event', eventRoutes)
 connectSockets(io)
 

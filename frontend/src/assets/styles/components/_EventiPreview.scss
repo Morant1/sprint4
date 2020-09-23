@@ -1,6 +1,8 @@
 .preview-grid{
+    display:grid; 
     grid-template-columns: 1fr 1fr 1fr;
     grid-column: 2/-1;
+    display:grid;
 }
 
 .eventi-preview {
@@ -8,6 +10,7 @@
     color: $clr1;
     display: inline-block;
     margin-right: 5px;
+    margin-top: 70px;
 
     .preview-title {
         font-weight: bolder;
@@ -17,11 +20,13 @@
         background-color: $clr3;
         border-top-left-radius: 12%;
         transition: all .2s;
+        width:100px;
     }
-    button:hover {
-        background-color: $clr1;
-        color: $clr6;
-    }
+    // button:hover {
+    //     background-color: $clr1;
+    //     color: $clr6;
+    //     width:100px; 
+    // }
 .img-area{
     img {
         border-radius: 5%;
@@ -37,6 +42,11 @@
 
     a {
         color: $clr7;
+    }
+
+    .preview-rank{
+        font-size:rem(16px); 
+        color:#666666; 
     }
     .preview-time {
         color: $clr7;
@@ -54,10 +64,10 @@
         }
     }
     
-    button:hover span {
-        display: none;
-    }
-    button:hover:before {
-        content: "You are!";
-    }
+    // button:hover span {
+    //     display: none;
+    // }
+    // button:hover:before {
+    //     content: "going!";
+    // }
 }
