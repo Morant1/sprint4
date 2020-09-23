@@ -11,4 +11,27 @@
             background-color: blueviolet;
         }
     }
+    .tag-list {
+        margin: 15px 0 15px 0;
+    }
+    
+    .tag-item {
+        margin: 10px 5px 10px 5px; 
+        width:rem(120px); 
+        text-align:center; 
+        border-radius: rem(20px);
+        background-color: $clr1;
+        padding: 0 10px 0 10px;
+        color:$clr6;
+    
+        &:nth-child(even) {
+            background-color: $clr3;
+        }
+    }
+    
+    .tag-item:hover {
+        cursor: pointer;
+        background-color:#57256b;
+    
+    }
 }
