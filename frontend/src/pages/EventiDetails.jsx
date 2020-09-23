@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { Chat } from '../cmps/Chat'
 import { Avatar,Button } from '@material-ui/core';
-
+import { connect } from 'react-redux'
+import {removeEvent} from '../store/actions/eventActions'
 import { eventService } from '../services/eventService';
 import { StarRate } from '../cmps/StarRate';
 
 
-
-
-
-export class EventiDetails extends Component {
+class _EventiDetails extends Component {
   state = {
     eventi: null,
     isGoing: false,
@@ -49,6 +47,11 @@ export class EventiDetails extends Component {
     })
 
   }
+  removeEvent = (eventId) => {
+    this.props.removeEvent(eventId);
+    console.log(eventId)
+    this.props.history.push(`/${this.state.eventi.tags}`);
+  };
 
   render() {
     const { eventi, isGoing } = this.state
@@ -60,7 +63,7 @@ export class EventiDetails extends Component {
           <div className="btn-details flex justify-center">
           <Button className="join" onClick={this.addParticipant}>I am {isGoing ? 'going' : 'not going'}</Button>
           <Button><Link to={`/edit/${eventi._id}`}>Edit</Link></Button>
-          <Button>Delete</Button>
+          <Button onClick={()=>this.removeEvent(eventi._id)}>Delete</Button>
           <Button onClick={this.addRank}><img className="star-icon" src={require('../assets/icons/rank.svg')}/></Button>
           </div>
         <div className="eventi-photo flex justify-center">
@@ -78,16 +81,12 @@ export class EventiDetails extends Component {
         <div className="eventi-title flex justify-center align-center">
           <h2>{eventi.title}</h2>
           <p>{eventi.description}</p>
-        
-        
         <div className="eventi-subtitle flex"> 
           <h5><img className="location-icon icon" src={require('../assets/icons/pin-outline.svg')}/>{eventi.location.city},{eventi.location.country}</h5>
           <h5><img className="host-icon icon" src={require('../assets/icons/person-circle-outline.svg')}/>{eventi.createdBy.fullName}</h5>
         </div>
           {/* <h3><img className="clock-icon icon" src={require('../assets/icons/time-outline.svg')}/>{eventi.duration} hours</h3>  */}
      </div>
- 
-
         <div className="eventi-participants flex justify-center align-center">
           <div className="title">Who is coming?</div>
           <div className="participant-container flex align-center">
@@ -108,29 +107,14 @@ export class EventiDetails extends Component {
     {this.state.isOpen && <Chat eventi={eventi} />}
       </section >
 
-
-
-
-
-
-
-
-
-
     )
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     events: state.eventReducer.events
-//   };
-// };
+const mapDispatchToProps = {
+  removeEvent
+}
 
-// const mapDispatchToProps = {
-//   loadEvents
-// }
-
-// export const EventiDetails = connect(mapStateToProps, mapDispatchToProps)(_EventiDetails)
+export const EventiDetails = connect(null, mapDispatchToProps)(_EventiDetails)
 
 
