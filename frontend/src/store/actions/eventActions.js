@@ -45,10 +45,8 @@ export function addEventi(eventi) {
 export function updateEvent(eventi) {
   return async dispatch => {
     try {
-      eventi.startsAt = Date.parse(eventi.startsAt);
-      console.log("Event inside action " + eventi)
-      const addedEvent = await eventService.save(eventi);
-      dispatch({ type: 'EVENT_UPDATE', event: addedEvent });
+      const updatedEventi = await eventService.save(eventi);
+      dispatch({ type: 'EVENT_UPDATE', event: updatedEventi });
     } catch (err) {
       console.log('eventActions: err in updateEvent', err);
     }

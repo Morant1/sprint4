@@ -8,9 +8,6 @@ export class StarRate extends Component {
     rank: this.props.rank
   }
 
-  setValue = (rank) => {
-    this.setState({rank})
-  }
 
   render() {
 

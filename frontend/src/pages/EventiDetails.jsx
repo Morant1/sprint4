@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
 import { Chat } from '../cmps/Chat'
 import { Avatar,Button } from '@material-ui/core';
-
 import { eventService } from '../services/eventService';
 import { StarRate } from '../cmps/StarRate';
+import {updateEvent} from '../store/actions/eventActions'
 
 
 
 
 
-export class EventiDetails extends Component {
+class _EventiDetails extends Component {
   state = {
     eventi: null,
     isGoing: false,
@@ -25,7 +26,7 @@ export class EventiDetails extends Component {
     const { _id } = this.props.match.params
     eventService.getById(_id)
       .then(eventi => {
-        this.setState({ eventi })
+        this.setState({ eventi },()=>{console.log(this.state.eventi)})
       })
 
   }
@@ -37,10 +38,14 @@ export class EventiDetails extends Component {
     this.setState({isOpen:!this.state.isOpen})
   }
   addRank = () => {
-    const {eventi,isRankPressed} = this.state;
-    const isRankVal = !isRankPressed;
-    this.setState({isRankPressed:isRankVal })
-    const rank = isRankPressed ? eventi.rank + 1 : eventi.rank -1;
+    let {eventi,isRankPressed} = this.state;
+    isRankPressed = !isRankPressed;
+    this.setState({isRankPressed })
+
+    const newRank = isRankPressed? eventi.rank + 1 : eventi.rank -1;
+    eventi.rank = newRank;
+    this.props.updateEvent(eventi);
+
     
   }
   addParticipant = () => {
@@ -48,6 +53,12 @@ export class EventiDetails extends Component {
       isGoing: !this.state.isGoing
     })
 
+  }
+
+  getStyle = () => {
+    if (this.state.isRankPressed) {
+    return {backgroundColor: 'blue'}
+    }
   }
 
   render() {
@@ -61,7 +72,9 @@ export class EventiDetails extends Component {
           <Button className="join" onClick={this.addParticipant}>I am {isGoing ? 'going' : 'not going'}</Button>
           <Button><Link to={`/edit/${eventi._id}`}>Edit</Link></Button>
           <Button>Delete</Button>
-          <Button onClick={this.addRank}><img className="star-icon" src={require('../assets/icons/rank.svg')}/></Button>
+          <Button onClick={this.addRank} style={this.getStyle()}>
+            <img className="star-icon" src={require('../assets/icons/rank.svg')}/>
+            </Button>
           </div>
         <div className="eventi-photo flex justify-center">
           <div className="details-img"
@@ -121,16 +134,16 @@ export class EventiDetails extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     events: state.eventReducer.events
-//   };
-// };
+const mapStateToProps = state => {
+  return {
+    
+  };
+};
 
-// const mapDispatchToProps = {
-//   loadEvents
-// }
+const mapDispatchToProps = {
+  updateEvent
+}
 
-// export const EventiDetails = connect(mapStateToProps, mapDispatchToProps)(_EventiDetails)
+export const EventiDetails = connect(mapStateToProps, mapDispatchToProps)(_EventiDetails)
 
 
