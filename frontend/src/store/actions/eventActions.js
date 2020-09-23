@@ -15,10 +15,19 @@ export function loadEvents(filterBy) {
 export function addEventi(eventi) {
   return async dispatch => {
     try {
+      eventi.createdBy ={
+        "_id": "u101",
+        "fullname": "guest",
+        "imgUrl": "https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
+      }
+      eventi.startsAt = Date.parse(eventi.startsAt)
       eventi.createdAt = Date.now();
-      eventi.tags = eventi.tags.split(',');
-      eventi.location.city = eventi.city;
-      eventi.location.country = eventi.country;
+      eventi.location = eventi.location.split(',');
+      const location = new Map([
+        ['city', eventi.location[0]],
+        ['country',eventi.location[1]]
+      ]);
+      eventi.location =  Object.fromEntries(location);
       eventi.participants = [];
       eventi.comments = [];
       eventi.rank = 0;
@@ -33,14 +42,27 @@ export function addEventi(eventi) {
 }
 
 
-export function updateEvent(event) {
+export function updateEvent(eventi) {
   return async dispatch => {
     try {
-      console.log("Event inside action " + event)
-      const addedEvent = await eventService.save(event);
+      eventi.startsAt = Date.parse(eventi.startsAt);
+      console.log("Event inside action " + eventi)
+      const addedEvent = await eventService.save(eventi);
       dispatch({ type: 'EVENT_UPDATE', event: addedEvent });
     } catch (err) {
-      console.log('ReviewActions: err in addReview', err);
+      console.log('eventActions: err in updateEvent', err);
+    }
+  };
+}
+
+
+export function removeEvent(eventId) {
+  return async dispatch => {
+    try {
+      await eventService.remove(eventId);
+      dispatch({ type: 'EVENT_REMOVE', eventId });
+    } catch (err) {
+      console.log('eventActions: err in removeEvent', err);
     }
   };
 }
