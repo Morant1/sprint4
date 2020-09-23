@@ -14,7 +14,7 @@ export class _SideNav extends Component {
 
             <section className="side-nav flex">
                 <div className="tag-list">
-                    <div className="tag-item" onClick={(ev) => { this.redirectClick('all') }}>All</div>
+                    <div className="tag-item" onClick={(ev) => { this.redirectClick('All') }}>All</div>
                     <div className="tag-item" onClick={(ev) => { this.redirectClick('Sport') }}>Sport</div>
                     <div className="tag-item" onClick={(ev) => { this.redirectClick('Movies') }}>Movies</div>
                     <div className="tag-item" onClick={(ev) => { this.redirectClick('TVShows') }}>TV shows</div>

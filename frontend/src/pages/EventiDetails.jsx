@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { Chat } from '../cmps/Chat'
-import AccessTime from '@material-ui/icons/AccessTime'
 import { Avatar,Button } from '@material-ui/core';
 
 import { eventService } from '../services/eventService';
@@ -79,23 +78,16 @@ export class EventiDetails extends Component {
         <div className="eventi-title flex justify-center align-center">
           <h2>{eventi.title}</h2>
           <p>{eventi.description}</p>
-        </div>
         
-      
-          
         
-        {/* <div className="eventi-subtitle flex"> */} 
-    {/* <StarIcon /> */ }
-    {/* <h5>{eventi.rank}(3147)</h5>
-          <h5>| {eventi.location.city},{eventi.location.country}</h5>
-          <h5>| Hosted By:{eventi.createdBy.fullName}</h5>
+        <div className="eventi-subtitle flex"> 
+          <h5><img className="location-icon icon" src={require('../assets/icons/pin-outline.svg')}/>{eventi.location.city},{eventi.location.country}</h5>
+          <h5><img className="host-icon icon" src={require('../assets/icons/person-circle-outline.svg')}/>{eventi.createdBy.fullName}</h5>
         </div>
-        <div className="eventi-info">
-          <h3><AccessTime />{eventi.duration} hours</h3>
-          <h4>Join with your computer, phone or tablet</h4>
-          <h4>Hosted in English</h4> */}
-    {/* <h3>{eventi.participants}</h3> */ }
-    {/* </div> */}
+          {/* <h3><img className="clock-icon icon" src={require('../assets/icons/time-outline.svg')}/>{eventi.duration} hours</h3>  */}
+     </div>
+ 
+
         <div className="eventi-participants flex justify-center align-center">
           <div className="title">Who is coming?</div>
           <div className="participant-container flex align-center">

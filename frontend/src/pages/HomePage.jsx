@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addEventi, loadEvents } from '../store/actions/eventActions'
 import { EventiUpComing } from '../cmps/EventiUpComing'
-import { GlobalSearch } from '../cmps/GlobalSearch'
 
 export class _HomePage extends Component {
 
