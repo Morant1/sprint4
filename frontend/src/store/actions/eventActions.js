@@ -33,12 +33,11 @@ export function addEventi(eventi) {
 }
 
 
-export function updateEvent(event) {
+export function updateEvent(eventi) {
   return async dispatch => {
     try {
-      console.log("Event inside action " + event)
-      const addedEvent = await eventService.save(event);
-      dispatch({ type: 'EVENT_UPDATE', event: addedEvent });
+      const updatedEventi = await eventService.save(eventi);
+      dispatch({ type: 'EVENT_UPDATE', event: updatedEventi });
     } catch (err) {
       console.log('ReviewActions: err in addReview', err);
     }

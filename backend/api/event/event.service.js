@@ -36,31 +36,6 @@ function _sortFilterEvents(events, date, sort, order) {
     const todayStr = moment(Date.now()).format('L')
 
     // DATES
-    // switch(date) {
-    //     case date === 'all':
-    //         sortedEvents = events;
-    //       break;
-    //     case date === 'today':
-    //         sortedEvents = events.filter(eventi => {
-    //             return moment(eventi.startsAt).format('L') === todayStr;
-    //         })
-    //       break;
-    //       case date === 'week':
-    //         sortedEvents = events.filter(eventi => {
-    //             return moment(eventi.startsAt).isSame(Date.now(),'week');
-    //         })
-    //       break;
-    //       case date === 'month':
-    //         sortedEvents = events.filter(eventi => {
-    //             return moment(eventi.startsAt).isSame(Date.now(),'week');
-    //         })
-    //       break;
-    //       case date === 'year':
-    //         sortedEvents = events.filter(eventi => {
-    //             return moment(eventi.startsAt).isSame(Date.now(),'year');
-    //         })
-    //       break;
-    //   }
 
     if (date === 'all') sortedEvents = events;
     if (date === 'today') {
@@ -68,19 +43,9 @@ function _sortFilterEvents(events, date, sort, order) {
             return moment(eventi.startsAt).format('L') === todayStr;
         })
     }
-    if (date === 'week') {
+    if (date === 'week' || date === 'month' || date === 'year' ) {
         sortedEvents = events.filter(eventi => {
-            return moment(eventi.startsAt).isSame(Date.now(),'week');
-        })
-    }
-    if (date === 'month') {
-        sortedEvents = events.filter(eventi => {
-            return moment(eventi.startsAt).isSame(Date.now(),'week');
-        })
-    }
-    if (date === 'year') {
-        sortedEvents = events.filter(eventi => {
-            return moment(eventi.startsAt).isSame(Date.now(),'year');
+            return moment(eventi.startsAt).isSame(Date.now(),date);
         })
     }
 
@@ -95,7 +60,7 @@ function _sortFilterEvents(events, date, sort, order) {
             return a['startsAt'] < b['startsAt'] ? -1 : a['startsAt'] > b['startsAt'] ? 1 : 0
         })
     }
-
+    //SORT
     if (sort === 'rank') {
         sortedEvents = sortedEvents.sort((a, b) => {
             return a['rank'] < b['rank'] ? -1 : a['rank'] < b['rank'] ? 1 : 0
@@ -148,6 +113,7 @@ async function update(eventi) {
 
     try {
         await collection.replaceOne({ "_id": eventi._id }, eventi)
+        console.log("updatedEventi",eventi)
         return eventi
     } catch (err) {
         console.log(`ERROR: cannot update eventi ${eventi._id}`)
