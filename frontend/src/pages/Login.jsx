@@ -50,7 +50,7 @@ class _Login extends Component {
         const userCreds = { username, password };
         const user = await this.props.login(userCreds);
         this.setState({ loginCred: { username: '', password: '' } });
-        console.log("user",user)
+
         if (user) this.props.history.push('/');
         else  this.props.history.push('/login');
         
@@ -70,11 +70,11 @@ class _Login extends Component {
         this.setState({ signupCred: { password: '', username: '' } });
     };
 
-    onLogout = () => {
-      this.props.logout()
-          .then(res => this.props.history.push('/'))
+  //   onLogout = () => {
+  //     this.props.logout()
+  //         .then(res => this.props.history.push('/'))
 
-  }
+  // }
 
 
     render() {
@@ -127,8 +127,8 @@ class _Login extends Component {
                     <br />
                     <Button type="submit" size="small" variant="contained">Login</Button>
                 </form>
-                <Button className="logout" onClick={this.onLogout} size="small" variant="contained">Logout
-                    </Button>
+                {/* <Button className="logout" onClick={this.onLogout} size="small" variant="contained">Logout
+                    </Button> */}
             </div>
             </React.Fragment>
         )

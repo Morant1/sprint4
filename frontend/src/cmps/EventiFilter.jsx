@@ -1,7 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { withRouter } from "react-router";
+
 import { FormControl,Select, MenuItem, InputLabel } from '@material-ui/core';
 import {  BusService } from '../services/event-bus-service';
-import { withRouter } from "react-router";
+
 
 
 export class _EventiFilter extends Component {
@@ -18,7 +20,7 @@ export class _EventiFilter extends Component {
 
     componentDidMount() {
         this.unsubscribe = BusService.on('searchUpdated',this.handleChange);
-        // unsubscribe();
+       
     }
 
     componentWillUnmount() {

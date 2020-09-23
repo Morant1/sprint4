@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { Chat } from '../cmps/Chat'
+
+
 import { Avatar,Button } from '@material-ui/core';
-import { eventService } from '../services/eventService';
 import { StarRate } from '../cmps/StarRate';
+import { Chat } from '../cmps/Chat'
+import { eventService } from '../services/eventService';
 import {updateEvent} from '../store/actions/eventActions'
-
-
-
 
 
 class _EventiDetails extends Component {
@@ -26,7 +25,7 @@ class _EventiDetails extends Component {
     const { _id } = this.props.match.params
     eventService.getById(_id)
       .then(eventi => {
-        this.setState({ eventi },()=>{console.log(this.state.eventi)})
+        this.setState({ eventi })
       })
 
   }
@@ -40,10 +39,9 @@ class _EventiDetails extends Component {
   addRank = () => {
     let {eventi,isRankPressed} = this.state;
     isRankPressed = !isRankPressed;
-    this.setState({isRankPressed })
-
-    const newRank = isRankPressed? eventi.rank + 1 : eventi.rank -1;
+    const newRank = isRankPressed ? eventi.rank + 1 : eventi.rank -1;
     eventi.rank = newRank;
+    this.setState({eventi, isRankPressed })
     this.props.updateEvent(eventi);
 
     
@@ -65,6 +63,7 @@ class _EventiDetails extends Component {
     const { eventi, isGoing } = this.state
     if (!eventi) return <div>Loading...</div>
     return (
+
       <section className="eventi-details margin"
         style={{ backgroundImage: `url(${require(`../assets/img/details-img.jpg`)})` }}>
           <div className="close" onClick={this.onBack}>X</div>
@@ -87,12 +86,12 @@ class _EventiDetails extends Component {
             style={{ backgroundImage: `url(${require(`../assets/img/${eventi.tags[0]}3.jpg`)})` }}>
           </div>
         </div>
+
         <StarRate rank={eventi.rank}/>
+
         <div className="eventi-title flex justify-center align-center">
           <h2>{eventi.title}</h2>
           <p>{eventi.description}</p>
-        
-        
         <div className="eventi-subtitle flex"> 
           <h5><img className="location-icon icon" src={require('../assets/icons/pin-outline.svg')}/>{eventi.location.city},{eventi.location.country}</h5>
           <h5><img className="host-icon icon" src={require('../assets/icons/person-circle-outline.svg')}/>{eventi.createdBy.fullName}</h5>
@@ -120,13 +119,6 @@ class _EventiDetails extends Component {
     </div>
     {this.state.isOpen && <Chat eventi={eventi} />}
       </section >
-
-
-
-
-
-
-
 
 
 

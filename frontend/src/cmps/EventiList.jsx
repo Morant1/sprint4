@@ -14,7 +14,6 @@ export class _EventiList extends Component {
         const { events ,currTag} = this.props;
     return (
         <div className="preview-grid">
-    
             {
                 events.map(eventi => <EventiPreview eventi={eventi} key={eventi._id} currTag={currTag} />)
             }

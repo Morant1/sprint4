@@ -6,13 +6,11 @@ export function loadUsers() {
   return async dispatch => {
     try {
       // example for loading
-      dispatch(loading());
+      // dispatch(loading());
       const users = await userService.getUsers();
       dispatch({ type: 'SET_USERS', users });
     } catch (err) {
       console.log('UserActions: err in loadUsers', err);
-      // example for rerouting - after changing the store
-      // history.push('/some/path');
     } finally {
       dispatch(doneLoading());
     }

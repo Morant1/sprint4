@@ -1,6 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom'
+
 
 import {Navbar} from './cmps/Navbar';
 import {EventiApp} from './pages/EventiApp';
@@ -15,7 +15,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-     
         <Navbar />
         <Switch>
           <Route component={EventiEdit} path = '/edit/:_id'/>
