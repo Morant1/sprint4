@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addEventi, loadEvents } from '../store/actions/eventActions'
+
+import { loadEvents } from '../store/actions/eventActions'
 import { EventiUpComing } from '../cmps/EventiUpComing'
 import { Footer } from '../cmps/Footer';
 
@@ -26,7 +27,7 @@ export class _HomePage extends Component {
     return (
       <React.Fragment>
         <section className="main-content flex">
-          <div class="screen">
+          <div className="screen">
           </div>
           <img className="main-img" src={require('../assets/img/main.jpg')} />
 
@@ -35,11 +36,10 @@ export class _HomePage extends Component {
             <div className="all-events span-all" onClick={(ev) => { this.redirectClick('All') }}>
               <span className="tag-all">All events</span>
             </div>
-            {/* <GlobalSearch /> */}
           </div>
-
         </section>
 
+        {/* Lital,Events-grid should be in a component! */}
         <section className="events-grid margin container">
 
           <div className="event-card" onClick={(ev) => { this.redirectClick('Sport') }}>
@@ -73,6 +73,7 @@ export class _HomePage extends Component {
 
           </div>
         </section>
+
         <section id="tickr-box">
           <div className="tickr-title flex justify-center align-center">Upcoming events</div>
           <div id="tickr-scroll">

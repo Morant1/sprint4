@@ -6,7 +6,6 @@ const logger = require('../../services/logger.service')
 // GET SINGLE
 async function getEventi(req, res) {
     const eventi = await eventService.getById(req.params.id)
-    console.log("eventi",eventi)
     res.send(eventi)
 }
 
@@ -15,7 +14,7 @@ async function getEventi(req, res) {
 async function getEvents(req, res) {
     const filterBy = req.query;
     const events = await eventService.query(filterBy)
-    logger.debug(events);
+    // logger.debug(events);
     res.send(events)
 }
 

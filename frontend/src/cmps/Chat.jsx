@@ -33,7 +33,6 @@ export class Chat extends Component {
   sendMsg = ev => {
     ev.preventDefault();
     socketService.emit('chat newMsg', this.state.msg);
-    // this.props.updateComments(this.props.topic,this.state.msg);
     this.setState({ msg: { ...this.state.msg, txt: '' }, typeMsg: '' });
   };
 

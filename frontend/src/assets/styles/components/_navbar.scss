@@ -81,3 +81,24 @@
 .scrolled {
     opacity: 0.8;
 }
+
+
+.user-icon{
+    margin-right:21px;
+    position: relative;
+    width: 35px;
+}
+
+.menu-list {
+    padding: 0;
+    position: absolute;
+    right:6px;
+    top: 31px;
+    background-color: white;
+
+    li {
+        cursor: pointer;
+        list-style-type: none;
+        padding: 2px;
+    }
+}
