@@ -23,7 +23,7 @@ import { updateEvent } from '../store/actions/eventActions'
         const eventiId = this.props.match.params._id
         if (eventiId) {
             const eventi = await eventService.getById(eventiId);
-            eventi.startsAt = new Date(eventi.startsAt).toISOString()
+            eventi.startsAt = new Date(eventi.startsAt).toISOString().substring(0,16);
             console.log(eventi);
             eventi.location = eventi.location.city+","+eventi.location.country;
             console.log("Event loaded",eventi);
@@ -49,7 +49,7 @@ import { updateEvent } from '../store/actions/eventActions'
         ev.preventDefault()
         console.log(this.state);
         await this.props.updateEvent(this.state.eventi);
-        this.props.history.push(`/${this.eventi.tags}`);
+        this.props.history.push(`/${this.state.eventi.tags[0]}`);
     }
 
     render() {
@@ -59,7 +59,7 @@ import { updateEvent } from '../store/actions/eventActions'
 
             <div className="edit-area margin">
                 <form onSubmit={(event) => this.onSubmit(event)} className="edit-form container">
-                    <h1> Add Event</h1>
+                    <h1> Edit Event</h1>
                     <label htmlFor="title">Title:</label>
                     <input type="text" name="title" id="title" onChange={this.handleChange} value={eventi.title} placeholder="Title" /><br></br>
                     <label htmlFor="description">Description:</label>
@@ -74,10 +74,11 @@ import { updateEvent } from '../store/actions/eventActions'
                     <input type="number" name="capacity" id="capacity" step="1" min="0" max="100000" onChange={this.handleChange} value={eventi.capacity} placeholder="Capacity" /><br></br>
                     <label htmlFor="tags">Choose a Tag:</label>
                     <select id="tags" name="tags" onChange={this.handleChange} value={eventi.tags}>
+                        <option></option>
+                        <option value="Art">Art</option>
                         <option value="Sport">Sport</option>
                         <option value="Movies">Movies</option>
                         <option value="Books">Books</option>
-                        <option value="Art">Art</option>
                         <option value="TVShows">TV Shows</option>
                         <option value="Comics">Comics</option>
                     </select><br></br>

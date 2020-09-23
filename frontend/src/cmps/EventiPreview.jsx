@@ -13,9 +13,9 @@ class _EventiPreview extends Component {
 
    render() {
     const {eventi,currTag,loggedInUser} = this.props;
-    console.log(loggedInUser)
     const user = eventi.participants.find(participant=> participant._id === loggedInUser._id)
-   const img = eventi.ImgUrl ? require(`../assets/img/${eventi.title}.jpg`) : require(`../assets/img/${eventi.title}.jpg`)
+    console.log("eventi",eventi.tags)
+    const img = require(`../assets/img/${eventi.tags[0]}.jpg`);
     return (
         <div className="eventi-preview card margin">
             <Link to={`/${currTag}/${eventi._id}`}>
@@ -24,7 +24,7 @@ class _EventiPreview extends Component {
                 <img className="preview-img" alt="event-01" src={img} />
                 </div>
                 <div className="preview-info">
-                    {/* {eventi.participants.length} of your friends are going */}
+                    {eventi.participants.length} of your friends are going
                     <div className="preview-title">{eventi.title}</div>
                     <span className="preview-time"> {new Date(eventi.startsAt).toDateString()}</span>
                     <br></br>
