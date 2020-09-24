@@ -93,3 +93,31 @@
 .icon {
     width: 21px;
 }
+
+.food {
+    .title {
+        color: white;
+        margin-right: 10px;
+    }
+    flex-direction: column;
+    margin-top:5px;
+
+    img {
+        border-radius: 50%;
+        padding: 5px;
+        width: 50px;
+        margin: 2px;
+        cursor: pointer;
+    }
+        .icon-1 {
+            background-color: $clr4;
+        }
+
+        .icon-2 {
+            background-color:$clr1;
+        }
+
+        .icon-3 {
+            background-color:$clr3;
+        }
+    }

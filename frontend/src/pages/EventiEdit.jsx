@@ -49,7 +49,7 @@ import { updateEvent } from '../store/actions/eventActions'
         ev.preventDefault()
         console.log(this.state);
         await this.props.updateEvent(this.state.eventi);
-        this.props.history.push(`/${this.state.eventi.tags}`);
+        this.props.history.push(`/${this.state.eventi.tags[0]}`);
     }
 
     render() {

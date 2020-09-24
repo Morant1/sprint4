@@ -80,19 +80,21 @@ class _EventiDetails extends Component {
 
   getRankStyle = () => {
     if (this.state.isRankPressed) {
-    return {backgroundColor: '#FCCD04'}
+    return {backgroundColor: '#A64AC9'}
+    }
+  }
+  onFood = () => {
+    this.setState({isFood:!this.state.isFood})
+  }
+  getGoingStyle = () => {
+    if (this.state.isGoing) {
+    return {backgroundColor: '#A64AC9'}
     }
   }
 
-  getGoingStyle = () => {
-    if (this.state.isGoing) {
-    return {backgroundColor: '#2f2f2f'}
-    }
-  }
   removeEvent = (eventId) => {
     this.props.removeEvent(eventId);
-    console.log(eventId)
-    this.props.history.push(`/${this.state.eventi.tags}`);
+    this.props.history.push(`/${this.state.eventi.tags[0]}`);
   };
 
   render() {
@@ -137,7 +139,15 @@ class _EventiDetails extends Component {
         </div>
           {/* <h3><img className="clock-icon icon" src={require('../assets/icons/time-outline.svg')}/>{eventi.duration} hours</h3>  */}
      </div>
-        {/* <div className="eventi-participants flex justify-center align-center">
+     <div className="food flex justify-center align-center">
+       {isGoing ? <div className="details-icons flex justify-center align-center">
+         <div className="title">What are you bringing to the game?</div>
+       <img className="icon-1"  onClick={this.onFood} src={require('../assets/icons/pizza.svg')}/>
+       <img className="icon-2"  onClick={this.onFood} src={require('../assets/icons/ice-cream.svg')}/>
+       <img className="icon-3"  onClick={this.onFood} src={require('../assets/icons/beer.svg')}/>
+       </div> : null}
+     </div>
+        <div className="eventi-participants flex justify-center align-center">
           <div className="title">Who is coming?</div>
           <div className="participant-container flex align-center">
             {
@@ -148,9 +158,9 @@ class _EventiDetails extends Component {
                 </div>
               })
             }
-          </div>  */}
+          </div>  
 
-    {/* </div>  */}
+    </div> 
     <div className="chat-box flex justify-center">
     <Button className="chat-btn" onClick={this.openChat}>{this.state.isOpen? 'Close ': 'Open '}chat</Button>
     </div>
