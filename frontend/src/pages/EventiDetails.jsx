@@ -80,15 +80,18 @@ class _EventiDetails extends Component {
 
   getRankStyle = () => {
     if (this.state.isRankPressed) {
-    return {backgroundColor: '#FCCD04'}
+    return {backgroundColor: '#A64AC9'}
+    }
+  }
+  onFood = () => {
+    this.setState({isFood:!this.state.isFood})
+  }
+  getGoingStyle = () => {
+    if (this.state.isGoing) {
+    return {backgroundColor: '#A64AC9'}
     }
   }
 
-  getGoingStyle = () => {
-    if (this.state.isGoing) {
-    return {backgroundColor: '#2f2f2f'}
-    }
-  }
   removeEvent = (eventId) => {
     this.props.removeEvent(eventId);
     this.props.history.push(`/${this.state.eventi.tags[0]}`);
@@ -135,6 +138,14 @@ class _EventiDetails extends Component {
           <h5><img className="host-icon icon" src={require('../assets/icons/person-circle-outline.svg')}/>{eventi.createdBy.fullName}</h5>
         </div>
           {/* <h3><img className="clock-icon icon" src={require('../assets/icons/time-outline.svg')}/>{eventi.duration} hours</h3>  */}
+     </div>
+     <div className="food flex justify-center align-center">
+       {isGoing ? <div className="details-icons flex justify-center align-center">
+         <div className="title">What are you bringing to the game?</div>
+       <img className="icon-1"  onClick={this.onFood} src={require('../assets/icons/pizza.svg')}/>
+       <img className="icon-2"  onClick={this.onFood} src={require('../assets/icons/ice-cream.svg')}/>
+       <img className="icon-3"  onClick={this.onFood} src={require('../assets/icons/beer.svg')}/>
+       </div> : null}
      </div>
         <div className="eventi-participants flex justify-center align-center">
           <div className="title">Who is coming?</div>
