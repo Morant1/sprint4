@@ -137,7 +137,7 @@ class _EventiDetails extends Component {
         </div>
           {/* <h3><img className="clock-icon icon" src={require('../assets/icons/time-outline.svg')}/>{eventi.duration} hours</h3>  */}
      </div>
-        <div className="eventi-participants flex justify-center align-center">
+        {/* <div className="eventi-participants flex justify-center align-center">
           <div className="title">Who is coming?</div>
           <div className="participant-container flex align-center">
             {
@@ -148,9 +148,9 @@ class _EventiDetails extends Component {
                 </div>
               })
             }
-          </div> 
+          </div>  */}
 
-    </div> 
+    {/* </div>  */}
     <div className="chat-box flex justify-center">
     <Button className="chat-btn" onClick={this.openChat}>{this.state.isOpen? 'Close ': 'Open '}chat</Button>
     </div>
