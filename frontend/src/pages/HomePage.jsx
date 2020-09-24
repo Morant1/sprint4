@@ -2,14 +2,28 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { loadEvents } from '../store/actions/eventActions'
+import { signup } from '../store/actions/userActions'
 import { EventiUpComing } from '../cmps/EventiUpComing'
 import { Footer } from '../cmps/Footer';
+import { utils } from '../services/utils';
 
 export class _HomePage extends Component {
 
 
   componentDidMount() {
     this.props.loadEvents();
+    if (!this.props.loggedInUser ) {
+    const signupCreds =
+    {
+      password: '123456',
+      username: `Guest-${utils.makeId()}`,
+      isGoing: false,
+      isGuest: true
+    };
+
+    this.props.signup(signupCreds);
+    }
+
   }
 
   getFilteredList = () => {
@@ -82,7 +96,7 @@ export class _HomePage extends Component {
             }
           </div>
         </section>
-        <Footer/>
+        <Footer />
       </React.Fragment>
     );
   }
@@ -91,11 +105,13 @@ export class _HomePage extends Component {
 
 const mapStateToProps = state => {
   return {
-    events: state.eventReducer.events
+    events: state.eventReducer.events,
+    loggedInUser: state.userReducer.loggedInUser
   };
 };
 const mapDispatchToProps = {
-  loadEvents
+  loadEvents,
+  signup
 };
 
 export const HomePage = connect(mapStateToProps, mapDispatchToProps)(_HomePage)

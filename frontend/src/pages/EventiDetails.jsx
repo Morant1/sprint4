@@ -63,15 +63,12 @@ class _EventiDetails extends Component {
       let eventi = this.state.eventi;
       if (this.state.isGoing) {
         eventi.participants.push(user)
-        console.log("push",eventi.participants)
         BusService.emit('notify', { msg: `You are going to ${eventi.title} event`})
       } else {
         const idx = eventi.participants.findIndex(participant=> participant===user);
         if (idx) eventi.participants.splice(idx,1)
         BusService.emit('notify', { msg: `You are not going to ${eventi.title} event anymore`})
-        console.log("remove",eventi.participants)
       }
-      console.log(eventi)
       this.props.updateEvent(eventi)
       this.setState({eventi})
 
@@ -98,7 +95,7 @@ class _EventiDetails extends Component {
   };
 
   render() {
-    const { eventi, isGoing } = this.state
+    const { eventi, isGoing} = this.state
     if (!eventi) return <div>Loading...</div>
     return (
 
@@ -113,7 +110,7 @@ class _EventiDetails extends Component {
           <Button><Link to={`/edit/${eventi._id}`}>Edit</Link></Button>
           <Button onClick={()=>this.removeEvent(eventi._id)}>Delete</Button>
           <Button onClick={this.addRank} style={this.getRankStyle()}>
-            <img className="star-icon" src={require('../assets/icons/rank.svg')}/>
+            <img className="star-icon" src={require('../assets/icons/rank.svg')}/>+
             </Button>
           </div>
         <div className="eventi-photo flex justify-center">
@@ -133,6 +130,7 @@ class _EventiDetails extends Component {
         <div className="eventi-title flex justify-center align-center">
           <h2>{eventi.title}</h2>
           <p>{eventi.description}</p>
+          <div>{new Date(eventi.startsAt).toDateString()}</div>
         <div className="eventi-subtitle flex"> 
           <h5><img className="location-icon icon" src={require('../assets/icons/pin-outline.svg')}/>{eventi.location.city},{eventi.location.country}</h5>
           <h5><img className="host-icon icon" src={require('../assets/icons/person-circle-outline.svg')}/>{eventi.createdBy.fullName}</h5>
@@ -141,7 +139,7 @@ class _EventiDetails extends Component {
      </div>
      <div className="food flex justify-center align-center">
        {isGoing ? <div className="details-icons flex justify-center align-center">
-         <div className="title">What are you bringing to the game?</div>
+         <div className="title">What are you bringing?</div>
        <img className="icon-1"  onClick={this.onFood} src={require('../assets/icons/pizza.svg')}/>
        <img className="icon-2"  onClick={this.onFood} src={require('../assets/icons/ice-cream.svg')}/>
        <img className="icon-3"  onClick={this.onFood} src={require('../assets/icons/beer.svg')}/>
@@ -164,7 +162,7 @@ class _EventiDetails extends Component {
     <div className="chat-box flex justify-center">
     <Button className="chat-btn" onClick={this.openChat}>{this.state.isOpen? 'Close ': 'Open '}chat</Button>
     </div>
-    {this.state.isOpen && <Chat eventi={eventi} />}
+    {/* {this.state.isOpen && <Chat eventi={eventi} user={this.props.loggedInUser} updateEvent={this.props.updateEvent}/>} */}
       </section >
 
     )

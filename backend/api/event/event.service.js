@@ -113,6 +113,7 @@ async function update(eventi) {
 
     try {
         await collection.replaceOne({ "_id": eventi._id }, eventi)
+        console.log("eventi update server",eventi)
         return eventi
     } catch (err) {
         console.log(`ERROR: cannot update eventi ${eventi._id}`)

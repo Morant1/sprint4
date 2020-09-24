@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
 import socketService from '../services/socketService';
+import { utils } from '../services/utils';
+import { BusService } from '../services/event-bus-service';
 import { Avatar, Button, TextField } from '@material-ui/core';
 
 export class Chat extends Component {
   state = {
     typeMsg: '',
-    msg: { from: 'moran', txt: '' },
-    msgs: [],
+    mags: [],
+    msg: { author: this.props.user, txt: '' },
     topic: this.props.eventi._id
   };
-
   componentDidMount() {
     socketService.setup();
     socketService.emit('chat topic', this.state.topic);
     socketService.on('chat addMsg', this.addMsg);
-    socketService.on('chat history', msgs => {
-      this.setState({ msgs: msgs[this.state.topic] || [] });
-
-    })
   }
 
   componentWillUnmount() {
@@ -29,16 +26,34 @@ export class Chat extends Component {
     this.setState(prevState => ({ msgs: [...prevState.msgs, newMsg] }));
   };
 
+  changeTopic = () => {
+    socketService.emit('chat topic', this.state.topic);
+  };
 
   sendMsg = ev => {
     ev.preventDefault();
-    socketService.emit('chat newMsg', this.state.msg);
+    const comment = {
+      "id": utils.makeId(),
+      "createdAt": new Date(),
+      "author": this.state.msg.author,
+      "txt": this.state.msg.txt
+    }
+
+    let eventi = { ...this.props.eventi }
+    eventi.comments.push(comment)
+    this.props.updateEvent(eventi)
+    BusService.emit('notify', { msg: `You left a comment in ${eventi.title} event` })
+    
+
+    socketService.emit('chat newMsg', this.state.msg.txt);
     this.setState({ msg: { ...this.state.msg, txt: '' }, typeMsg: '' });
+
   };
 
+  
 
   msgHandleFocus = ev => {
-    const typingMsg = `${this.state.msg.from} is typing...`;
+    const typingMsg = `${this.state.msg.author.username} is typing...`;
     socketService.emit('typing Msg', typingMsg);
     this.setState({ typeMsg: typingMsg })
   }
@@ -65,11 +80,11 @@ export class Chat extends Component {
     const { eventi } = this.props;
     return (
       <div className="chat flex justify-center align-center">
-        <h3 style={{color:'white'}}>Comment and Reviews</h3>
+        <h3 style={{ color: 'white' }}>Comment and Reviews</h3>
         <div className="chat">
           <form onSubmit={this.sendMsg}>
             <TextField
-              style={{color:'white'}}
+              style={{ color: 'white' }}
               type="text"
               value={this.state.msg.txt}
               onChange={this.msgHandleChange}
@@ -79,7 +94,7 @@ export class Chat extends Component {
               autoComplete='off'
             />
             <Button>Send</Button>
-            <div style={{ minHeight: '25px',color:'white' }}>{this.state.typeMsg ? this.state.typeMsg : ''}</div>
+            <div style={{ minHeight: '25px', color: 'white' }}>{this.state.typeMsg ? this.state.typeMsg : ''}</div>
           </form>
         </div>
         {eventi.comments.map((comment, index) => {
@@ -88,10 +103,10 @@ export class Chat extends Component {
               {/* {comment.author.imgUrl? 
                         <img src={`${comment.author.imgUrl}`} alt="Avatar" style={{width:'100%'}}/>
                         : */}
-              <Avatar>{comment.author.fullName.split(' ')[0][0]}</Avatar>
+              <Avatar>{comment.author.username[0]}</Avatar>
               <p>{comment.txt}</p>
               <span className={`time-${index % 2 === 0 ? 'left' : 'right'}`}>
-                {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                {comment.createdAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
             </div>
           )
         })}

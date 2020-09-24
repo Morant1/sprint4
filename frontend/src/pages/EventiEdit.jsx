@@ -24,9 +24,7 @@ import { updateEvent } from '../store/actions/eventActions'
         if (eventiId) {
             const eventi = await eventService.getById(eventiId);
             eventi.startsAt = new Date(eventi.startsAt).toISOString().substring(0,16);
-            console.log(eventi);
             eventi.location = eventi.location.city+","+eventi.location.country;
-            console.log("Event loaded",eventi);
             this.setState({eventi})
         }
         console.log('mounted');
@@ -34,7 +32,6 @@ import { updateEvent } from '../store/actions/eventActions'
     handleChange = ({ target }) => {
         const field = target.name
         const value = (target.type === ' number  ') ? parseInt(target.value) : target.value
-        console.log(target.value);
         this.setState(prevState => {
             return {
                 eventi: {

@@ -43,10 +43,6 @@ export class _EventiFilter extends Component {
         const { date, sort, order , name } = this.state.filter
         return (
             <form className="main-filter-container">
-                {/* <div className="serach">
-                    <label className="title">By title</label>
-                    <input type="text" name='title' value={name} onChange={this.handleChange} />
-                </div> */}
                 <div className="filter flex justify-space">
                 <FormControl>
                 <InputLabel id="date">Date</InputLabel>

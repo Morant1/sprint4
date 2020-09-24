@@ -52,7 +52,7 @@ export function updateEvent(eventi) {
 /*       eventi.startsAt = Date.parse(eventi.startsAt); */
       console.log("Event inside action " + eventi)
       const addedEvent = await eventService.save(eventi);
-      dispatch({ type: 'EVENT_UPDATE', event: addedEvent });
+      dispatch({ type: 'EVENT_UPDATE', eventi: addedEvent });
     } catch (err) {
       console.log('eventActions: err in updateEvent', err);
     }

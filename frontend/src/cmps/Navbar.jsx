@@ -64,7 +64,7 @@ export class _Navbar extends Component {
                     {this.props.loggedInUser && <div className="nav-welcome">Welcome {this.props.loggedInUser.username}</div>}
                     <img className="activities-icon" onClick={this.onNotifiction} src={require('../assets/icons/notification.svg')} />
                     <div className="user-notification align-center justify-center" style={this.getStyle()}>
-                        <UserNotifications />
+                        {this.props.loggedInUser &&<UserNotifications />}
                     </div>
                     <img onClick={this.onUser} className="user-icon" src={require('../assets/icons/person-circle-outline.svg')} />
                     {this.state.isUserProfile &&

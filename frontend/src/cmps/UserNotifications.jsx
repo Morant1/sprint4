@@ -18,7 +18,7 @@ export class _UserNotifications extends Component {
     }
     render() {
         const { msgs } = this.state
-        console.log(msgs)
+        
         if (!msgs) return 'Loading';
         return (
             <React.Fragment>

@@ -39,7 +39,7 @@ export class _EventiApp extends Component {
 
   render() {
     const filteredEvents = this.loadFilteredEvents();
-    if (!filteredEvents) return <div>Loading...</div>
+    if (!filteredEvents) return <img className='flex justift-center' src='http://38.media.tumblr.com/512aa2b4c47276e656036249dbaa5506/tumblr_n8ie0o3WG61twkrf5o1_400.gif'></img>
 
     return (
       <div className="list-events">
