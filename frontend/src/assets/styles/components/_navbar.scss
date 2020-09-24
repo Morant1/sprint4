@@ -25,6 +25,7 @@
     }
     button {
         border-left: 1px solid #9e9e9e;
+        border-right: 1px solid #9e9e9e;
         a {
             color: $clr7;
             &:hover {
@@ -50,6 +51,14 @@
             color: #464646;
             // color:#464646;
         }
+    }
+
+    &.scrolled {
+        opacity: 0.8;
+    
+        // .logo a, .logo span {
+        //     color: red;
+        // }
     }
 }
 .global-search {
@@ -82,9 +91,7 @@
     height: 100px;
     margin-top: 50px;
 }
-.scrolled {
-    opacity: 0.8;
-}
+
 .user-icon {
     margin-right: 21px;
     position: relative;
@@ -93,6 +100,7 @@
 .activities-icon {
     width: 35px;
     margin-right: 5px;
+    margin-left: 10px;
 }
 .user-menu {
     padding: 0;
