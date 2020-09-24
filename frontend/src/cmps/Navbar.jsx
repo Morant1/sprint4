@@ -59,7 +59,7 @@ export class _Navbar extends Component {
                         <Link to="/"> Even<span className="gray">{`{`}</span>{`t`}<span className="gray">{`}`}</span> Better</Link></article>
 
                     {this.props.location.pathname !== "/" && <GlobalSearch />}
-                    <button className="add-event-btn"><Link to="/add">Add Event</Link></button>
+                    
                     <div className="user-nav flex justify-center align-center">
                         {this.props.loggedInUser && <div className="nav-welcome">Welcome {this.props.loggedInUser.username}</div>}  
                         <img className="activities-icon" onClick={this.onNotifiction} src={require('../assets/icons/notification.svg')} />
@@ -70,6 +70,7 @@ export class _Navbar extends Component {
                         {this.state.isUserProfile &&
                             <ul className="user-menu">
                                 {/* <li onClick={this.onUser}>Profile</li> */}
+                                <li className="add-event-btn"><Link to="/add">Add Event</Link></li>
                                 <li onClick={this.onUser}><Link to="/login">Login</Link></li>
                                 <li onClick={this.onLogout}>Logout</li>
                             </ul>}

@@ -26,8 +26,8 @@ class _EventiPreview extends Component {
                         <br></br>
                         <span className="preview-rank"><div className="star fas fa-star"></div> {eventi.rank}(40) · {eventi.location.country}</span>
                         <div className="event-creator-section flex align-center">
-                            <Avatar className="avatar">G</Avatar>
-                            <span className="creator">{eventi.createdBy.fullName}</span>
+                            <Avatar className="avatar">{eventi.createdBy.username[0].toUpperCase()}</Avatar>
+                            <span className="creator">{eventi.createdBy.username.split(' ')[0]}</span>
                         </div>
 
 

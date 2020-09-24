@@ -13,11 +13,12 @@
     }
 
     form {
-        margin: 0 5px 5px 5px;
+        // margin: 0 5px 5px 5px;
         border-radius: 21px;
         padding:rem(10px);
         width: 300px;
         text-align: center;
+        margin: 0 auto;
         // @for $i from 1 through 2 {
         //     &:nth-child(#{$i}) {
         //         background-color: adjust-hue($clr3, $i*5deg );

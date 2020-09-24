@@ -1,7 +1,7 @@
 
 #tickr-box 
 {
-max-width: 550px;
+max-width: 960px;
 padding: 3px;
 margin: 50px auto 50px auto;
 border-radius: 4px;
@@ -14,7 +14,7 @@ text-align: center;
 height: 30px;
 color: #FFFFFF;
 font-family: montserrat;
-background: $clr3; 
+background: $clr1; 
 padding: 5px;
 border-radius: 4px;
 }
@@ -32,7 +32,7 @@ list-style: none;
 {
 background: $clr6;
 height: 180px;
-margin: 3px auto 0px auto;
+margin: 0 auto;
 overflow: hidden;
 padding: 0px;
 border-radius: 4px;
@@ -60,9 +60,9 @@ text-decoration: none;
 
 #tickr-scroll ul
 {
-transform:translateX(100%);
+transform:translateY(100%);
 padding: 0px 6px 0px 6px;
-animation: ticker 15s linear infinite;
+animation: ticker 22s linear infinite;
 // animation: tickr 10s infinite;
 }
 
@@ -86,9 +86,9 @@ animation: ticker 15s linear infinite;
 
 @keyframes ticker {
     0%   { 
-    transform: translateX(100%);       
+    transform: translateY(100%);       
     }
     100% { 
-    transform: translateX(-100%); 
+    transform: translateY(-100%); 
     }
    }

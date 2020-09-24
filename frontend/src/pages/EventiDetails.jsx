@@ -132,6 +132,7 @@ class _EventiDetails extends Component {
           <h2>{eventi.title}</h2>
           <p>{eventi.description}</p>
           <div>{new Date(eventi.startsAt).toDateString()}</div>
+          <div>{new Date(eventi.startsAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
         <div className="eventi-subtitle flex"> 
           <h5><img className="location-icon icon" src={require('../assets/icons/pin-outline.svg')}/>{eventi.location.city},{eventi.location.country}</h5>
           <h5><img className="host-icon icon" src={require('../assets/icons/person-circle-outline.svg')}/>{eventi.createdBy.fullName}</h5>
@@ -160,10 +161,11 @@ class _EventiDetails extends Component {
           </div>  
 
     </div> 
-    <div className="chat-box flex justify-center">
+    <a className="flex justify-center" href='https://us02web.zoom.us'>COME IN</a>
+    {/* <div className="chat-box flex justify-center">
     <Button className="chat-btn" onClick={this.openChat}>{this.state.isOpen? 'Close ': 'Open '}chat</Button>
-    </div>
-    {/* {this.state.isOpen && <Chat eventi={eventi} user={this.props.loggedInUser} updateEvent={this.props.updateEvent}/>} */}
+    </div> */}
+    {/* {this.state.isOpen && <Chat eventi={eventi} user={this.props.loggedInUser} />}ד */}
       </section >
 
     )

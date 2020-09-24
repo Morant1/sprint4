@@ -26,13 +26,13 @@
     button {
         border-left: 1px solid #9e9e9e;
         border-right: 1px solid #9e9e9e;
+        height:50px;
         a {
             color: $clr7;
             &:hover {
                 color: $clr6;
             }
         }
-        height: 100%;
         transition: all 0.3s;
         cursor: pointer;
         &:hover {
@@ -40,7 +40,6 @@
             color: $clr6;
         }
     }
-
     .logo {
         color: $clr6;
         // color:#000000;
@@ -52,10 +51,8 @@
             // color:#464646;
         }
     }
-
     &.scrolled {
         opacity: 0.8;
-    
         // .logo a, .logo span {
         //     color: red;
         // }
@@ -91,7 +88,6 @@
     height: 100px;
     margin-top: 50px;
 }
-
 .user-icon {
     margin-right: 21px;
     position: relative;
@@ -100,7 +96,10 @@
 .activities-icon {
     width: 35px;
     margin-right: 5px;
-    margin-left: 10px;
+    margin-left: 20px;
+}
+.nav-welcome{
+margin-left:20px;
 }
 .user-menu {
     padding: 0;
