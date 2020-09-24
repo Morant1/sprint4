@@ -9,10 +9,10 @@ export function Footer() {
                 <div className="footer-logo"><img src={require('../assets/img/logo-1.png')} /></div>
                 <li>
                     <Link to="https://www.facebook.com/lital.gottlieb" target="_blank" />
-                    <div class="fab fa-facebook-f">
+                    <div className="fab fa-facebook-f">
                     </div>
                 </li>
-                <li><Link to="https://twitter.com/litalgottlieb" target="_blank" /><div class="fab fa-twitter"></div></li>
+                <li><Link to="https://twitter.com/litalgottlieb" target="_blank" /><div className="fab fa-twitter"></div></li>
                 <li><Link to="#" target="_blank" /></li>
             </ul>
             <div className="copy-rights flex align-center"> © All Rights Reserved EventBetter - 2020</div>

@@ -100,6 +100,7 @@ class _EventiDetails extends Component {
   render() {
     const { eventi, isGoing } = this.state
     if (!eventi) return <div>Loading...</div>
+    console.log(eventi);
     return (
 
       <section className="eventi-details margin"

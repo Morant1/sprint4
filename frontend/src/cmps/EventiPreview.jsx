@@ -1,12 +1,7 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { Avatar } from '@material-ui/core';
-import StarIcon from '@material-ui/icons/Star';
-
-
-
 
 class _EventiPreview extends Component {
 
@@ -20,7 +15,7 @@ class _EventiPreview extends Component {
         <div className="eventi-preview card margin">
             <Link to={`/${currTag}/${eventi._id}`}>
                 <div className="img-area">
-            <button className="attend-btn"><span>{user? 'You are going!' : "Join The fun!"}</span></button>
+            <button className="attend-btn">{user? <span className="joined">You are going!</span> : <div className="unjoined">Join The fun!</div>}</button>
                 <img className="preview-img" alt="event-01" src={img} />
                 </div>
                 <div className="preview-info">
