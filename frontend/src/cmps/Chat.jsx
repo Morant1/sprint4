@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import socketService from '../services/socketService';
-import { utils } from '../services/utils';
-import { BusService } from '../services/event-bus-service';
 import { Avatar, Button, TextField } from '@material-ui/core';
 
 export class Chat extends Component {
   state = {
     typeMsg: '',
-    mags: [],
-    msg: { author: this.props.user, txt: '' },
+    serverSideTyping: '',
+    msg: { from: this.props.user, txt: '' },
+    msgs: [],
     topic: this.props.eventi._id
   };
+
   componentDidMount() {
     socketService.setup();
     socketService.emit('chat topic', this.state.topic);
     socketService.on('chat addMsg', this.addMsg);
+    socketService.on('typing Msg', this.serverSideTyping);
+    socketService.on('chat history', msgs => {
+      this.setState({ msgs: msgs[this.state.topic] || [] });
+
+    })
   }
 
   componentWillUnmount() {
@@ -22,38 +27,23 @@ export class Chat extends Component {
     socketService.terminate();
   }
 
+  serverSideTyping = msg => {
+    this.setState({ serverSideTyping: msg });
+  }
   addMsg = newMsg => {
     this.setState(prevState => ({ msgs: [...prevState.msgs, newMsg] }));
   };
 
-  changeTopic = () => {
-    socketService.emit('chat topic', this.state.topic);
-  };
 
   sendMsg = ev => {
     ev.preventDefault();
-    const comment = {
-      "id": utils.makeId(),
-      "createdAt": new Date(),
-      "author": this.state.msg.author,
-      "txt": this.state.msg.txt
-    }
-
-    let eventi = { ...this.props.eventi }
-    eventi.comments.push(comment)
-    this.props.updateEvent(eventi)
-    BusService.emit('notify', { msg: `You left a comment in ${eventi.title} event` })
-    
-
-    socketService.emit('chat newMsg', this.state.msg.txt);
-    this.setState({ msg: { ...this.state.msg, txt: '' }, typeMsg: '' });
-
+    console.log("ev", ev)
+    socketService.emit('chat newMsg', this.state.msg);
+    this.setState({ msg: { ...this.state.msg, txt: '' }, typeMsg: '' }, () => console.log(this.state));
   };
 
-  
-
   msgHandleFocus = ev => {
-    const typingMsg = `${this.state.msg.author.username} is typing...`;
+    const typingMsg = `${this.state.msg.from.username} is typing...`;
     socketService.emit('typing Msg', typingMsg);
     this.setState({ typeMsg: typingMsg })
   }
@@ -76,43 +66,62 @@ export class Chat extends Component {
       };
     });
   };
-  render() {
-    const { eventi } = this.props;
-    return (
-      <div className="chat flex justify-center align-center">
-        <h3 style={{ color: 'white' }}>Comment and Reviews</h3>
-        <div className="chat">
-          <form onSubmit={this.sendMsg}>
-            <TextField
-              style={{ color: 'white' }}
-              type="text"
-              value={this.state.msg.txt}
-              onChange={this.msgHandleChange}
-              onFocus={this.msgHandleFocus}
-              onBlur={this.msgHandleBlur}
-              name="txt"
-              autoComplete='off'
-            />
-            <Button>Send</Button>
-            <div style={{ minHeight: '25px', color: 'white' }}>{this.state.typeMsg ? this.state.typeMsg : ''}</div>
-          </form>
-        </div>
-        {eventi.comments.map((comment, index) => {
-          return (
-            <div key={comment.id} className={`chat-container ${index % 2 === 0 ? 'blue' : ''}`}>
-              {/* {comment.author.imgUrl? 
-                        <img src={`${comment.author.imgUrl}`} alt="Avatar" style={{width:'100%'}}/>
-                        : */}
-              <Avatar>{comment.author.username[0]}</Avatar>
-              <p>{comment.txt}</p>
-              <span className={`time-${index % 2 === 0 ? 'left' : 'right'}`}>
-                {comment.createdAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
-            </div>
-          )
-        })}
 
-      </div>
+  render() {
+    return (
+      <section className="msger">
+        <header className="msger-header">
+          <div className="msger-header-title">
+            <i className="fas fa-comment-alt"></i> Online Chat
+        </div>
+          <div className="msger-header-options">
+            <span onClick={this.props.openChat}><i class="far fa-times-circle"></i></span>
+          </div>
+        </header>
+        <main className="msger-chat">
+          {this.state.msgs && this.state.msgs.map((msg, idx) => {
+            return (
+              <div className={`msg ${idx % 2 === 0 ? 'left' : 'right'}-msg`}>
+                <div
+                  className="msg-img"
+                  style={{
+                    backgroundImage:
+                      `url(${idx % 2 === 0 ? 'https://image.flaticon.com/icons/svg/327/327779.svg'
+                        : 'https://image.flaticon.com/icons/svg/145/145867.svg'})`
+                  }}>
+                </div>
+
+                <div className="msg-bubble">
+                  <div className="msg-info">
+                    <div className="msg-info-name"><Avatar>{this.state.msg.from.username[0].toUpperCase()}</Avatar></div>
+                    <div className="msg-info-time">{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+                  </div>
+
+                  <div className="msg-text">
+                    {msg.txt}
+                  </div>
+                </div>
+              </div>)
+          })}
+        </main>
+
+        <form className="msger-inputarea" onSubmit={this.sendMsg}>
+          <div className='typing' style={{ minHeight: '25px', color: 'black' }}>{this.state.serverSideTyping ? this.state.serverSideTyping : ''}</div>
+          <input
+            className='msger-input'
+            style={{ color: 'black' }}
+            type="text"
+            value={this.state.msg.txt}
+            onChange={this.msgHandleChange}
+            onFocus={this.msgHandleFocus}
+            onBlur={this.msgHandleBlur}
+            name="txt"
+            autoComplete='off'
+            placeholder="Enter your message..."
+          />
+          <button type="submit" className="msger-send-btn">Send</button>
+        </form>
+      </section>
     )
   }
 }
-

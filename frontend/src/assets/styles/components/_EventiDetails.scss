@@ -2,7 +2,7 @@
     color: #2f2f2f;
     background-size: cover;
     grid-column: 1/-1;
-
+    position: relative;
         .btn-details {
             margin-top:10px;
             button {
@@ -121,3 +121,15 @@
             background-color:$clr3;
         }
     }
+    .chat{
+        justify-content: flex-end;
+      }
+
+
+
+    .chat-btn {
+    padding: 9px 8px;
+    font-size: 31px;
+    color: $clr1;
+    cursor: pointer;
+}

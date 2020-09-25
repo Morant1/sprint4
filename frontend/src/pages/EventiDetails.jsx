@@ -162,10 +162,11 @@ class _EventiDetails extends Component {
 
     </div> 
     <a className="flex justify-center" href='https://us02web.zoom.us'>COME IN</a>
-    {/* <div className="chat-box flex justify-center">
-    <Button className="chat-btn" onClick={this.openChat}>{this.state.isOpen? 'Close ': 'Open '}chat</Button>
-    </div> */}
-    {/* {this.state.isOpen && <Chat eventi={eventi} user={this.props.loggedInUser} />}ד */}
+    <div className="chat flex">
+    {!this.state.isOpen && <div className="chat-btn" onClick={this.openChat}><i class="far fa-comment-dots"></i></div>}
+    </div>
+    
+     {this.state.isOpen && <Chat eventi={eventi} user={this.props.loggedInUser} openChat={this.openChat} />}
       </section >
 
     )
