@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { loadEvents } from '../store/actions/eventActions'
 import { signup } from '../store/actions/userActions'
+import { EventiPreview } from '../cmps/EventiPreview'
 import { EventiUpComing } from '../cmps/EventiUpComing'
 import { Footer } from '../cmps/Footer';
 import { utils } from '../services/utils';
@@ -28,9 +29,10 @@ export class _HomePage extends Component {
 
   getFilteredList = () => {
     const now = Date.now();
-    const filteredList = this.props.events.filter(eventi => eventi.startsAt > now);
-    return filteredList;
-
+    const filteredList = this.props.events.filter(eventi => eventi.startsAt > now && eventi.startsAt < 1609452000000);
+    return filteredList.sort((a, b) => {
+      return a['startsAt'] < b['startsAt'] ? 1 : a['startsAt'] < b['startsAt'] ? -1 : 0
+  })
   }
   redirectClick = (tag) => {
     this.props.history.push(`/${tag}`)
@@ -87,15 +89,21 @@ export class _HomePage extends Component {
 
           </div>
         </section>
+        <div className="title">Upcoming events</div>
+        <div class="card-container">
+            {
+              filteredList.map(eventi => <div><EventiPreview eventi={eventi} loggedInUser={this.props.user} currTag={eventi.tags[0]} /></div>)
+            }
+          </div>
 
-        <section id="tickr-box">
+        {/* <section id="tickr-box">
           <div className="tickr-title flex justify-center align-center">Upcoming events</div>
           <div id="tickr-scroll">
             {
               filteredList.map(eventi => <ul><EventiUpComing eventi={eventi} key={eventi._id} currTag={eventi.tags[0]} /></ul>)
             }
           </div>
-        </section>
+        </section> */}
         <Footer />
       </React.Fragment>
     );
