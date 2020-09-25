@@ -55,7 +55,7 @@ export class _HomePage extends Component {
           </div>
         </section>
 
-        {/* Lital,Events-grid should be in a component */}
+        {/* Lital,Events-grid should be in a component  + map */}
         <section className="events-grid margin container">
 
           <div className="event-card" onClick={(ev) => { this.redirectClick('Sport') }}>
@@ -86,6 +86,11 @@ export class _HomePage extends Component {
           <div className="event-card" onClick={(ev) => { this.redirectClick('Comics') }}>
             <span className="tag-comics">Comics</span>
             <img src={require('../assets/img/Comics.jpg')}></img>
+
+          </div>
+          <div className="event-card" onClick={(ev) => { this.redirectClick('All') }}>
+            <span className="tag-comics">Recommendation</span>
+            <img src={require('../assets/img/ev101.jpg')}></img>
 
           </div>
         </section>

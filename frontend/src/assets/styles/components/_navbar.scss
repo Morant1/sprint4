@@ -1,68 +1,77 @@
 .main-nav {
+    cursor: pointer;
     height: 50px;
-    background-color: $clr6;
-    border-bottom: 1px solid #9e9e9e;
     line-height: 1rem;
     top: 0;
     left: 0;
     position: fixed;
     width: 100%;
     z-index: 999;
-    color: $clr7;
+    color: $clr2;
     padding: 0;
-    .nav-option {
-        &:last-child {
-            margin: 0 10px;
-        }
-        a {
-            cursor: pointer;
-            color: $clr7;
-            transition: font-size 0.3s;
-            &:hover {
-                color: $clr3;
-            }
-        }
-    }
-    button {
-        border-left: 1px solid #9e9e9e;
-        border-right: 1px solid #9e9e9e;
-        height:50px;
-        a {
-            color: $clr7;
-            &:hover {
-                color: $clr6;
-            }
-        }
-        transition: all 0.3s;
-        cursor: pointer;
-        &:hover {
-            background-color: $clr1;
-            color: $clr6;
-        }
-    }
-    .logo {
-        color: $clr6;
-        // color:#000000;
+
+    .logo a {
+        color: $clr2;
         font-family: PermanentMarker;
         font-size: rem(28px);
         margin-left: rem(20px);
-        .gray {
-            color: #464646;
-            // color:#464646;
+        &:hover {
+            color: $clr4;
         }
     }
+ 
     &.scrolled {
-        opacity: 0.8;
-        // .logo a, .logo span {
-        //     color: red;
-        // }
+        background-color: $clr2;
+        color: $clr3;
+        .logo a {
+            color: $clr3;
+            background-color: $clr2;
+        }
+    }
+
+    .user-icon {
+        margin-right: 21px;
+        position: relative;
+        width: 35px;
+        color: $clr2;
+        &:hover {
+            color: $clr4;
+        }
+    }
+    .activities-icon {
+        width: 35px;
+        margin-right: 5px;
+        margin-left: 20px;
+        &:hover {
+            color: $clr4;
+        }
+    }
+    .nav-welcome {
+        margin-left: 20px;
+        &:hover {
+            color: $clr4;
+        }
+    }
+
+    .global-search {
+        color: $clr7;
+        position: relative;
+    }
+    .user-menu {
+        padding: 0;
+        position: absolute;
+        right: 6px;
+        top: 31px;
+        background-color: white;
+        li {
+            cursor: pointer;
+            list-style-type: none;
+            padding: 2px;
+        }
     }
 }
-.global-search {
-    color: $clr7;
-    position: relative;
-}
-.input {
+
+.navbar-input {
     // width: 120%;
     border: 1px solid lightgray;
     height: 2rem;
@@ -74,42 +83,21 @@
     padding: 0px 3rem;
     outline: none;
     font-family: montserrat;
+    .search-icon {
+        width: 20px;
+        color: red;
+    }
 }
 .MuiSvgIcon-root {
     position: absolute;
     right: 8px;
     top: 14px;
-    color: $clr7;
+    color: $clr1;
 }
-.search-icon {
-    width: 20px;
-}
+
 .local-search {
     height: 100px;
     margin-top: 50px;
 }
-.user-icon {
-    margin-right: 21px;
-    position: relative;
-    width: 35px;
-}
-.activities-icon {
-    width: 35px;
-    margin-right: 5px;
-    margin-left: 20px;
-}
-.nav-welcome{
-margin-left:20px;
-}
-.user-menu {
-    padding: 0;
-    position: absolute;
-    right: 6px;
-    top: 31px;
-    background-color: white;
-    li {
-        cursor: pointer;
-        list-style-type: none;
-        padding: 2px;
-    }
-}
+
+

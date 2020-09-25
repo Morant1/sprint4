@@ -7,7 +7,7 @@ function _GlobalSearch(props) {
     return (
         <div className="global-search">
             {props.location.pathname === '/' && <SearchIcon />}
-            <input className="input"
+            <input className="navbar-input"
                 type="text"
                 name="title"
                 autoComplete='off'
