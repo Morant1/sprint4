@@ -1,10 +1,9 @@
 .card-container {
-    // width: 1000px;
     overflow-x: scroll;
     overflow-y: hidden;
     display: flex;
     background-color: white;
-    padding: 1rem;
+    padding: 0 1rem;
     font-family: montserrat;
 
     &::-webkit-scrollbar { 
@@ -16,12 +15,8 @@
     margin: 0 10px;
     min-width: 240px;
     position: relative;
-    /* height: 300px; */
     border-radius: 16px;
-    /* border: 2px solid #88E4E4; */
-    /* box-shadow: 0rem 1.2px 4rem #6b4c4c0f; */
     display: flex;
-    /* background: border-box; */
     flex-direction: column;
     transition: 0.2s;
 
@@ -63,11 +58,6 @@
         color: white;
 
     }
-    // button:hover {
-    //     background-color: $clr1;
-    //     color: $clr6;
-    //     width:100px; 
-    // }
 .img-area{
     img {
         height: 300px;
@@ -100,8 +90,6 @@
     }
 
     .event-creator-section {
-        // border-top: 1px solid #bebebe;
-        // padding: 6px 0px 6px 0px;
         .creator {
             margin-left: 5px;
             font-size: 0.7rem;
@@ -114,13 +102,7 @@
         }
     }
     
-    // button:hover span {
-    //     display: none;
-    // }
-    // button:hover:before {
-    //     content: "going!";
-    // }
-}
+ }
 .main-rank {
     color:black;
     margin: 0 2px;
@@ -131,7 +113,7 @@
 }
 .joined{
     color:$clr1;
-    // font-size: 0.75rem;
+  
   
 
 }
@@ -146,4 +128,16 @@
 
 .preview:hover~.card{
     transform: translateX(130px);
+}
+
+.slide-title {
+    text-align: center;
+    font-family: PermanentMarker;
+    color: #272343;
+    padding-top: 25px;
+    font-size: 1.5rem;
+}
+
+.scroller {
+    margin-top: -30px;
 }

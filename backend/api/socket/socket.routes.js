@@ -1,12 +1,12 @@
 
 module.exports = connectSockets
 
-// const msgs = {};
+const msgs = {};
 
 function connectSockets(io) {
     io.on('connection', socket => {
 
-        // socket.emit('chat history', msgs)
+        socket.emit('chat history', msgs)
 
         socket.on('chat topic', topic => {
             if (socket.myTopic) {
@@ -17,8 +17,8 @@ function connectSockets(io) {
         })
         socket.on('chat newMsg', msg => {
             console.log(msg)
-            // if (msgs[socket.myTopic]) msgs[socket.myTopic].push(msg)
-            // else msgs[socket.myTopic] = [msg]
+            if (msgs[socket.myTopic]) msgs[socket.myTopic].push(msg)
+            else msgs[socket.myTopic] = [msg]
             // console.log(msgs[socket.myTopic])
             // io.emit('chat addMsg', msg)
             // emits only to sockets in the same room
@@ -28,7 +28,8 @@ function connectSockets(io) {
             console.log(msg)
             // io.emit('chat addMsg', msg)
             // emits only to sockets in the same room
-            io.to(socket.myTopic).emit('typing Msg', msg)
+            socket.broadcast.to(socket.myTopic).emit('typing Msg', msg);
+            // io.to(socket.myTopic).emit('typing Msg', msg)
         })
     })
 }

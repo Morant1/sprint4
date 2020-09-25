@@ -29,9 +29,9 @@ export class _HomePage extends Component {
 
   getFilteredList = () => {
     const now = Date.now();
-    const filteredList = this.props.events.filter(eventi => eventi.startsAt > now && eventi.startsAt < 1609452000000);
+    const filteredList = this.props.events.filter(eventi => eventi.startsAt > now);
     return filteredList.sort((a, b) => {
-      return a['startsAt'] < b['startsAt'] ? 1 : a['startsAt'] < b['startsAt'] ? -1 : 0
+      return a['startsAt'] > b['startsAt'] ? 1 : a['startsAt'] <  b['startsAt'] ? -1 : 0
   })
   }
   redirectClick = (tag) => {
@@ -89,10 +89,10 @@ export class _HomePage extends Component {
 
           </div>
         </section>
-        <div className="title">Upcoming events</div>
+        <div className="slide-title">Upcoming events</div>
         <div class="card-container">
             {
-              filteredList.map(eventi => <div><EventiPreview eventi={eventi} loggedInUser={this.props.user} currTag={eventi.tags[0]} /></div>)
+              filteredList.map(eventi => <div className="scroller"><EventiPreview eventi={eventi} loggedInUser={this.props.user} currTag={eventi.tags[0]} /></div>)
             }
           </div>
 
