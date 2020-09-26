@@ -1,15 +1,15 @@
 
 :root {
   --body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  --msger-bg: #fff;
-  --border: 2px solid #ddd;
+  --msger-bg: $clr4;
+  --border: 2px solid #eef1f1;
   --left-msg-bg: #ececec;
-  --right-msg-bg: #272343;
+  --right-msg-bg: $clr3;
 }
 
 
 .msger {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   height: 500px;
@@ -30,8 +30,8 @@
   justify-content: space-between;
   padding: 10px;
   border-bottom: var(--border);
-  background: #eee;
-  color: #666;
+  background:#eef1f1;
+  color:$clr5;
 }
 
 .msger-chat {
@@ -70,6 +70,7 @@
 }
 .msg-bubble {
   max-width: 450px;
+  color:$clr3; 
   padding: 15px;
   border-radius: 15px;
   background: var(--left-msg-bg);
@@ -96,8 +97,7 @@
   flex-direction: row-reverse;
 }
 .right-msg .msg-bubble {
-  background: var(--right-msg-bg);
-  color: #fff;
+ background-color: $clr2;
   border-bottom-right-radius: 0;
 }
 .right-msg .msg-img {
@@ -109,8 +109,12 @@
   position: relative;
   padding: 24px 10px 10px 10px;
   border-top: var(--border);
-  background: #eee;
+  background: #eef1f1;
+  :focus{
+    outline:navy; 
+  }
 }
+
 .msger-inputarea * {
   padding: 10px;
   border: none;
@@ -124,13 +128,14 @@
 .msger-send-btn {
   margin-left: 10px;
   background: $clr3;
-  color: #fff;
+  color: $clr4;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.23s;
 }
 .msger-send-btn:hover {
   background-color: $clr1;
+  color:$clr3; 
 }
 
 .msger-chat {

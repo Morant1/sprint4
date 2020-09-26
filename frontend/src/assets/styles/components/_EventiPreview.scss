@@ -23,6 +23,8 @@
     .preview-icon {
         width: 15px;
     }
+
+
 }
 
 
@@ -48,6 +50,9 @@
         font-size: 0.9rem;
         color:$clr3;
     }
+    .preview-subtitle{
+        font-size: rem(14px); 
+     }
     button {
         padding: 10px 0;
         background-color: #272343;

@@ -72,16 +72,16 @@ export class Chat extends Component {
       <section className="msger">
         <header className="msger-header">
           <div className="msger-header-title">
-            <i className="fas fa-comment-alt"></i> Online Chat
+            <i className="fas fa-comment-alt"></i> Chat with your Host
         </div>
           <div className="msger-header-options">
-            <span onClick={this.props.openChat}><i class="far fa-times-circle"></i></span>
+            <span onClick={this.props.openChat}><i className="far fa-times-circle"></i></span>
           </div>
         </header>
         <main className="msger-chat">
           {this.state.msgs && this.state.msgs.map((msg, idx) => {
             return (
-              <div className={`msg ${idx % 2 === 0 ? 'left' : 'right'}-msg`}>
+              <div className={`msg ${idx % 2 === 0 ? 'left' : 'right'}-msg`}key={idx}>
                 <div
                   className="msg-img"
                   style={{

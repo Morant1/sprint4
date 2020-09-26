@@ -10,7 +10,7 @@ class _EventiPreview extends Component {
         const { eventi, currTag, loggedInUser } = this.props;
         const user = eventi.participants.find(participant => participant._id === loggedInUser._id)
         // add conditional rendering 
-        const img = require(`../assets/img/${eventi.tags[0]}.jpg`);
+        const img = require(`../assets/img/${eventi.tags[1]}.jpg`);
         return (
             <div className={`eventi-preview card margin ${this.props.location.pathname==='/'? 'preview':''}`}>
                 <Link to={`/${currTag}/${eventi._id}`}>
@@ -22,7 +22,7 @@ class _EventiPreview extends Component {
                     </div>
                     <div className="preview-info">
                     <div className="preview-title">{eventi.title.length > 40 ? eventi.title.substr(0,40)+'...': eventi.title}</div>
-                    {/* <div className="preview-title">{eventi.subtitle ? eventi.subtitle :''}</div> */}
+                    <div className="preview-subtitle">{eventi.subtitle ? eventi.subtitle :''}</div>
                     <div className="time-container">
                         <img className="preview-icon"src={require(`../assets/icons/calendar-outline.svg`)}/><span className="preview-time"> {new Date(eventi.startsAt).toLocaleDateString()}</span>
                         <img className="preview-icon"src={require(`../assets/icons/time-outline.svg`)}></img><span className="preview-time"> {new Date(eventi.startsAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>

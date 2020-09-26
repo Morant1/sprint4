@@ -29,7 +29,7 @@ class _EventiDetails extends Component {
     eventService.getById(_id)
       .then(eventi => {
         this.setState({ eventi })
-        BusService.emit('notify', { msg: `You watched ${eventi.title} event details` })
+        BusService.emit('notify', { msg: `You watched ${eventi.title}` })
       })
 
   }
@@ -94,8 +94,8 @@ class _EventiDetails extends Component {
     console.log(eventi);
     return (
 
-      <section className="eventi-details margin container">
-        <div className="close" onClick={this.onBack}>X</div>
+      <section className="eventi-details flex margin container">
+     <div className="close" onClick={this.onBack}>Go Back →</div>
         <div className="eventi-photo flex justify-center">
           <div className="details-img"
             style={{ backgroundImage: `url(${require(`../assets/img/${eventi.tags[0]}.jpg`)})` }}>
@@ -108,6 +108,7 @@ class _EventiDetails extends Component {
           </div>
         </div>
         <div className="details-container flex">
+      
           <div className="eventi-title flex justify-center">
             <h2>{eventi.title}</h2>
             <div className="eventi-subtitle flex">{eventi.subtitle}</div>
@@ -126,11 +127,11 @@ class _EventiDetails extends Component {
 
             </div>
             <div className="duration-area flex align-center">
-              <div class="far fa-clock"></div>
+              <div className="far fa-clock"></div>
               <span className="duration">{eventi.duration} hours</span>
             </div>
           
-            <span><div class=" tablet fas fa-tablet-alt"></div> Join from your computer, phone, or tablet</span>
+            <span><div className=" tablet fas fa-tablet-alt"></div> Join from your computer, phone, or tablet</span>
             <div>{new Date(eventi.startsAt).toDateString()}</div>
             <div>{new Date(eventi.startsAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
             <p>{eventi.description}</p>
@@ -159,7 +160,7 @@ class _EventiDetails extends Component {
         </div>
         <a className="flex justify-center" href='https://us02web.zoom.us'>COME IN</a>
         <div className="chat flex">
-          {!this.state.isOpen && <div className="chat-btn" onClick={this.openChat}><i class="far fa-comment-dots"></i></div>}
+          {!this.state.isOpen && <div className="chat-btn" onClick={this.openChat}><i className="far fa-comment-dots"></i></div>}
         </div>
         {this.state.isOpen && <Chat eventi={eventi} user={this.props.loggedInUser} openChat={this.openChat} />}
       </section>

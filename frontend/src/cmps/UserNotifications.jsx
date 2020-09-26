@@ -7,6 +7,7 @@ export class _UserNotifications extends Component {
     state = {
         msgs: []
     }
+
     unsubscribe;
     componentDidMount() {
         this.unsubscribe = BusService.on('notify', (data) => {
@@ -16,14 +17,13 @@ export class _UserNotifications extends Component {
     componentWillUnmount() {
         this.unsubscribe()
     }
+
     render() {
         const { msgs } = this.state
-
         if (!msgs) return 'Loading';
         return (
             <div className="notification-container">
                 <div className="notification-title">{this.props.loggedInUser.username} activities</div>
-
                 <ul className="notification-list flex">
                     {msgs.map((msg, index) => {
                         return (

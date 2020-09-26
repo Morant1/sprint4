@@ -1,4 +1,6 @@
 .eventi-details {
+    flex-direction: column;
+    margin-top:70px; 
     .sub-text {
         .location {
             margin-left: 5px;
@@ -40,10 +42,6 @@
             width: 40ch;
             font-size: rem(16px);
         }
-    }
-
-    .eventi-photo {
-        margin-top: 30px;
     }
 
     .details-img {
@@ -118,7 +116,7 @@
     }
 }
 .chat {
-    justify-content: flex-end;
+    display:fixed; 
 }
 .duration{
     margin-left:5px; 
