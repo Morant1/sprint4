@@ -7,29 +7,29 @@
     margin-bottom:20px; 
     
 
-    .header {
+    .hero-text {
         position: absolute;
         top: 50%;
         left: 50%;
-        
         transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         color: $clr4;
         font-size: rem(27px);
         z-index: 12;
-        
+        p{
+            text-align:center; 
+        }
     }
     .all-events {
-        border-radius: 3.125rem;
-    width: 250px;
-    border: 2px solid #FFFFFF;
-    margin: auto;
-    text-align: center;
-    cursor: pointer;
+        border-radius: rem(50px);
+        width: 250px;
+        border: rem(4px) solid $clr4;
+        margin: auto;
+        text-align: center;
         cursor:pointer ;
         &:hover {
-            color: $clr3;
-            border: 2px solid #FFFFFF;
+            color: $clr4;
+            border: rem(4px) solid $clr3;
         }
         .tag-all{
             text-align:center; 
@@ -51,10 +51,8 @@
     text-align: center;
     border: 1px solid #00000021;
     border-radius: 10%;
-    font-size: rem(36px);
-    color: $clr4;
-    // background-color: $clr1;
-  
+    font-size: 1.8rem;
+    color: $clr3;
     cursor: pointer;
 
     img {

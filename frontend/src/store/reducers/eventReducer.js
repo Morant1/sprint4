@@ -14,10 +14,10 @@ export function eventReducer(state = initialState, action = {}) {
     case 'EVENT_REMOVE':
       return {
         ...state,
-        events: state.events.filter(event => {
-          console.log("action.eventId", action.eventId);
-          console.log("event._id", event._id);
-          return event._id !== action.eventId
+        events: state.events.filter(eventi => {
+          console.log("action.eventId", action.eventiId);
+          console.log("event._id", eventi._id);
+          return eventi._id !== action.eventiId
         })
       };
     case 'EVENT_UPDATE':

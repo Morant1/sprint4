@@ -1,79 +1,95 @@
 .eventi-details {
-    color: #2f2f2f;
-    background-size: cover;
-    grid-column: 1/-1;
-    position: relative;
-        .btn-details {
-            margin-top:10px;
-            button {
-                background-color: white;
-                margin:3px;
-
-                &:hover {
-                    background-color: $clr1 !important;
-                }
-            }
-
+    .sub-text {
+        .location {
+            margin-left: 5px;
         }
-        .eventi-title {
-            background-color: #ffffff3b;
-            flex-direction: column;
-            margin-top:10px;
-            color:white;
-            h2 {
-                font-family: PermanentMarker;
-                font-size: rem(36px);
-            }
-            p {
-                text-align: center;
-                width: 40ch;
-                font-size: rem(16px);
-            }
+        .eventi-location {
+            margin-left: 5px;
         }
+    }
 
-        .eventi-photo {
-            margin-top:30px;
-        }
-        
-        .details-img {
-            width: 200px;
-            height: 200px;
-            margin-right:10px; 
-            background-size: cover;
-            background-position: center;
+    .details-container {
+        padding-left: 60px;
+        padding-right: 60px;
+        max-width: 1280px;
+        text-align: left;
+    }
 
+    .details-btn {
+        margin-top: 10px;
+        flex-direction: column;
+        button {
+            background-color: white;
+            margin: 3px;
 
-        
-    
-        }
-        
-        .eventi-participants {
-            flex-direction: column;
-            background-color: #ffffff3b;
-            margin: 10px 0;
-            .title{
-                font-family: PermanentMarker;
-                font-size: rem(18px);
-                color:$clr2;
-            }
-        }
-
-        .participant-container {
-            .list-item {
-                padding: 10px 10px;
-            }
-        }
-
-        .comment-container {
-            background-color: rgb(242, 250, 167);
-            .list-item {
-                padding: 10px 10px;
-            }
-            .comment-section {
-                padding: 5px 5px;
+            &:hover {
+                background-color: $clr1 !important;
             }
         }
     }
+    .eventi-title {
+        flex-direction: column;
+        margin-top: 10px;
+        color: $clr3;
+        h2 {
+            font-family: PermanentMarker;
+            font-size: rem(36px);
+        }
+        p {
+            text-align: left;
+            width: 40ch;
+            font-size: rem(16px);
+        }
+    }
+
+    .eventi-photo {
+        margin-top: 30px;
+    }
+
+    .details-img {
+        width: 200px;
+        height: 200px;
+        margin-right: 10px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .participant-container {
+        flex-direction: column;
+        background-color: $clr2;
+        margin: 10px;
+        .participant-title {
+            font-family: montserrat;
+            margin-top:10px;
+            font-size: rem(24px);
+            color: $clr3;
+        }
+        .participant-list {
+            margin:0; 
+            padding: 10px 10px;
+            color: $clr3;
+            flex-direction: column;
+            align-content: flex-start;
+            li {
+                flex-direction: row;
+                margin-top: 10px;
+                .participant-name {
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+
+    .comment-container {
+        background-color: rgb(242, 250, 167);
+        .list-item {
+            padding: 10px 10px;
+        }
+        .comment-section {
+            padding: 5px 5px;
+        }
+    }
+}
 
 .chat-box {
     margin-bottom: 20px;
@@ -86,50 +102,39 @@
 .close {
     margin: 5px;
     font-size: 22px;
-    color: white;
+    color: $clr3;
     cursor: pointer;
 }
 
 .icon {
     width: 21px;
 }
-
-.food {
-    .title {
-        color: white;
-        margin-right: 10px;
+.host-title {
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    span {
+        font-family: montserrat;
     }
-    flex-direction: column;
-    margin-top:5px;
-
-    img {
-        border-radius: 50%;
-        padding: 5px;
-        width: 50px;
-        margin: 2px;
-        cursor: pointer;
-    }
-        .icon-1 {
-            background-color: $clr4;
-        }
-
-        .icon-2 {
-            background-color:$clr1;
-        }
-
-        .icon-3 {
-            background-color:$clr3;
-        }
-    }
-    .chat{
-        justify-content: flex-end;
-      }
-
-
-
-    .chat-btn {
+}
+.chat {
+    justify-content: flex-end;
+}
+.duration{
+    margin-left:5px; 
+}
+.chat-btn {
     padding: 9px 8px;
     font-size: 31px;
     color: $clr1;
     cursor: pointer;
+}
+
+.star {
+    color: #fff12a;
+    font-size: rem(16px);
+}
+.gray-star {
+    color: #cccccb;
+    font-size: rem(16px);
 }
