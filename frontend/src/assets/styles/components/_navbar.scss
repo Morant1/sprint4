@@ -27,6 +27,10 @@
             color: $clr3;
             background-color: $clr2;
         }
+        .user-icon{
+        color: $clr3;  
+        }
+
     }
 
     .user-icon {
@@ -83,17 +87,12 @@
     padding: 0px 3rem;
     outline: none;
     font-family: montserrat;
-    .search-icon {
-        width: 20px;
-        color: red;
-    }
+    // .search-icon {
+    //     width: 20px;
+    //     color: red;
+    // }
 }
-.MuiSvgIcon-root {
-    position: absolute;
-    right: 8px;
-    top: 14px;
-    color: $clr1;
-}
+
 
 .local-search {
     height: 100px;

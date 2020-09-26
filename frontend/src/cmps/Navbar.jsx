@@ -62,9 +62,9 @@ export class _Navbar extends Component {
                         <li>{this.props.loggedInUser && <span className="nav-welcome">Welcome {this.props.loggedInUser.username}</span>}</li>
                         <li><span className="activities-icon" onClick={this.onNotifiction}><div className="bell fas fa-bell"></div></span></li>
                         {/* <i class="fas fa-user-astronaut"></i> */}
-                        <div className="user-notification align-center justify-center" style={this.getStyle()}>
+                        <section className="notifications flex align-center justify-center" style={this.getStyle()}>
                             {this.props.loggedInUser && <UserNotifications />}
-                        </div>
+                        </section>
                         <li><span className="user-icon" onClick={this.onUser}><div className="avatar fas fa-user-circle"></div></span></li>
                         {this.state.isUserProfile &&
                             <ul className="user-menu">
