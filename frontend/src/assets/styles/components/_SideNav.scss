@@ -4,7 +4,15 @@
     background-color: $clr6;
     align-content: space-between;
     height: 100%;
-    z-index:1; 
+    width: 80%;
+    z-index:1;
+    border-right: 1px solid lightgray; 
+    transform: translateX(-200%);
+    transition: transform 2s ;
+
+    &.trans {
+        transform: translateX(0)
+    }
 
     .tag-list{
         &*{
@@ -12,26 +20,33 @@
         }
     }
     .tag-list {
-        margin: 15px 0 15px 0;
+    margin: 15px 0 15px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap-reverse;
     }
     
     .tag-item {
-        margin: 10px 5px 10px 5px; 
-        width:rem(120px); 
-        text-align:center; 
-        border-radius: rem(20px);
-        background-color: $clr1;
-        padding: 0 10px 0 10px;
-        color:$clr6;
-    
-        &:nth-child(even) {
-            background-color: $clr3;
-        }
+        margin: 10px 5px 10px 5px;
+         width: 5.5rem;
+         box-shadow: 0.5px 0.5px 1.5px #272354;
+          text-align: center;
+          border-radius: 3.25rem;
+          font-size: 1rem;
+          color: #272343;
+
     }
     
     .tag-item:hover {
         cursor: pointer;
-        background-color:#57256b;
+    background-color: #272354;
+    color: white;
     
     }
+}
+
+.all-tag{
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }

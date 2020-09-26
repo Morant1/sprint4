@@ -20,15 +20,16 @@
         
     }
     .all-events {
-        border-radius: rem(50px);
-        width: 250px;
-        border: rem(4px) solid $clr4;
-        margin: auto;
-        text-align: left;
+        border-radius: 3.125rem;
+    width: 250px;
+    border: 2px solid #FFFFFF;
+    margin: auto;
+    text-align: center;
+    cursor: pointer;
         cursor:pointer ;
         &:hover {
             color: $clr3;
-            border: rem(4px) solid $clr3;
+            border: 2px solid #FFFFFF;
         }
         .tag-all{
             text-align:center; 
@@ -38,7 +39,8 @@
 
 .events-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding-top: 3rem; 
     grid-gap: 20px; 
 }
 
