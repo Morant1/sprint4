@@ -2,4 +2,16 @@
     display: flex;
     flex-direction: column;
     margin: 50px 10px 40px 10px;
+
+    .MuiFormControl-root {
+        margin: 12px;
+        text-align: center;
+    }
+
+    .MuiInputBase-input {
+        font: inherit;
+        color: #272354;
+        width: 100%;
+        border-color: #272354;
+    }
 }

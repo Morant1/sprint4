@@ -16,47 +16,51 @@ export class _EventsGrid extends Component {
     render() {
         return (
             <section className="events-grid margin container">
-                <div className="event-card" onClick={(ev) => { this.redirectClick('Sport') }}>
-                    <span className="tag-sport">Sport</span>
-                    <img src={require('../assets/img/Sport.jpg')}></img>
+                <div className="event-card" 
+                style={{backgroundImage:`url(${require('../assets/img/Sport.jpg')})`}}
+                onClick={(ev) => { this.redirectClick('Sport') }}>
+                    <div className="tag">Sport</div>
 
                 </div>
                 
-                <div className="event-card span" onClick={(ev) => { this.redirectClick('Movies') }}>
-                    <span className="tag-movies">Movies</span>
-                    <img src={require('../assets/img/Movies.jpg')} />
+                <div className="event-card" 
+                style={{backgroundImage:`url(${require('../assets/img/Movies.jpg')})`}}
+                onClick={(ev) => { this.redirectClick('Movies') }}>
+                    <div className="tag ">Movies</div>
+                </div>
+                <div className="event-card span" 
+                style={{backgroundImage:`url(${require('../assets/img/Books.jpg')})`}}
+                onClick={(ev) => { this.redirectClick('Books') }}>
+                    <div className="tag">Books</div>
+                </div>
+                <div className="event-card span"
+                 style={{backgroundImage:`url(${require('../assets/img/Art.jpg')})`}}
+                onClick={(ev) => { this.redirectClick('Art') }}>
+                    <div className="tag">Art</div>
+                </div>
+                <div className="event-card" 
+                 style={{backgroundImage:`url(${require('../assets/img/TVShows.jpg')})`}}
+                 onClick={(ev) => { this.redirectClick('TVShows') }}>
+                    <div className="tag">TV Shows</div>
+            
+                </div>
+                <div className="event-card"
+                style={{backgroundImage:`url(${require('../assets/img/Comics.jpg')})`}}
+                 onClick={(ev) => { this.redirectClick('Comics') }}>
+                    <div className="tag">Comics</div>
+                    {/* <img src={require('../assets/img/Comics.jpg')}></img> */}
 
                 </div>
-                <div className="event-card" onClick={(ev) => { this.redirectClick('Books') }}>
-                    <span className="tag-books">Books</span>
-                    <img src={require('../assets/img/Books.jpg')} />
-
-                </div>
-                <div className="event-card span" onClick={(ev) => { this.redirectClick('Art') }}>
-                    <span className="tag-art">Art</span>
-                    <img src={require('../assets/img/Art.jpg')}></img>
-
-                </div>
-                <div className="event-card" onClick={(ev) => { this.redirectClick('TVShows') }}>
-                    <span className="tag-tvshows">TV Shows</span>
-                    <img src={require('../assets/img/TVShows.jpg')}></img>
-
-                </div>
-                <div className="event-card" onClick={(ev) => { this.redirectClick('Comics') }}>
-                    <span className="tag-comics">Comics</span>
-                    <img src={require('../assets/img/Comics.jpg')}></img>
-
-                </div>
-                <div className="event-card" onClick={(ev) => { this.redirectClick('All') }}>
+                {/* <div className="event-card" onClick={(ev) => { this.redirectClick('All') }}>
                     <span className="tag-comics">Recommendation</span>
                     <img src={require('../assets/img/ev101.jpg')}></img>
 
-                </div>
-                <div className="event-card" onClick={(ev) => { this.redirectClick('All') }}>
+                </div> */}
+                {/* <div className="event-card" onClick={(ev) => { this.redirectClick('All') }}>
                     <span className="tag-comics">Recommendation</span>
                     <img src={require('../assets/img/ev101.jpg')}></img>
 
-                </div>
+                </div> */}
             </section>
         )
     }

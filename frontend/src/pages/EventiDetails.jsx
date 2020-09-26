@@ -29,7 +29,7 @@ class _EventiDetails extends Component {
     eventService.getById(_id)
       .then(eventi => {
         this.setState({ eventi })
-        BusService.emit('notify', { msg: `You watched ${eventi.title}` })
+        BusService.emit('notify', { msg: `You watched ${eventi.title} details` })
       })
 
   }

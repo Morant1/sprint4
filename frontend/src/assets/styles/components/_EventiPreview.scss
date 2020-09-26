@@ -3,7 +3,7 @@
     overflow-y: hidden;
     display: flex;
     background-color: white;
-    padding: 0 1rem;
+    background-color: #88e4e412;;
     font-family: montserrat;
 
     &::-webkit-scrollbar { 
@@ -139,10 +139,11 @@
     text-align: center;
     font-family: PermanentMarker;
     color: #272343;
-    padding-top: 25px;
+    background-color: #88e4e412;
     font-size: 1.5rem;
 }
 
 .scroller {
-    margin-top: -30px;
+    margin-top: -35px;
+    padding-bottom: 20px;
 }
