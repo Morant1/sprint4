@@ -6,7 +6,6 @@ import { withRouter } from "react-router";
 
 class _EventiPreview extends Component {
 
-
     render() {
         const { eventi, currTag, loggedInUser } = this.props;
         const user = eventi.participants.find(participant => participant._id === loggedInUser._id)
@@ -22,20 +21,16 @@ class _EventiPreview extends Component {
                         <span className="preview-rank"><div className="star fas fa-star"></div><span className="main-rank">{eventi.rank}</span>(40) · {eventi.location.country}</span>
                     </div>
                     <div className="preview-info">
-                        {/* {eventi.participants.length} of your friends are going */}
                     <div className="preview-title">{eventi.title.length > 40 ? eventi.title.substr(0,40)+'...': eventi.title}</div>
+                    {/* <div className="preview-title">{eventi.subtitle ? eventi.subtitle :''}</div> */}
                     <div className="time-container">
                         <img className="preview-icon"src={require(`../assets/icons/calendar-outline.svg`)}/><span className="preview-time"> {new Date(eventi.startsAt).toLocaleDateString()}</span>
                         <img className="preview-icon"src={require(`../assets/icons/time-outline.svg`)}></img><span className="preview-time"> {new Date(eventi.startsAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                     </div>
-                        {/* <br></br> */}
                         <div className="event-creator-section flex align-center">
                             <Avatar className="avatar">{eventi.createdBy.username[0].toUpperCase()}</Avatar>
                             <span className="creator">{eventi.createdBy.username.split(' ')[0].toUpperCase()}</span>
                         </div>
-
-
-
                     </div>
                 </Link>
             </div>

@@ -19,7 +19,17 @@
             color: $clr4;
         }
     }
- 
+    .usermenu .base-style a{
+        background-color: $clr2;
+        color: $clr3;
+        .logo a {
+            color: $clr3;
+            background-color: $clr2;
+        }
+        .user-icon{
+        color: $clr3;  
+        }  
+    }
     &.scrolled {
         background-color: $clr2;
         color: $clr3;
@@ -61,20 +71,33 @@
         color: $clr7;
         position: relative;
     }
-    .user-menu {
-        padding: 0;
-        position: absolute;
-        right: 6px;
-        top: 31px;
-        background-color: white;
-        li {
-            cursor: pointer;
-            list-style-type: none;
-            padding: 2px;
-        }
-    }
+
 }
 
+
+.user-menu {
+    padding: 0;
+    position: absolute;
+    right: 6px;
+    top: 31px;
+    background-color: white;
+    li {
+        cursor: pointer;
+        list-style-type: none;
+        padding: 2px;
+    }
+    .base-style{
+        background-color: $clr2;
+        color: $clr3;
+        .logo a {
+            color: $clr3;
+            background-color: $clr2;
+        }
+        .user-icon{
+        color: $clr3;  
+        }  
+    }
+}
 .navbar-input {
     // width: 120%;
     border: 1px solid lightgray;

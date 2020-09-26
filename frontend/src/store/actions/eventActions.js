@@ -1,4 +1,3 @@
-import { GridListTile } from '@material-ui/core';
 import { eventService } from '../../services/eventService'
 
 export function loadEvents(filterBy) {
@@ -60,13 +59,13 @@ export function updateEvent(eventi) {
 }
 
 
-export function removeEvent(eventId) {
+export function removeEventi(eventiId) {
   return async dispatch => {
     try {
-      await eventService.remove(eventId);
-      dispatch({ type: 'EVENT_REMOVE', eventId });
+      await eventService.remove(eventiId);
+      dispatch({ type: 'EVENT_REMOVE', eventiId });
     } catch (err) {
-      console.log('eventActions: err in removeEvent', err);
+      console.log('eventActions: err in removeEventi', err);
     }
   };
 }
