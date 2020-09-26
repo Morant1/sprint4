@@ -27,6 +27,10 @@ export class _HomePage extends Component {
 
   }
 
+  redirectClick = (tag) => {
+    this.props.history.push(`/${tag}`)
+}
+
   loadFilteredTags = () => {
     const currTag = this.props.match.params.tag;
     if (currTag === 'All') return this.props.events;
@@ -51,9 +55,9 @@ export class _HomePage extends Component {
         <section className="main-content flex">
           <div className="screen">
           </div>
-          <img className="main-img" src={require('../assets/img/main.jpg')} />
+          <img className="main-img" src={require('../assets/img/main6.jpg')} />
           <div className="hero-text">
-            <p><span>Even{`{t}`} Better </span>helps you socialize while social distancing</p>
+            <p><span className="logo">Even{`{t}`} Better </span>finds you the best online events while social distancing</p>
             <div className="all-events span-all" onClick={(ev) => { this.redirectClick('All') }}>
               <span className="tag-all">All events</span>
             </div>
