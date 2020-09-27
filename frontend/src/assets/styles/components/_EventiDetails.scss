@@ -129,10 +129,14 @@
 }
 
 .star {
-    color: #fff12a;
+    cursor: pointer;
     font-size: rem(16px);
 }
 .gray-star {
     color: #cccccb;
     font-size: rem(16px);
+}
+
+.star-yellow {
+    color: #fff12a;
 }

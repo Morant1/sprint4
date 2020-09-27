@@ -54,7 +54,8 @@ export class _EventiApp extends Component {
 
 const mapStateToProps = state => {
   return {
-    events: state.eventReducer.events
+    events: state.eventReducer.events,
+    loggedInUser: state.userReducer.loggedInUser
   };
 };
 const mapDispatchToProps = {

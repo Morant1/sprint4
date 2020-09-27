@@ -18,7 +18,7 @@ class _EventiDetails extends Component {
     eventi: null,
     isGoing: false,
     isOpen: false,
-    isRankPressed: false
+    // isRankPressed: false
   }
   componentDidMount() {
     this.loadEventi()
@@ -40,17 +40,16 @@ class _EventiDetails extends Component {
   openChat = () => {
     this.setState({ isOpen: !this.state.isOpen })
   }
-  addRank = () => {
-    let { eventi, isRankPressed } = this.state;
-    isRankPressed = !isRankPressed;
-    const newRank = isRankPressed ? eventi.rank + 1 : eventi.rank - 1;
-    eventi.rank = newRank;
-    this.setState({ eventi, isRankPressed })
-    this.props.updateEvent(eventi);
-    BusService.emit('notify', { msg: `Rank of ${eventi.title} changed` })
+  // addRank = (rank) => {
+  //   console.log(rank)
+  //   let { eventi } = this.state;
+  //   eventi.rank = rank;
+  //   this.setState({ eventi},()=>{console.log("state",this.state.eventi)})
+  //   // this.props.updateEvent(eventi);
+  //   // BusService.emit('notify', { msg: `Rank of ${eventi.title} changed` })
 
 
-  }
+  // }
   addParticipant = () => {
     let user = this.props.loggedInUser;
     user.isGoing = !this.state.isGoing;
@@ -115,7 +114,7 @@ class _EventiDetails extends Component {
             {/* temporary stars design for now */}
             <div className="sub-text flex align-center">
               <div className="stars flex align-center">
-                <div onClick={this.addRank} className="gray-star fas fa-star"></div>
+                {/* <div onClick={this.addRank} className="gray-star fas fa-star"></div> */}
                 <StarRate rank={eventi.rank} />
               </div> • <div className="location fas fa-map-marker-alt "></div>  <span className="eventi-location">{eventi.location.city},{eventi.location.country}</span>
             </div>

@@ -6,6 +6,8 @@ import { withRouter } from "react-router";
 
 class _EventiPreview extends Component {
 
+
+
     render() {
         const { eventi, currTag, loggedInUser } = this.props;
         const user = eventi.participants.find(participant => participant._id === loggedInUser._id)
@@ -15,7 +17,8 @@ class _EventiPreview extends Component {
             <div className={`eventi-preview card margin ${this.props.location.pathname==='/'? 'preview':''}`}>
                 <Link to={`/${currTag}/${eventi._id}`}>
                     <div className="img-area">
-                        <button className="attend-btn">{user ?
+                        <button className={`attend-btn ${user?'joined-user': ''}`}>
+                            {user ?
                          <span className="joined">You're Going!</span> : <span> Join The fun!</span>}</button>
                         <img className="preview-img" alt="event-01" src={img}></img>
                         <span className="preview-rank"><div className="star fas fa-star"></div><span className="main-rank">{eventi.rank}</span>(40) · {eventi.location.country}</span>

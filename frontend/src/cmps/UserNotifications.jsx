@@ -23,7 +23,7 @@ export class _UserNotifications extends Component {
         if (!msgs) return 'Loading';
         return (
             <div className="notification-container">
-                <div className="notification-title">{this.props.loggedInUser.username} activities</div>
+            
                 <ul className="notification-list flex">
                     {msgs.map((msg, index) => {
                         return (

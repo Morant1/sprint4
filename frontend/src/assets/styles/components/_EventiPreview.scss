@@ -61,6 +61,7 @@
         width: 90px;
         font-size: 0.7rem;
         color: white;
+         
 
     }
 .img-area{
@@ -117,7 +118,7 @@
     width: 15px;
 }
 .joined{
-    color:$clr1;
+    color:#272343;
   
   
 
@@ -146,4 +147,10 @@
 .scroller {
     margin-top: -35px;
     padding-bottom: 20px;
+}
+
+
+.eventi-preview .joined-user {
+    background-color: #88E4E4;
+    color:#272343;
 }

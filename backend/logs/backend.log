@@ -1,0 +1,4 @@
+Sun, 27 Sep 2020 07:25:36 GMT - Debug - true, false, Guest-2988, 123456
+Sun, 27 Sep 2020 07:25:36 GMT - Debug - auth.service - signup with username: Guest-2988
+Sun, 27 Sep 2020 07:25:36 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$cUxtBr9mP1Og6CwLBtW.fO1eXTTOUy5IoVBY4KZXU9tGvz0Y7SjQi","username":"Guest-2988","_id":"5f703e70c0af484bc85cd43d"}
+Sun, 27 Sep 2020 07:25:36 GMT - Debug - auth.service - login with username: Guest-2988
