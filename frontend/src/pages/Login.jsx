@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
+
 
 import { loadUsers, login, logout, signup } from '../store/actions/userActions';
 
 class _Login extends Component {
     state = {
+        isSignup:false,
         loginCred: {
             password: '',
             username: ''
@@ -18,6 +21,10 @@ class _Login extends Component {
 
     componentDidMount = () => {
         this.props.loadUsers();
+    }
+
+    onSignUp = () => {
+        this.setState({isSignup: !this.state.isSignup});
     }
 
     loginHandleChange = ev => {
@@ -82,12 +89,12 @@ class _Login extends Component {
         return (
             <React.Fragment>
             <div className="logup-container">
-            <img src={require('../assets/img/login-bgc.jpg')}/>
+            <img src={require('../assets/img/main7.jpg')}/>
             <div className="logup-form">
+            { this.state.isSignup && 
                 <form onSubmit={this.doSignup}>
-                    <h2>{this.state.msg}</h2>
                     <span className="login-title flex">Sign Up</span>
-                    <input
+                    <TextField id="standard-basic" label="Username"
                         type="text"
                         name="username"
                         value={this.state.signupCred.username}
@@ -97,7 +104,7 @@ class _Login extends Component {
                         required
                     />
                     <br />
-                    <input
+                    <TextField id="standard-basic" label="Password"
                         name="password"
                         type="password"
                         value={this.state.signupCred.password}
@@ -108,10 +115,11 @@ class _Login extends Component {
                     <br />
 
                     <Button type="submit" size="small" variant="contained">Signup</Button>
-                </form>
+                </form>}
+                { !this.state.isSignup && 
                 <form onSubmit={this.doLogin}>
                     <span className="login-title flex">Login</span>
-                    <input
+                    <TextField id="standard-basic" label="Username"
                         type="text"
                         name="username"
                         value={this.state.loginCred.username}
@@ -121,7 +129,7 @@ class _Login extends Component {
                         required
                     />
                     <br />
-                    <input
+                    <TextField id="standard-basic" label="Password"
                         type="password"
                         name="password"
                         value={this.state.loginCred.password}
@@ -133,8 +141,11 @@ class _Login extends Component {
                     <Button type="submit" size="small" variant="contained">Login</Button>
                 
                 </form>
-                {/* <Button className="logout" onClick={this.onLogout} size="small" variant="contained">Logout
-                    </Button> */}
+    }
+    <div className="sign-up-log-container flex">
+                          <div className="sign-up-log" onClick={this.onSignUp}>{this.state.isSignup? 'Login Here' : 'Sign Up First'}</div>
+                <div className="sign-up-log" onClick={(ev)=>{this.props.history.push('/')}}>Continue as a Guest</div>
+                </div>
                 </div>
             </div>
             </React.Fragment>
