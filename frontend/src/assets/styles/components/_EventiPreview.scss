@@ -116,6 +116,49 @@
     margin: 0 2px;
 }
 
+<<<<<<< HEAD
 .joined {
     color: $clr1;
 }
+=======
+.preview-grid .preview-icon {
+    width: 15px;
+}
+.joined{
+    color:#272343;
+  
+  
+
+}
+
+.preview:not(:first-child) {
+    margin-left: -130px;
+}
+
+.preview:hover {
+    transform: translateY(-1rem);
+}
+
+.preview:hover~.card{
+    transform: translateX(130px);
+}
+
+.slide-title {
+    text-align: center;
+    font-family: PermanentMarker;
+    color: #272343;
+    background-color: #88e4e412;
+    font-size: 1.5rem;
+}
+
+.scroller {
+    margin-top: -35px;
+    padding-bottom: 20px;
+}
+
+
+.eventi-preview .joined-user {
+    background-color: #88E4E4;
+    color:#272343;
+}
+>>>>>>> 706b87e18e07f6b1c63189407407198d76aa49a1
