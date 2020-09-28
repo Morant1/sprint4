@@ -95,20 +95,33 @@ class _EventiDetails extends Component {
     return (
 
       <section className="eventi-details flex margin container">
-     <div className="close" onClick={this.onBack}>Go Back →</div>
-        <div className="eventi-photo flex justify-center">
-          <div className="details-img"
-            style={{ backgroundImage: `url(${require(`../assets/img/${eventi.tags[0]}.jpg`)})` }}>
+        <div className="close" onClick={this.onBack}>Go Back →</div>
+        <div className="details-photo-grid details-container flex justify-center">
+          <div className="photo-item-1">
+            <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-5.jpg`)} />
           </div>
-          <div className="details-img"
-            style={{ backgroundImage: `url(${require(`../assets/img/${eventi.tags[0]}2.jpg`)})` }}>
+          <div className="photo-item-2">
+            <div className="photo-inline-grid">
+              <div className="inner-photo-1">
+                <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-1.jpg`)} />
+              </div>
+
+              <div className="inner-photo-2">
+                <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-2.jpg`)} />
+              </div>
+              <div className="inner-photo-3">
+                <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-3.jpg`)} />
+              </div>
+            </div>
           </div>
-          <div className="details-img"
-            style={{ backgroundImage: `url(${require(`../assets/img/${eventi.tags[0]}3.jpg`)})` }}>
+          <div className="photo-item-3">
+            <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-4.jpg`)} />
           </div>
         </div>
-        <div className="details-container flex">
+
       
+        <div className="details-container flex">
+
           <div className="eventi-title flex justify-center">
             <h2>{eventi.title}</h2>
             <div className="eventi-subtitle flex">{eventi.subtitle}</div>
@@ -130,7 +143,7 @@ class _EventiDetails extends Component {
               <div className="far fa-clock"></div>
               <span className="duration">{eventi.duration} hours</span>
             </div>
-          
+
             <span><div className=" tablet fas fa-tablet-alt"></div> Join from your computer, phone, or tablet</span>
             <div>{new Date(eventi.startsAt).toDateString()}</div>
             <div>{new Date(eventi.startsAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
@@ -183,14 +196,28 @@ const mapDispatchToProps = {
 
 export const EventiDetails = connect(mapStateToProps, mapDispatchToProps)(_EventiDetails)
 
+//// in case site collapses you can use this for preview page + details
+     ///        <div className="details-photo-grid details-container flex justify-center">
+      //     <div className="photo-item-1">
+      //     <img src={require(`../assets/img/${eventi.tags[1]}.jpg`)} />
+      //   </div>
+      //   <div className="photo-item-2">
+      //     <div className="photo-inline-grid">
+      //       <div className="inner-photo-1">
+      //         <img src={require(`../assets/img/${eventi.tags[1]}2.jpg`)} />
+      //       </div>
 
-{/* <div className="food flex justify-center align-center">
-            {isGoing ? <div className="details-icons flex justify-center align-center">
-              <div className="title">What are you bringing?</div>
-              <img className="icon-1" onClick={this.onFood} src={require('../assets/icons/pizza.svg')} />
-              <img className="icon-2" onClick={this.onFood} src={require('../assets/icons/ice-cream.svg')} />
-              <img className="icon-3" onClick={this.onFood} src={require('../assets/icons/beer.svg')} />
-            </div> : null}
-          </div> */}
+      //       <div className="inner-photo-2">
+      //         <img src={require(`../assets/img/${eventi.tags[1]}3.jpg`)} />
+      //       </div>
+      //       <div className="inner-photo-3">
+      //         <img src={require(`../assets/img/${eventi.tags[1]}4.jpg`)} />
+      //       </div>
+      //     </div>
+      //   </div>
+      //   <div className="photo-item-3">
+      //     <img src={require(`../assets/img/${eventi.tags[1]}5.jpg`)} />
+      //   </div>
+      // </div>
 
 

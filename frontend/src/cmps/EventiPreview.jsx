@@ -12,7 +12,7 @@ class _EventiPreview extends Component {
         // add conditional rendering 
         const img = require(`../assets/img/${eventi.tags[1]}.jpg`);
         return (
-            <div className={`eventi-preview card margin ${this.props.location.pathname==='/'? 'preview':''}`}>
+            <li className={`eventi-preview card ${this.props.location.pathname==='/'? 'preview':''}`}>
                 <Link to={`/${currTag}/${eventi._id}`}>
                     <div className="img-area">
                         <button className="attend-btn">{user ?
@@ -33,7 +33,7 @@ class _EventiPreview extends Component {
                         </div>
                     </div>
                 </Link>
-            </div>
+            </li>
         )
     }
 }

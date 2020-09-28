@@ -1,96 +1,100 @@
+// Home Page Preview
+
 .card-container {
     overflow-x: scroll;
     overflow-y: hidden;
     display: flex;
-    background-color: white;
-    background-color: #88e4e412;;
+    background-color: $clr4;
+    background-color: #88e4e412;
     font-family: montserrat;
+    // &::-webkit-scrollbar {
+    //     display: none;  /* Safari and Chrome */
+    // }
+}
 
-    &::-webkit-scrollbar { 
-        display: none;  /* Safari and Chrome */
-    }
+.scroller {
+    padding-bottom: 20px;
+}
+
+.slide-title {
+    text-align: center;
+    font-family: PermanentMarker;
+    color: $clr3;
+    background-color: #88e4e412;
+    font-size: 1.5rem;
 }
 
 .preview {
-    margin: 0 10px;
     min-width: 240px;
     position: relative;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
     transition: 0.2s;
-
     .preview-icon {
         width: 15px;
     }
-
-
 }
 
-
-.preview-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
-    grid-auto-rows: 440px;
-    grid-column: 2/-1;
-    grid-gap: 10px;
-    display: grid;
-    margin: 0 15px;
+.preview:not(:first-child) {
+    margin-left: -130px;
 }
 
+.preview:hover {
+    transform: translateY(-1rem);
+}
+
+.preview:hover ~ .card {
+    transform: translateX(130px);
+}
+
+// Preview Page
 .eventi-preview {
-    // background-color: $clr3;
+    background-color: $clr4;
     color: $clr1;
     display: inline-block;
     margin-right: 5px;
-    margin-top: 70px;
+    margin: 10px 5px 10px 5px;
 
     .preview-title {
         font-weight: bolder;
         font-size: 0.9rem;
-        color:$clr3;
+        color: $clr3;
     }
-    .preview-subtitle{
-        font-size: rem(14px); 
-     }
+    .preview-subtitle {
+        font-size: rem(14px);
+    }
     button {
         padding: 10px 0;
         background-color: #272343;
-        transition: all .2s;
+        transition: all 0.2s;
         border-bottom-right-radius: 22px;
         width: 90px;
         font-size: 0.7rem;
-        color: white;
-
+        color: $clr4;
     }
-.img-area{
-    img {
-        height: 300px;
-        object-fit: cover;
-        border-radius: 16px;
-        border: 1px solid #00000021
-     
+    .img-area {
+        img {
+            height: 300px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 1px solid #00000021;
+        }
 
-    }
-    button{
-        position:absolute; 
-
-    }
-}
-
-    a {
-        color: $clr7;
+        button {
+            position: absolute;
+        }
     }
     .preview-time {
-        color:#666666; 
+        color: #666666;
         font-size: 0.9rem;
         margin-right: 5px;
     }
-    .preview-rank{
+    .preview-rank {
         font-size: 0.8rem;
         color: #7d7373;
-        .star{
-            color:$clr1; 
+        .star {
+            color: $clr1;
         }
     }
 
@@ -106,44 +110,12 @@
             font-size: 12px;
         }
     }
-    
- }
+}
 .main-rank {
-    color:black;
+    color: $clr5;
     margin: 0 2px;
 }
 
-.preview-grid .preview-icon {
-    width: 15px;
-}
-.joined{
-    color:$clr1;
-  
-  
-
-}
-
-.preview:not(:first-child) {
-    margin-left: -130px;
-}
-
-.preview:hover {
-    transform: translateY(-1rem);
-}
-
-.preview:hover~.card{
-    transform: translateX(130px);
-}
-
-.slide-title {
-    text-align: center;
-    font-family: PermanentMarker;
-    color: #272343;
-    background-color: #88e4e412;
-    font-size: 1.5rem;
-}
-
-.scroller {
-    margin-top: -35px;
-    padding-bottom: 20px;
+.joined {
+    color: $clr1;
 }

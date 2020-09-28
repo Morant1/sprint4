@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { loadEvents } from '../store/actions/eventActions'
 import { signup } from '../store/actions/userActions'
 import { EventiPreview } from '../cmps/EventiPreview'
-import { Footer } from '../cmps/Footer';
 import { utils } from '../services/utils';
 import { EventsGrid } from '../cmps/EventsGrid';
 
@@ -71,7 +70,7 @@ export class _HomePage extends Component {
             filteredList.map(eventi => <div className="scroller" key={eventi._id}><EventiPreview eventi={eventi} key={eventi._id}loggedInUser={this.props.user} currTag={eventi.tags[0]} /></div>)
           }
         </div>
-        <Footer />
+
       </React.Fragment>
     );
   }

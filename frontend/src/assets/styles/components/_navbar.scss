@@ -1,5 +1,4 @@
 .main-nav {
-    cursor: pointer;
     height: 50px;
     line-height: 1rem;
     top: 0;
@@ -10,6 +9,23 @@
     color: $clr2;
     padding: 0;
 
+    &.dark {
+        background-color: $clr2;
+        color: $clr3;
+        .logo a {
+            color: $clr3;
+            background-color: $clr2;
+            &:hover {
+                color: $clr1;
+            }
+        }
+        .nav-icon {
+            color: $clr3;
+            &:hover {
+                color: $clr1;
+            }
+        }
+    }
     .logo a {
         color: $clr2;
         font-family: PermanentMarker;
@@ -19,107 +35,63 @@
             color: $clr4;
         }
     }
-    .usermenu .base-style a{
-        background-color: $clr2;
-        color: $clr3;
-        .logo a {
-            color: $clr3;
-            background-color: $clr2;
-        }
-        .user-icon{
-        color: $clr3;  
-        }  
-    }
+
     &.scrolled {
         background-color: $clr2;
         color: $clr3;
         .logo a {
             color: $clr3;
-            background-color: $clr2;
         }
-        .user-icon{
-        color: $clr3;  
+        .nav-icon {
+            color: $clr3;
         }
+    }
+    .nav-icon {
+        width: 35px;
+        cursor:pointer; 
 
     }
-
     .user-icon {
         margin-right: 21px;
         position: relative;
-        width: 35px;
         color: $clr2;
-        &:hover {
-            color: $clr4;
-        }
+        
+       
     }
     .activities-icon {
-        width: 35px;
         margin-right: 5px;
         margin-left: 20px;
-        &:hover {
-            color: $clr4;
-        }
-    }
-    .nav-welcome {
-        margin-left: 20px;
-        &:hover {
-            color: $clr4;
-        }
+  
     }
 
     .global-search {
-        color: $clr7;
-        position: relative;
+        color: $clr5;
+        display:flex; 
+        align-self: center;
     }
-
 }
-
 
 .user-menu {
     padding: 0;
     position: absolute;
     right: 6px;
     top: 31px;
-    background-color: white;
+    background-color: $clr4;
     li {
         cursor: pointer;
         list-style-type: none;
         padding: 2px;
     }
-    .base-style{
-        background-color: $clr2;
-        color: $clr3;
-        .logo a {
-            color: $clr3;
-            background-color: $clr2;
-        }
-        .user-icon{
-        color: $clr3;  
-        }  
-    }
 }
 .navbar-input {
-    // width: 120%;
     border: 1px solid lightgray;
     height: 2rem;
     border-radius: 1rem;
     background-color: #cccccc05;
-    color: $clr7;
+    color: $clr5;
     line-height: 1.8rem;
     font-size: 1rem;
     padding: 0px 3rem;
     outline: none;
     font-family: montserrat;
-    // .search-icon {
-    //     width: 20px;
-    //     color: red;
-    // }
 }
-
-
-.local-search {
-    height: 100px;
-    margin-top: 50px;
-}
-
-

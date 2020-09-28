@@ -1,8 +1,4 @@
 .logup-container {
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
-    // background-image: linear-gradient(to bottom,#{$clr2},#{$clr1});
 
     &::before {
         content:"";
@@ -32,7 +28,7 @@
             flex-direction: column;
             font-family: FiraSans-bold;
             font-size: rem(28px);
-            color:$clr7; 
+            color:$clr5; 
             
         }
 

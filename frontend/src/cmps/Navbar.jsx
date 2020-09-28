@@ -39,23 +39,26 @@ export class _Navbar extends Component {
             // pageYOffset or scrollY
             if (window.pageYOffset > 0) {
                 navbar.classList.add('scrolled')
+          
             } else {
                 navbar.classList.remove('scrolled')
+       
             }
         }
     }
     render() {
         return (
-                <nav className="main-nav container flex align-center justify-between">
+            // 
+                <nav className={`main-nav container flex align-center justify-between ${this.props.location.pathname !== '/'? 'dark':''}`}>
                     <span className="logo"><Link to="/"> Even{`{t}`} Better</Link></span>
                     {this.props.location.pathname !== "/" && <GlobalSearch />}
                     <ul className="user-nav flex justify-center align-center">
                         <li>{this.props.loggedInUser && <span className="nav-welcome">Welcome {this.props.loggedInUser.username}</span>}</li>
-                        <li><span className="activities-icon" onClick={this.onNotifiction}><div className="bell fas fa-bell"></div></span></li>
+                        <li><span className="nav-icon activities-icon" onClick={this.onNotifiction}><div className="bell fas fa-bell"></div></span></li>
                         <section className="notifications flex align-center justify-center" style={this.getStyle()}>
                             {this.props.loggedInUser && <UserNotifications />}
                         </section>
-                        <li><span className="user-icon" onClick={this.onUser}><div className="avatar fas fa-user-circle"></div></span></li>
+                        <li><span className="nav-icon user-icon" onClick={this.onUser}><div className="avatar fas fa-user-circle"></div></span></li>
                         {this.state.isUserProfile &&
                             <ul className="user-menu">
                                 {/* <li onClick={this.onUser}>Profile</li> */}
