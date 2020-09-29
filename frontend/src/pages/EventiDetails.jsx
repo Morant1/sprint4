@@ -94,24 +94,24 @@ class _EventiDetails extends Component {
         <div className="close" onClick={this.onBack}>Go Back →</div>
         <div className="details-photo-grid details-container flex justify-center">
           <div className="photo-item-1">
-            <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-5.jpg`)} />
+            <img src={`https://res.cloudinary.com/dk67dcp9c/image/upload/v1601374151/${eventi.tags[1]}/${eventi.tags[2]}-5.jpg`} />
           </div>
           <div className="photo-item-2">
             <div className="photo-inline-grid">
               <div className="inner-photo-1">
-                <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-1.jpg`)} />
+                <img src={`https://res.cloudinary.com/dk67dcp9c/image/upload/v1601374151/${eventi.tags[1]}/${eventi.tags[2]}-1.jpg`} />
               </div>
 
               <div className="inner-photo-2">
-                <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-2.jpg`)} />
+                <img src={`https://res.cloudinary.com/dk67dcp9c/image/upload/v1601374151/${eventi.tags[1]}/${eventi.tags[2]}-2.jpg`} />
               </div>
               <div className="inner-photo-3">
-                <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-4.jpg`)} />
+                <img src={`https://res.cloudinary.com/dk67dcp9c/image/upload/v1601374151/${eventi.tags[1]}/${eventi.tags[2]}-3.jpg`} />
               </div>
             </div>
           </div>
           <div className="photo-item-3">
-            <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-3.jpg`)} />
+            <img src={`https://res.cloudinary.com/dk67dcp9c/image/upload/v1601374151/${eventi.tags[1]}/${eventi.tags[2]}-4.jpg`} />
           </div>
         </div>
         <div className="details-container flex">

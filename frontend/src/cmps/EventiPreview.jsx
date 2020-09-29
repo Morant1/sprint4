@@ -11,7 +11,7 @@ class _EventiPreview extends Component {
     render() {
         const { eventi, currTag, loggedInUser } = this.props;
         const user = eventi.participants.find(participant => participant._id === loggedInUser._id)
-        // add conditional rendering 
+       
         const img = require(`../assets/img/${eventi.tags[1]}.jpg`);
         return (
             <li className={`eventi-preview card ${this.props.location.pathname==='/'? 'preview':''}`}>
