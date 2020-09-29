@@ -24,6 +24,7 @@ class _EventiDetails extends Component {
   }
   componentDidMount() {
     this.loadEventi()
+    console.log(this.props.loggedInUser)
   }
 
   loadEventi = () => {
@@ -51,7 +52,6 @@ class _EventiDetails extends Component {
     this.setState({
       isGoing: !this.state.isGoing
     }, () => {
-
       let eventi = this.state.eventi;
       if (this.state.isGoing) {
         eventi.participants.push(user)
@@ -62,7 +62,7 @@ class _EventiDetails extends Component {
         BusService.emit('notify', { msg: `You are not going to ${eventi.title} event anymore` })
       }
       this.props.updateEvent(eventi)
-      this.setState({ eventi })
+      this.setState({ eventi },()=>{console.log(eventi)})
 
     })
   }

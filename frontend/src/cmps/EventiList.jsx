@@ -6,6 +6,13 @@ import { withRouter } from "react-router";
 
 export class _EventiList extends Component {
 
+    componentDidMount() {
+        window.scroll({
+            top: 0, 
+            left: 0
+          });
+    }
+
     redirectClick = (tag) => {
         this.props.history.push(`/${tag}`)
       }

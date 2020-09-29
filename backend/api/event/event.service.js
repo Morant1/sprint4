@@ -72,6 +72,7 @@ function _sortFilterEvents(events, date, sort, order) {
             return a['participants'].length > b['participants'].length  ? -1 : a['participants'].length  < b['participants'].length ? 1 : 0
         })
     }
+
     return sortedEvents;
 }
 
@@ -137,11 +138,12 @@ async function add(eventi) {
 
 
 function _buildCriteria(filterBy) {
-    console.log("filterBy",filterBy)
     const criteria = {};
     if (filterBy.title) {
         criteria.title = new RegExp(filterBy.title, 'ig');
     }
+
+ 
     return criteria;
 }
 
