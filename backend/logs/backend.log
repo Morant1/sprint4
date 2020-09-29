@@ -100,3 +100,17 @@ Tue, 29 Sep 2020 11:05:15 GMT - Debug - true, false, Guest-9521, 123456
 Tue, 29 Sep 2020 11:05:15 GMT - Debug - auth.service - signup with username: Guest-9521
 Tue, 29 Sep 2020 11:05:15 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$3Vwbzz6ROsXSbHmsp/N5Z.EVYOVlCR5sop4QvNaTGGmOET4VGdJti","username":"Guest-9521","_id":"5f7314eb51604d2cf8e51a49"}
 Tue, 29 Sep 2020 11:05:15 GMT - Debug - auth.service - login with username: Guest-9521
+Tue, 29 Sep 2020 13:07:15 GMT - Info - Server is running on port: 3030
+Tue, 29 Sep 2020 13:07:20 GMT - Debug - true, false, Guest-3216, 123456
+Tue, 29 Sep 2020 13:07:20 GMT - Debug - auth.service - signup with username: Guest-3216
+Tue, 29 Sep 2020 13:07:20 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$El03M1iNkUotAmIGj/GCnOGZddSz7CPdC50Eiw4BXaZGwnMAXMrV.","username":"Guest-3216","_id":"5f733188db3851597454f00e"}
+Tue, 29 Sep 2020 13:07:20 GMT - Debug - auth.service - login with username: Guest-3216
+Tue, 29 Sep 2020 13:22:59 GMT - Debug - true, false, Guest-6824, 123456
+Tue, 29 Sep 2020 13:22:59 GMT - Debug - auth.service - signup with username: Guest-6824
+Tue, 29 Sep 2020 13:22:59 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$wTuyPhopXKhJI8.Bowl82ezXCMbJ2kGN.8wrkYJ.mZvC3ZhWFBwrm","username":"Guest-6824","_id":"5f733533db3851597454f00f"}
+Tue, 29 Sep 2020 13:22:59 GMT - Debug - auth.service - login with username: Guest-6824
+Tue, 29 Sep 2020 13:23:22 GMT - Info - Server is running on port: 3030
+Tue, 29 Sep 2020 17:06:15 GMT - Debug - true, false, Guest-8752, 123456
+Tue, 29 Sep 2020 17:06:15 GMT - Debug - auth.service - signup with username: Guest-8752
+Tue, 29 Sep 2020 17:06:16 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$izVjlXk64VMAdL3GIO2n1eB2Oz0udHTs0LpqgROkqOViBhg6h8lF6","username":"Guest-8752","_id":"5f73698879916c3d0c1a3eaf"}
+Tue, 29 Sep 2020 17:06:16 GMT - Debug - auth.service - login with username: Guest-8752
