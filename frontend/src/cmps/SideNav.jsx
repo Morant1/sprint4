@@ -28,6 +28,7 @@ export class _SideNav extends Component {
                     <li className="tag-item" onClick={(ev) => { this.redirectClick('Books') }}>Books</li>
                     <li className="tag-item" onClick={(ev) => { this.redirectClick('Art') }}>Art</li>
                     <ul className="all-tag">
+                    <li className="tag-item" onClick={(ev) => { this.redirectClick('your_events') }}>Your events</li>
                     <li className="tag-item" onClick={(ev) => { this.redirectClick('All') }}>All</li>
                     </ul>
                 </ul>

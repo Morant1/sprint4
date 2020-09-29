@@ -27,14 +27,29 @@ export class _EventiApp extends Component {
 
   }
 
-    loadFilteredEvents = () => {
-      const currTag = this.props.match.params.tag;
-      if (currTag === 'All') return this.props.events;
+  loadFilteredEvents = () => {
+    const currTag = this.props.match.params.tag;
+    if (currTag === 'All') return this.props.events;
+    if (currTag === 'your_events') return this.loadGoingList(this.props.events);
 
     const filteredEvents = this.props.events.filter(event =>
       event.tags.includes(currTag));
+    return filteredEvents
 
-    return filteredEvents;
+
+  }
+
+  loadGoingList = (events) => {
+    let goingList = [];
+  
+    for (let i = 0; i < events.length; i++) {
+      for (let j = 0; j < events[i].participants.length; j++) {
+        console.log(events[i].participants[j],this.props.loggedInUser)
+        if (events[i].participants[j]._id === this.props.loggedInUser._id)
+          goingList.push(events[i])
+      }
+    }
+    return goingList
   }
 
   render() {
@@ -43,7 +58,7 @@ export class _EventiApp extends Component {
 
     return (
       <div className="list-events margin">
-        <SideNav onSetFilter={this.onSetFilter} />
+        <SideNav onSetFilter={this.onSetFilter}/>
         <EventiList events={filteredEvents} currTag={this.props.match.params.tag} />
       </div>
     )

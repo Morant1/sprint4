@@ -89,3 +89,9 @@ Tue, 29 Sep 2020 09:58:16 GMT - Debug - true, false, Guest-2668, 123456
 Tue, 29 Sep 2020 09:58:16 GMT - Debug - auth.service - signup with username: Guest-2668
 Tue, 29 Sep 2020 09:58:17 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$tT7BqEi7m2d6iXdEkT47FOPsfjd/tjfbge72.jWEjWg5KJBnkYCvC","username":"Guest-2668","_id":"5f730539c822b659fcbb9798"}
 Tue, 29 Sep 2020 09:58:17 GMT - Debug - auth.service - login with username: Guest-2668
+Tue, 29 Sep 2020 16:45:49 GMT - Debug - [{"_id":"5f6b1c32df028480a8a74f3b","isGoing":true,"username":"Moran"},{"_id":"5f6b1f239d6be87f98983b02","isGoing":false,"username":"Lital"},{"_id":"5f6c8ba0d9b2714b7cd5ea5c","isGuest":true,"isGoing":false,"username":"Guest-4897"},{"_id":"5f6c9237d9b2714b7cd5ea5d","isGuest":true,"isGoing":false,"username":"Guest-8279"},{"_id":"5f6ca671d9b2714b7cd5ea5e","isGuest":false,"isGoing":true,"username":"Liron"},{"_id":"5f6d08633fb3e958b8a8e81c","isGuest":true,"isGoing":true,"username":"Guest-5793"},{"_id":"5f6db253328a485ac0b81964","isGuest":true,"isGoing":false,"username":"Guest-2597"},{"_id":"5f6db5c674b7885ff4641d8e","isGuest":true,"isGoing":false,"username":"Guest-8274"},{"_id":"5f6dcd8d74b7885ff4641d8f","isGuest":true,"isGoing":true,"username":"Guest-3228"},{"_id":"5f703e70c0af484bc85cd43d","isGuest":true,"isGoing":false,"username":"Guest-2988"},{"_id":"5f730172c822b659fcbb9797","isGuest":true,"isGoing":true,"username":"Guest-8789"},{"_id":"5f730539c822b659fcbb9798","isGuest":true,"isGoing":false,"username":"Guest-2668"}]
+Tue, 29 Sep 2020 16:56:11 GMT - Info - Server is running on port: 3030
+Tue, 29 Sep 2020 16:56:53 GMT - Info - Server is running on port: 3030
+Tue, 29 Sep 2020 16:58:00 GMT - Info - Server is running on port: 3030
+Tue, 29 Sep 2020 16:58:03 GMT - Info - Server is running on port: 3030
+Tue, 29 Sep 2020 16:58:21 GMT - Info - Server is running on port: 3030

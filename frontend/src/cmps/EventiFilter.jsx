@@ -40,7 +40,7 @@ export class _EventiFilter extends Component {
 
 
     render() {
-        const { date, sort, order , name } = this.state.filter
+        const { date, sort, order , isGoing } = this.state.filter
         return (
             <form className="main-filter-container">
                 <div className="filter flex justify-space">
