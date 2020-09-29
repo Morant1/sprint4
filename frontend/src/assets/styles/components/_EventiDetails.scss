@@ -1,6 +1,6 @@
 .eventi-details {
     flex-direction: column;
-    margin-top:70px; 
+    margin-top: 70px;
     .sub-text {
         .location {
             margin-left: 5px;
@@ -11,10 +11,12 @@
     }
 
     .details-container {
-        padding-left: 60px;
-        padding-right: 60px;
+        // padding-left: 60px;
+        // padding-right: 60px;
+        justify-content: space-between;
         max-width: 1280px;
         text-align: left;
+        margin:10px; 
     }
 
     .details-btn {
@@ -44,26 +46,19 @@
         }
     }
 
-    .details-img {
-        width: 200px;
-        height: 200px;
-        margin-right: 10px;
-        background-size: cover;
-        background-position: center;
-    }
 
     .participant-container {
         flex-direction: column;
         background-color: $clr2;
-        margin: 10px;
+
         .participant-title {
             font-family: montserrat;
-            margin-top:10px;
+            margin-top: 10px;
             font-size: rem(24px);
             color: $clr3;
         }
         .participant-list {
-            margin:0; 
+            margin: 0;
             padding: 10px 10px;
             color: $clr3;
             flex-direction: column;
@@ -116,10 +111,10 @@
     }
 }
 .chat {
-    display:fixed; 
+    display: fixed;
 }
-.duration{
-    margin-left:5px; 
+.duration {
+    margin-left: 5px;
 }
 .chat-btn {
     padding: 9px 8px;
@@ -137,6 +132,81 @@
     font-size: rem(16px);
 }
 
+
+.details-photo-grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1.5fr 1fr;
+      margin:10px; 
+    .details-img {
+        height: 300px;
+        width: 300px;
+        margin-right: 10px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .photo-inline-grid {
+        display: grid !important;
+        grid-auto-columns: 1fr !important;
+        grid-auto-rows: 1fr !important;
+        grid-gap: 8px !important;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        .inner-photo-1{
+            grid-area: 1 / 1 / span 2 / span 2;
+            img{
+                object-fit: cover;
+            }
+        }
+        .inner-photo-2{
+            grid-area: 1 / 3 / auto / auto;
+            img{
+                object-fit: cover;
+            }
+        }
+        .inner-photo-3{
+            grid-area: 2 / 3 / auto / auto;
+            img{
+                position: relative !important;
+                width: 100% !important;
+                height: 100% !important;
+                overflow: hidden;
+                object-fit: cover;
+                vertical-align: bottom;
+            }
+        }
+      
+    }
+    .photo-item-1 {
+        display: grid;
+        grid-area: 1 / 1 / auto / auto;
+        img {
+            height: 100% !important;
+            width: 100% !important;
+            object-fit: cover;
+            vertical-align: bottom;
+        }
+    }
+    .photo-item-2 {
+        display: grid;
+        grid-area: 1 / 2 / auto / auto;
+        img {
+            height: 100% !important;
+            width: 100% !important;
+        }
+    }
+    .photo-item-3 {
+        display: grid;
+        grid-area: 1 / 3 / auto / auto;
+        img {
+            height: 100% !important;
+            width: 100% !important;
+            object-fit: cover;
+            vertical-align: bottom;
+        }
+    }
+}
 .star-yellow {
     color: #fff12a;
 }

@@ -44,10 +44,13 @@ p {
 }
 a{
     text-decoration: none;
-    color:$clr7; 
+    color:$clr5; 
     
 }
 
-li {
+ul,li {
     list-style-type: none;
+    margin:0;
+    padding:0;
+
 }

@@ -1,12 +1,11 @@
 .side-nav {
-    margin-top:60px; 
     display: block;
-    background-color: $clr6;
+    background-color: $clr4;
     align-content: space-between;
     height: 100%;
-    width: 80%;
+    width: 90%;
     z-index:1;
-    border-right: 1px solid lightgray; 
+    border-right: 1px solid #d3d3d3; 
     transform: translateX(-200%);
     transition: transform 2s ;
 
@@ -14,33 +13,29 @@
         transform: translateX(0)
     }
 
-    .tag-list{
-        &*{
-            background-color: blueviolet;
-        }
-    }
     .tag-list {
     margin: 15px 0 15px 0;
     display: flex;
     justify-content: center;
     flex-wrap: wrap-reverse;
-    }
-    
-    .tag-item {
-        margin: 10px 5px 10px 5px;
+
+    li {
+        margin: 12px 5px 10px 5px;
          width: 5.5rem;
-         box-shadow: 0.5px 0.5px 1.5px #272354;
+         box-shadow: 0.5px 0.5px 1.5px $clr3;
           text-align: center;
           border-radius: 3.25rem;
           font-size: 1rem;
-          color: #272343;
-
+          color: $clr3;
     }
-    
-    .tag-item:hover {
+    li:last-child {
+        margin-top:0; 
+      }
+    }
+    li:hover {
         cursor: pointer;
-    background-color: #272354;
-    color: white;
+    background-color: $clr3;
+    color: $clr4;
     
     }
 }

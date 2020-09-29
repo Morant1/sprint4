@@ -12,7 +12,7 @@ export class _EventsGrid extends Component {
     redirectClick = (tag) => {
         this.props.history.push(`/${tag}`)
     }
-
+// Todo : map on tags array
     render() {
         return (
             <section className="events-grid margin container">
@@ -20,9 +20,7 @@ export class _EventsGrid extends Component {
                 style={{backgroundImage:`url(${require('../assets/img/Sport.jpg')})`}}
                 onClick={(ev) => { this.redirectClick('Sport') }}>
                     <div className="tag">Sport</div>
-
                 </div>
-                
                 <div className="event-card" 
                 style={{backgroundImage:`url(${require('../assets/img/Movies.jpg')})`}}
                 onClick={(ev) => { this.redirectClick('Movies') }}>

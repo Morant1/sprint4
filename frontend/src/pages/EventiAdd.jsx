@@ -68,8 +68,8 @@ export class _EventiAdd extends Component {
                         <option value="TVShows">TV Shows</option>
                         <option value="Comics">Comics</option>
                     </select><br></br>
-                    <label htmlFor="images">Images:</label>
-                    <input type="file" name="images" id="files" onChange={this.handleChange} value={eventi.images} /><br></br>
+                    {/* <label htmlFor="images">Images:</label> */}
+                    {/* <input type="file" name="images" id="files" onChange={this.handleChange} value={eventi.images} /><br></br> */}
                     <button className="save-btn" onClick={() => { console.log('added event') }}>Save</button>
                 </form>
             </div>

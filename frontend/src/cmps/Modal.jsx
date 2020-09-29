@@ -1,38 +1,30 @@
-const { withRouter } = ReactRouterDOM
+import React, { Component } from 'react';
+import {EventiEdit} from '../pages/EventiEdit'
 
 
-class _Modal extends React.Component {
+export class Modal extends React.Component {
     state = {
-        isShown: true,
-        returnTo: null
+        isShown: true
     }
     closeModal = () => {
-        this.setState({ isShown: false })
-        this.props.history.push(this.state.returnTo)
+        this.setState({ isShown: !this.state.isShown },()=>{
+            this.props.onModal(!this.state.isShown);
+        })
     }
     componentDidMount() {
-        const returnTo = this.props.returnTo;
-        // console.log(returnTo);
-        this.setState({returnTo})
+        
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevProps.match.params.id !== this.props.match.params.id) {
-            this.setState({ isShown: true })
-        }
-    }
     render() {
         const { isShown } = this.state
-        const { children } = this.props
         return (
             <div className={ `modal-wrapper ${isShown ? '' : 'hide'}` } onClick={ this.closeModal } >
                 <div className="modal-content" onClick={ (ev) => ev.stopPropagation() }>
                     <button onClick={ this.closeModal }>X</button>
-                    { children }
+                    <EventiEdit _id={this.props._id}/>
                 </div>
             </div >
         )
     }
 }
 
-export const Modal = withRouter(_Modal);

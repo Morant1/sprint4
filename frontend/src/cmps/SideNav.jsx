@@ -20,17 +20,17 @@ export class _SideNav extends Component {
         return (
 
             <section className="side-nav flex">
-                <div className="tag-list">
-                    <div className="tag-item" onClick={(ev) => { this.redirectClick('Sport') }}>Sport</div>
-                    <div className="tag-item" onClick={(ev) => { this.redirectClick('Movies') }}>Movies</div>
-                    <div className="tag-item" onClick={(ev) => { this.redirectClick('TVShows') }}>TV shows</div>
-                    <div className="tag-item" onClick={(ev) => { this.redirectClick('Books') }}>Books</div>
-                    <div className="tag-item" onClick={(ev) => { this.redirectClick('Art') }}>Art</div>
-                    <div className="tag-item" onClick={(ev) => { this.redirectClick('Comics') }}>Comics</div>
-                    <div className="all-tag">
-                    <div className="tag-item" onClick={(ev) => { this.redirectClick('All') }}>All</div>
-                    </div>
-                </div>
+                <ul className="tag-list">
+                    <li className="tag-item" onClick={(ev) => { this.redirectClick('TVShows') }}>TV shows</li>
+                    <li className="tag-item" onClick={(ev) => { this.redirectClick('Sport') }}>Sport</li>
+                    <li className="tag-item" onClick={(ev) => { this.redirectClick('Movies') }}>Movies</li>
+                    <li className="tag-item" onClick={(ev) => { this.redirectClick('Comics') }}>Comics</li>
+                    <li className="tag-item" onClick={(ev) => { this.redirectClick('Books') }}>Books</li>
+                    <li className="tag-item" onClick={(ev) => { this.redirectClick('Art') }}>Art</li>
+                    <ul className="all-tag">
+                    <li className="tag-item" onClick={(ev) => { this.redirectClick('All') }}>All</li>
+                    </ul>
+                </ul>
                 <EventiFilter onSetFilter={onSetFilter} />
             </section>
 

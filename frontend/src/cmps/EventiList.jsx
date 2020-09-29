@@ -13,11 +13,11 @@ export class _EventiList extends Component {
     render() {
         const { events ,currTag} = this.props;
     return (
-        <div className="preview-grid">
+        <ul className="preview-grid">
             {
                 events.map(eventi => <EventiPreview eventi={eventi} key={eventi._id} currTag={currTag} />)
             }
-        </div>
+        </ul>
     )
 }
 }

@@ -1,13 +1,7 @@
 .main-content {
     position: relative;
-    // height: 500px;
     flex-direction: column;
-    overflow: scroll;
-    overflow-x: scroll;
-    
-    
-    
-
+    overflow: hidden;
     .hero-text {
         position: absolute;
         top: 40%;
@@ -57,7 +51,7 @@
     border-radius: 16px;
     background-size: cover;
     cursor: pointer;
-    transition: all 0.7s;
+    transition: all 0.5s;
 
     &.span {
         grid-column: span 2;
@@ -90,35 +84,5 @@
     text-align: center;
     color: $clr3;
 }
-//     img {
-//         // filter: grayscale(0.75);
-//         mix-blend-mode: multiply;
 
-//     }
-//     a {
-//         text-decoration: none;
-//     }
-// }
-
-// .logo {
-//     color: $clr2;
-//     font-family: PermanentMarker;
-//     font-size: rem(28px);
-//     margin-left: rem(20px);
-// }
-
-
-// .tag
-// cursor: pointer;
-// color: $clr4;
-
-// position: relative;
-// display: flex;
-// justify-content: center;
-// align-items: center;
-// height: 100%;
-// width: 100%;
-// border-radius: 21px;
-// opacity: 0.8;
-// transition: transform 1s;
 
