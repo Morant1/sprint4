@@ -64,15 +64,7 @@
     .preview-subtitle {
         font-size: rem(14px);
     }
-    button {
-        padding: 10px 0;
-        background-color: #272343;
-        transition: all 0.2s;
-        border-bottom-right-radius: 22px;
-        width: 90px;
-        font-size: 0.7rem;
-        color: $clr4;
-    }
+
     .img-area {
         img {
             height: 300px;
@@ -80,9 +72,20 @@
             border-radius: 16px;
             border: 1px solid #00000021;
         }
-
         button {
             position: absolute;
+            padding: 10px 0;
+            background-color: $clr1;
+            transition: all 0.2s;
+            width: 60px;
+            padding: 5px; 
+            font-size: 0.7rem;
+            color: $clr3;
+            border-radius: 0 10px 10px;
+            &.joined-user {
+                color: $clr1;
+                background-color: $clr3;
+            }
         }
     }
     .preview-time {
@@ -116,6 +119,5 @@
     margin: 0 2px;
 }
 
-.joined {
-    color: $clr1;
-}
+
+

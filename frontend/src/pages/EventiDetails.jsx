@@ -76,7 +76,7 @@ class _EventiDetails extends Component {
   }
   getGoingStyle = () => {
     if (this.state.isGoing) {
-      return { backgroundColor: '#A64AC9' }
+      return { backgroundColor: '#272343',color:'#88E4E4' }
     }
   }
 
@@ -115,7 +115,7 @@ class _EventiDetails extends Component {
           </div>
         </div>
         <div className="details-container flex">
-          <div className="eventi-title flex justify-center">
+          <div className="eventi-title flex">
             <h2>{eventi.title}</h2>
             <div className="eventi-subtitle flex">{eventi.subtitle}</div>
             {/* temporary stars design for now */}
@@ -144,12 +144,12 @@ class _EventiDetails extends Component {
           </div>
           <div className="participant-container flex justify-center align-center">
             <div className="details-btn flex justify-center">
-              <Button className="join" style={this.getGoingStyle()}
+              <button className="join" style={this.getGoingStyle()}
                 onClick={this.addParticipant}>
-                I might {isGoing ? 'attend' : 'not attend'}
-              </Button>
-              <Button onClick={this.onModal}>Edit</Button>
-              <Button onClick={() => this.removeEventi(eventi._id)}>Delete</Button>
+                 {isGoing ? 'attending' : 'choose'}
+              </button>
+              <button onClick={this.onModal}>Edit</button>
+              <button onClick={() => this.removeEventi(eventi._id)}>Delete</button>
             </div>
             <div className="participant-title">Participants</div>
             <ul className="participant-list flex">
@@ -190,29 +190,52 @@ const mapDispatchToProps = {
 
 export const EventiDetails = connect(mapStateToProps, mapDispatchToProps)(_EventiDetails)
 
-//// in case site collapses you can use this for preview page + details
-     ///        <div className="details-photo-grid details-container flex justify-center">
-      //     <div className="photo-item-1">
-      //     <img src={require(`../assets/img/${eventi.tags[0]}.jpg`)} />
-      //   </div>
-      //   <div className="photo-item-2">
-      //     <div className="photo-inline-grid">
-      //       <div className="inner-photo-1">
-      //         <img src={require(`../assets/img/${eventi.tags[0]}2.jpg`)} />
-      //       </div>
+  //// in case site collapses you can use this for preview page + details
+  // / <div className="details-photo-grid details-container flex justify-center">
+  //   <div className="photo-item-1">
+  //     <img src={require(`../assets/img/${eventi.tags[0]}.jpg`)} />
+  //   </div>
+  //   <div className="photo-item-2">
+  //     <div className="photo-inline-grid">
+  //       <div className="inner-photo-1">
+  //         <img src={require(`../assets/img/${eventi.tags[0]}2.jpg`)} />
+  //       </div>
 
-      //       <div className="inner-photo-2">
-      //         <img src={require(`../assets/img/${eventi.tags[0]}3.jpg`)} />
-      //       </div>
-      //       <div className="inner-photo-3">
-      //         <img src={require(`../assets/img/${eventi.tags[0]}4.jpg`)} />
-      //       </div>
-      //     </div>
-      //   </div>
-      //   <div className="photo-item-3">
-      //     <img src={require(`../assets/img/${eventi.tags[0]}5.jpg`)} />
-      //   </div>
-      // </div>
+  //       <div className="inner-photo-2">
+  //         <img src={require(`../assets/img/${eventi.tags[0]}3.jpg`)} />
+  //       </div>
+  //       <div className="inner-photo-3">
+  //         <img src={require(`../assets/img/${eventi.tags[0]}4.jpg`)} />
+  //       </div>
+  //     </div>
+  //   </div>
+  //   <div className="photo-item-3">
+  //     <img src={require(`../assets/img/${eventi.tags[0]}5.jpg`)} />
+  //   </div>
+  // </div>
+
+          {/* <div className="details-photo-grid details-container flex justify-center">
+          <div className="photo-item-1">
+            <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-5.jpg`)} />
+          </div>
+          <div className="photo-item-2">
+            <div className="photo-inline-grid">
+              <div className="inner-photo-1">
+                <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-1.jpg`)} />
+              </div>
+
+              <div className="inner-photo-2">
+                <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-2.jpg`)} />
+              </div>
+              <div className="inner-photo-3">
+                <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-4.jpg`)} />
+              </div>
+            </div>
+          </div>
+          <div className="photo-item-3">
+            <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-3.jpg`)} />
+          </div>
+        </div> */}
 
 
 
