@@ -11,23 +11,30 @@
     }
 
     .details-container {
-        // padding-left: 60px;
-        // padding-right: 60px;
         justify-content: space-between;
         max-width: 1280px;
         text-align: left;
-        margin:10px; 
+        margin: 10px;
     }
 
     .details-btn {
         margin-top: 10px;
         flex-direction: column;
         button {
-            background-color: white;
+            background-color: $clr4;
             margin: 3px;
+            padding: rem(16px);
+            text-transform: uppercase;
+            border-radius: 10px;
+            width: 130px;
 
-            &:hover {
-                background-color: $clr1 !important;
+            &.join {
+                background-color: $clr1;
+                color: $clr3;
+                &:hover {
+                    background-color: $clr3;
+                    color: $clr1;
+                }
             }
         }
     }
@@ -45,7 +52,6 @@
             font-size: rem(16px);
         }
     }
-
 
     .participant-container {
         flex-direction: column;
@@ -132,12 +138,11 @@
     font-size: rem(16px);
 }
 
-
 .details-photo-grid {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 1fr 1.5fr 1fr;
-      margin:10px; 
+    margin: 10px;
     .details-img {
         height: 300px;
         width: 300px;
@@ -153,21 +158,23 @@
         grid-gap: 8px !important;
         grid-template-columns: 1fr 1fr 1fr;
 
-        .inner-photo-1{
+        .inner-photo-1 {
             grid-area: 1 / 1 / span 2 / span 2;
-            img{
+            img {
                 object-fit: cover;
+                vertical-align: bottom;
             }
         }
-        .inner-photo-2{
+        .inner-photo-2 {
             grid-area: 1 / 3 / auto / auto;
-            img{
+            img {
                 object-fit: cover;
+                vertical-align: bottom;
             }
         }
-        .inner-photo-3{
+        .inner-photo-3 {
             grid-area: 2 / 3 / auto / auto;
-            img{
+            img {
                 position: relative !important;
                 width: 100% !important;
                 height: 100% !important;
@@ -176,7 +183,6 @@
                 vertical-align: bottom;
             }
         }
-      
     }
     .photo-item-1 {
         display: grid;
