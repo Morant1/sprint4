@@ -27,12 +27,12 @@ class _EventiPreview extends Component {
                     <div className="preview-title">{eventi.title.length > 40 ? eventi.title.substr(0,40)+'...': eventi.title}</div>
                     <div className="preview-subtitle">{eventi.subtitle ? eventi.subtitle :''}</div>
                     <div className="time-container">
-                        <img className="preview-icon"src={require(`../assets/icons/calendar-outline.svg`)}/><span className="preview-time"> {new Date(eventi.startsAt).toLocaleDateString()}</span>
-                        <img className="preview-icon"src={require(`../assets/icons/time-outline.svg`)}></img><span className="preview-time"> {new Date(eventi.startsAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                        <span className="calender far fa-calendar-alt fa-sm"></span><span className="preview-time"> {new Date(eventi.startsAt).toLocaleDateString()}</span>
+                        <span className="clock far fa-clock fa-sm"></span><span className="preview-time"> {new Date(eventi.startsAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                     </div>
                         <div className="event-creator-section flex align-center">
                             <Avatar className="avatar">{eventi.createdBy.username[0].toUpperCase()}</Avatar>
-                            <span className="creator">{eventi.createdBy.username.split(' ')[0].toUpperCase()}</span>
+                            <span className="creator">{eventi.createdBy.username.toUpperCase()}</span>
                         </div>
                     </div>
                 </Link>

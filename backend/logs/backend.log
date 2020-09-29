@@ -70,3 +70,7 @@ Mon, 28 Sep 2020 16:00:37 GMT - Debug - true, false, Guest-7367, 123456
 Mon, 28 Sep 2020 16:00:37 GMT - Debug - auth.service - signup with username: Guest-7367
 Mon, 28 Sep 2020 16:00:37 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$BK3JBwirSOElQ8moDPdcPORmQVeWHDTblOPVifa2tK0bVZKVU8iwy","username":"Guest-7367","_id":"5f7208a520136d2e18f233bb"}
 Mon, 28 Sep 2020 16:00:37 GMT - Debug - auth.service - login with username: Guest-7367
+Mon, 28 Sep 2020 18:35:39 GMT - Debug - true, false, Guest-4846, 123456
+Mon, 28 Sep 2020 18:35:39 GMT - Debug - auth.service - signup with username: Guest-4846
+Mon, 28 Sep 2020 18:35:39 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$hgrr5eq3U51DViG5RLrRjuwEkihE7vyXa1lNNfqiYy2EAE6tc82YG","username":"Guest-4846","_id":"5f722cfb20136d2e18f233bc"}
+Mon, 28 Sep 2020 18:35:39 GMT - Debug - auth.service - login with username: Guest-4846

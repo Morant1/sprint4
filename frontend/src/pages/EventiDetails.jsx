@@ -40,16 +40,7 @@ class _EventiDetails extends Component {
   openChat = () => {
     this.setState({ isOpen: !this.state.isOpen })
   }
-  // addRank = (rank) => {
-  //   console.log(rank)
-  //   let { eventi } = this.state;
-  //   eventi.rank = rank;
-  //   this.setState({ eventi},()=>{console.log("state",this.state.eventi)})
-  //   // this.props.updateEvent(eventi);
-  //   // BusService.emit('notify', { msg: `Rank of ${eventi.title} changed` })
 
-
-  // }
   addParticipant = () => {
     let user = this.props.loggedInUser;
     user.isGoing = !this.state.isGoing;
@@ -109,18 +100,15 @@ class _EventiDetails extends Component {
                 <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-2.jpg`)} />
               </div>
               <div className="inner-photo-3">
-                <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-3.jpg`)} />
+                <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-4.jpg`)} />
               </div>
             </div>
           </div>
           <div className="photo-item-3">
-            <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-4.jpg`)} />
+            <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-3.jpg`)} />
           </div>
         </div>
-
-      
         <div className="details-container flex">
-
           <div className="eventi-title flex justify-center">
             <h2>{eventi.title}</h2>
             <div className="eventi-subtitle flex">{eventi.subtitle}</div>
@@ -198,25 +186,27 @@ export const EventiDetails = connect(mapStateToProps, mapDispatchToProps)(_Event
 //// in case site collapses you can use this for preview page + details
      ///        <div className="details-photo-grid details-container flex justify-center">
       //     <div className="photo-item-1">
-      //     <img src={require(`../assets/img/${eventi.tags[1]}.jpg`)} />
+      //     <img src={require(`../assets/img/${eventi.tags[0]}.jpg`)} />
       //   </div>
       //   <div className="photo-item-2">
       //     <div className="photo-inline-grid">
       //       <div className="inner-photo-1">
-      //         <img src={require(`../assets/img/${eventi.tags[1]}2.jpg`)} />
+      //         <img src={require(`../assets/img/${eventi.tags[0]}2.jpg`)} />
       //       </div>
 
       //       <div className="inner-photo-2">
-      //         <img src={require(`../assets/img/${eventi.tags[1]}3.jpg`)} />
+      //         <img src={require(`../assets/img/${eventi.tags[0]}3.jpg`)} />
       //       </div>
       //       <div className="inner-photo-3">
-      //         <img src={require(`../assets/img/${eventi.tags[1]}4.jpg`)} />
+      //         <img src={require(`../assets/img/${eventi.tags[0]}4.jpg`)} />
       //       </div>
       //     </div>
       //   </div>
       //   <div className="photo-item-3">
-      //     <img src={require(`../assets/img/${eventi.tags[1]}5.jpg`)} />
+      //     <img src={require(`../assets/img/${eventi.tags[0]}5.jpg`)} />
       //   </div>
       // </div>
+
+
 
 

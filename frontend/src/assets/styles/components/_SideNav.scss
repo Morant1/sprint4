@@ -18,20 +18,21 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap-reverse;
-    }
-    
-    .tag-item {
-        margin: 10px 5px 10px 5px;
+
+    li {
+        margin: 12px 5px 10px 5px;
          width: 5.5rem;
          box-shadow: 0.5px 0.5px 1.5px $clr3;
           text-align: center;
           border-radius: 3.25rem;
           font-size: 1rem;
           color: $clr3;
-
     }
-    
-    .tag-item:hover {
+    li:last-child {
+        margin-top:0; 
+      }
+    }
+    li:hover {
         cursor: pointer;
     background-color: $clr3;
     color: $clr4;
