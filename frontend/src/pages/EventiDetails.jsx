@@ -118,10 +118,8 @@ class _EventiDetails extends Component {
           <div className="eventi-title flex">
             <h2>{eventi.title}</h2>
             <div className="eventi-subtitle flex">{eventi.subtitle}</div>
-            {/* temporary stars design for now */}
             <div className="sub-text flex align-center">
               <div className="stars flex align-center">
-                {/* <div onClick={this.addRank} className="gray-star fas fa-star"></div> */}
                 <StarRate rank={eventi.rank} />
               </div> • <div className="location fas fa-map-marker-alt "></div>  <span className="eventi-location">{eventi.location.city},{eventi.location.country}</span>
             </div>
@@ -165,7 +163,7 @@ class _EventiDetails extends Component {
           </div>
         </div>
         {this.state.isModal && <Modal onModal={this.onModal} _id={eventi._id}/>}
-        <a className="flex justify-center" href='https://us02web.zoom.us'>COME IN</a>
+        <a className="flex justify-center" href='https://us02web.zoom.us'>Zoom Link <span className="zoom">(will be availible 30 mins before the meeting)</span></a>
         <div className="chat flex">
           {!this.state.isOpen && <div className="chat-btn" onClick={this.openChat}><i className="far fa-comment-dots"></i></div>}
         </div>
