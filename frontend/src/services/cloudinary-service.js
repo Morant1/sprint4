@@ -7,12 +7,12 @@ export const cloudinary = {
 
 async function uploadImg(target) {
     console.log("Ev in cloud",target)
-    const CLOUD_NAME = "coding-academy"
+    const CLOUD_NAME = "dk67dcp9c"
     const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`
 
     const formData = new FormData();
     formData.append('file', target.files[0])
-    formData.append('upload_preset', 'hxpsra0y');
+    formData.append('upload_preset', 'ml_default');
     console.log("formData",formData)
     try {
 
