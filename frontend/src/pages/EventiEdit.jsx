@@ -20,7 +20,8 @@ import { updateEvent } from '../store/actions/eventActions'
         }
     }
     componentDidMount = async () => {
-        const eventiId = this.props.match.params._id
+        const eventiId = this.props._id
+        console.log(eventiId)
         if (eventiId) {
             const eventi = await eventService.getById(eventiId);
             eventi.startsAt = new Date(eventi.startsAt).toISOString().substring(0,16);
