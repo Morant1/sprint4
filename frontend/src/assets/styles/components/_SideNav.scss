@@ -1,46 +1,44 @@
 .side-nav {
-    display: block;
+    position: fixed;
     background-color: $clr4;
-    align-content: space-between;
-    height: 100%;
-    width: 90%;
-    z-index:1;
-    border-right: 1px solid #d3d3d3; 
+    width: 15%;
+    z-index: 10;
+    border-right: 1px solid #d3d3d3;
     transform: translateX(-200%);
-    transition: transform 2s ;
+    transition: transform 2s;
 
     &.trans {
-        transform: translateX(0)
+        transform: translateX(0);
     }
 
     .tag-list {
-    margin: 15px 0 15px 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap-reverse;
+        margin: 15px 0 15px 0;
+        display: flex;
+        justify-content: center;
+        align-content: space-between;
+        flex-wrap: wrap-reverse;
 
-    li {
-        margin: 12px 5px 10px 5px;
-         width: 5.5rem;
-         box-shadow: 0.5px 0.5px 1.5px $clr3;
-          text-align: center;
-          border-radius: 3.25rem;
-          font-size: 1rem;
-          color: $clr3;
-    }
-    li:last-child {
-        margin-top:0; 
-      }
+        li {
+            margin: 12px 5px 10px 5px;
+            width: 5.5rem;
+            box-shadow: 0.5px 0.5px 1.5px $clr3;
+            text-align: center;
+            border-radius: 3.25rem;
+            font-size: 1rem;
+            color: $clr3;
+        }
+        li:last-child {
+            margin-top: 0;
+        }
     }
     li:hover {
         cursor: pointer;
-    background-color: $clr3;
-    color: $clr4;
-    
+        background-color: $clr3;
+        color: $clr4;
     }
 }
 
-.all-tag{
+.all-tag {
     display: flex;
     width: 100%;
     justify-content: center;

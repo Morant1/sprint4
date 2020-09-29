@@ -74,3 +74,8 @@ Mon, 28 Sep 2020 18:35:39 GMT - Debug - true, false, Guest-4846, 123456
 Mon, 28 Sep 2020 18:35:39 GMT - Debug - auth.service - signup with username: Guest-4846
 Mon, 28 Sep 2020 18:35:39 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$hgrr5eq3U51DViG5RLrRjuwEkihE7vyXa1lNNfqiYy2EAE6tc82YG","username":"Guest-4846","_id":"5f722cfb20136d2e18f233bc"}
 Mon, 28 Sep 2020 18:35:39 GMT - Debug - auth.service - login with username: Guest-4846
+Tue, 29 Sep 2020 06:25:37 GMT - Info - Server is running on port: 3030
+Tue, 29 Sep 2020 06:26:11 GMT - Debug - true, false, Guest-4499, 123456
+Tue, 29 Sep 2020 06:26:11 GMT - Debug - auth.service - signup with username: Guest-4499
+Tue, 29 Sep 2020 06:26:12 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$2vmbJcYX8qMo2/N7wuhPWuJYboXWHewF2waCDrCLezMeeD7TaWsBK","username":"Guest-4499","_id":"5f72d38407286c02340c8ef6"}
+Tue, 29 Sep 2020 06:26:12 GMT - Debug - auth.service - login with username: Guest-4499
