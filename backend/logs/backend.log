@@ -1,3 +1,4 @@
+
 Wed, 30 Sep 2020 07:22:15 GMT - Debug - true, false, Guest-5242, 123456
 Wed, 30 Sep 2020 07:22:15 GMT - Debug - auth.service - signup with username: Guest-5242
 Wed, 30 Sep 2020 07:22:15 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$2qcHMo9vnq/Cid/qaEYkeeFalQo5amSXt70FU9A95flOOouKpifx6","username":"Guest-5242","_id":"5f7432273fa61c0c1c94e371"}
@@ -25,3 +26,13 @@ Wed, 30 Sep 2020 10:47:04 GMT - Debug - true, false, Guest-5184, 123456
 Wed, 30 Sep 2020 10:47:04 GMT - Debug - auth.service - signup with username: Guest-5184
 Wed, 30 Sep 2020 10:47:04 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$JuMpAdxRkKuKXobllQpkcuTqawLBb3rfqwJdWrTG/RQyiTcnHIrYm","username":"Guest-5184","_id":"5f746228251ecf44189ec460"}
 Wed, 30 Sep 2020 10:47:04 GMT - Debug - auth.service - login with username: Guest-5184
+
+Wed, 30 Sep 2020 10:34:53 GMT - Info - Server is running on port: 3030
+
+Wed, 30 Sep 2020 10:35:35 GMT - Info - Server is running on port: 3030
+
+Wed, 30 Sep 2020 10:59:26 GMT - Info - Server is running on port: 3030
+Wed, 30 Sep 2020 11:01:24 GMT - Info - Server is running on port: 3030
+Wed, 30 Sep 2020 11:02:00 GMT - Debug - true, undefined, Guest-7715, 123456
+Wed, 30 Sep 2020 11:02:00 GMT - Debug - auth.service - signup with username: 123456
+Wed, 30 Sep 2020 11:02:00 GMT - Error - [SIGNUP] username and password are required!
