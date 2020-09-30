@@ -6,7 +6,7 @@ import { signup } from '../store/actions/userActions'
 import { EventiPreview } from '../cmps/EventiPreview'
 import { utils } from '../services/utils';
 import { EventsGrid } from '../cmps/EventsGrid';
-
+import { Footer } from '../cmps/Footer';
 export class _HomePage extends Component {
 
 
@@ -61,7 +61,6 @@ export class _HomePage extends Component {
             </div>
           </div>
         </section>
-        {/* Lital,Events-grid should be in a component  + map */}
         <EventsGrid tags={filteredTags} currTag={this.props.match.params.tag} />
         <div className="slide-title">Upcoming events</div>
         <div className="card-container">
@@ -69,7 +68,7 @@ export class _HomePage extends Component {
             filteredList.map(eventi => <div className="scroller" key={eventi._id}><EventiPreview eventi={eventi} key={eventi._id}loggedInUser={this.props.user} currTag={eventi.tags[0]} /></div>)
           }
         </div>
-
+        <Footer />
       </React.Fragment>
     );
   }

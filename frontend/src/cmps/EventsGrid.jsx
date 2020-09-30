@@ -4,61 +4,57 @@ import { withRouter } from 'react-router';
 import { loadEvents } from '../store/actions/eventActions';
 
 export class _EventsGrid extends Component {
+    // state={
+    //     eventi:{
 
-    componentDidMount(){
+    //     }
+    //     tags:[
+    //         ""
+    //     ]
+    // }
+    componentDidMount() {
         this.props.loadEvents()
-        console.log("mount",this.props);
+        console.log("mount", this.props);
     }
     redirectClick = (tag) => {
         this.props.history.push(`/${tag}`)
     }
-// Todo : map on tags array
+    // Todo : map on tags array
     render() {
         return (
+            // <img src={require(`../assets/img/${eventi.tags[0]}2.jpg`)} />
             <section className="events-grid margin container">
-                <div className="event-card" 
-                style={{backgroundImage:`url(${require('../assets/img/Sport.jpg')})`}}
-                onClick={(ev) => { this.redirectClick('Sport') }}>
-                    <div className="tag">Sport</div>
+                <div className="event-card" onClick={(ev) => { this.redirectClick('Sport') }}>
+              <img src={require('../assets/img/Sport.jpg')} />
+                <div className="tag-wrapper"><span className="tag">Sport</span></div>
                 </div>
-                <div className="event-card" 
-                style={{backgroundImage:`url(${require('../assets/img/Movies.jpg')})`}}
-                onClick={(ev) => { this.redirectClick('Movies') }}>
-                    <div className="tag ">Movies</div>
+                <div className="event-card" onClick={(ev) => { this.redirectClick('Movies') }}>
+                    <img src={require('../assets/img/Movies.jpg')} />
+                    <div className="tag-wrapper"><span className="tag">Movies</span></div>
+                    
                 </div>
-                <div className="event-card span" 
-                style={{backgroundImage:`url(${require('../assets/img/Books.jpg')})`}}
-                onClick={(ev) => { this.redirectClick('Books') }}>
-                    <div className="tag">Books</div>
+                <div className="event-card span" onClick={(ev) => { this.redirectClick('Books') }}>
+                    <img src={require('../assets/img/Books.jpg')} />
+                    <div className="tag-wrapper"><span className="tag">Books</span></div>
+                    
                 </div>
-                <div className="event-card span"
-                 style={{backgroundImage:`url(${require('../assets/img/Art.jpg')})`}}
-                onClick={(ev) => { this.redirectClick('Art') }}>
-                    <div className="tag">Art</div>
+                <div className="event-card span" onClick={(ev) => { this.redirectClick('Art') }}>
+                    <img src={require('../assets/img/Art.jpg')} />
+                    <div className="tag-wrapper"> <span className="tag">Art</span></div>
+                   
                 </div>
-                <div className="event-card" 
-                 style={{backgroundImage:`url(${require('../assets/img/TVShows.jpg')})`}}
-                 onClick={(ev) => { this.redirectClick('TVShows') }}>
-                    <div className="tag">TV Shows</div>
-            
+                <div className="event-card" onClick={(ev) => { this.redirectClick('TVShows') }}>
+                    <img src={require('../assets/img/TVShows.jpg')} />
+                    <div className="tag-wrapper"><span className="tag">TV Shows</span></div>
+                    
                 </div>
-                <div className="event-card"
-                style={{backgroundImage:`url(${require('../assets/img/Comics.jpg')})`}}
-                 onClick={(ev) => { this.redirectClick('Comics') }}>
-                    <div className="tag">Comics</div>
-                    {/* <img src={require('../assets/img/Comics.jpg')}></img> */}
+                <div className="event-card" onClick={(ev) => { this.redirectClick('Comics') }}>
+                    <img src={require('../assets/img/Comics.jpg')} />
+                    <div className="tag-wrapper"><span className="tag">Comics</span></div>
+                    
 
                 </div>
-                {/* <div className="event-card" onClick={(ev) => { this.redirectClick('All') }}>
-                    <span className="tag-comics">Recommendation</span>
-                    <img src={require('../assets/img/ev101.jpg')}></img>
 
-                </div> */}
-                {/* <div className="event-card" onClick={(ev) => { this.redirectClick('All') }}>
-                    <span className="tag-comics">Recommendation</span>
-                    <img src={require('../assets/img/ev101.jpg')}></img>
-
-                </div> */}
             </section>
         )
     }
@@ -88,6 +84,6 @@ export const EventsGrid = connect(mapStateToProps, mapDispatchToProps)(withRoute
 //     events.map(eventi => <div className="event-card" onClick={(ev) => { this.redirectClick(`${tag}`) }}>
 //     <span className="tag-sport">Sport</span>
 //     <img src={require(`../assets/img/${tag}.jpg`)}></img>
-    
+
 //     </div>)
 // }

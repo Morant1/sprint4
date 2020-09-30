@@ -34,7 +34,7 @@ export class _UserNotifications extends Component {
                                     </div>
                                 </div>
                                 <div className="msg-body">
-                                    <h4>{msg}</h4>
+                                    <span className="msg">{msg}</span>
                                     <div className="notification-date">{new Date(Date.now()).toLocaleDateString("en-US")}
                                     </div>
                                 </div>

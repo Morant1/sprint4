@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Sat, 26 Sep 2020 20:54:44 GMT - Info - Server is running on port: 3030
 Sat, 26 Sep 2020 20:54:53 GMT - Debug - true, false, Guest-4342, 123456
 Sat, 26 Sep 2020 20:54:53 GMT - Debug - auth.service - signup with username: Guest-4342
@@ -112,3 +113,5 @@ Tue, 29 Sep 2020 11:05:15 GMT - Debug - auth.service - login with username: Gues
 Wed, 30 Sep 2020 08:02:01 GMT - Info - Server is running on port: 3030
 Wed, 30 Sep 2020 08:02:09 GMT - Info - Server is running on port: 3030
 Wed, 30 Sep 2020 08:02:10 GMT - Info - Server is running on port: 3030
+=======
+>>>>>>> 89d9de2c354910cdaf2eeafcb1d81a2aa0d598a0

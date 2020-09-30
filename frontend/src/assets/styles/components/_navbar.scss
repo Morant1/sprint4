@@ -16,13 +16,13 @@
             color: $clr3;
             background-color: $clr2;
             &:hover {
-                color: $clr1;
+                color: #313b5f;
             }
         }
         .nav-icon {
             color: $clr3;
             &:hover {
-                color: $clr1;
+                color: #313b5f;
             }
         }
     }
@@ -72,15 +72,19 @@
 }
 
 .user-menu {
-    padding: 0;
     position: absolute;
-    right: 6px;
-    top: 31px;
+    right: 25px;
+    top: 50px;
+    padding: 10px;
     background-color: $clr4;
+    border-radius: 3px;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+    border: 3px solid #e9e9e9;
     li {
         cursor: pointer;
         list-style-type: none;
-        padding: 2px;
+        padding: 5px;
+
     }
 }
 .navbar-input {

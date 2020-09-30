@@ -6,7 +6,6 @@ import { EventiList } from '../cmps/EventiList'
 import { SideNav } from '../cmps/SideNav';
 
 
-
 export class _EventiApp extends Component {
 
   state = {
@@ -31,7 +30,6 @@ export class _EventiApp extends Component {
     const currTag = this.props.match.params.tag;
     if (currTag === 'All') return this.props.events;
     if (currTag === 'your_events') return this.loadGoingList(this.props.events);
-
     const filteredEvents = this.props.events.filter(event =>
       event.tags.includes(currTag));
     return filteredEvents
@@ -41,7 +39,6 @@ export class _EventiApp extends Component {
 
   loadGoingList = (events) => {
     let goingList = [];
-  
     for (let i = 0; i < events.length; i++) {
       for (let j = 0; j < events[i].participants.length; j++) {
         if (events[i].participants[j]._id === this.props.loggedInUser._id)
@@ -56,7 +53,7 @@ export class _EventiApp extends Component {
     if (!filteredEvents) return <img className='flex justift-center' src='http://38.media.tumblr.com/512aa2b4c47276e656036249dbaa5506/tumblr_n8ie0o3WG61twkrf5o1_400.gif'></img>
 
     return (
-      <div className="list-events margin">
+      <div className="list-events">
         <SideNav onSetFilter={this.onSetFilter}/>
         <EventiList events={filteredEvents} currTag={this.props.match.params.tag} />
       </div>

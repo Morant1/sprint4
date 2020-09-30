@@ -10,7 +10,6 @@ class _EventiEdit extends Component {
             title: '',
             description: '',
             duration: '',
-            city: '',
             country: '',
             capacity: '',
             tags: '',

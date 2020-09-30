@@ -17,7 +17,7 @@ export function addEventi(eventi) {
     try {
       eventi.createdBy ={
         "_id": "u101",
-        "fullName": "guest",
+        "username": "guest",
         // Lior, imgUrl should be [Tag.jpg,userUpload] 
         "imgUrl": "https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
       }
