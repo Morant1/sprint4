@@ -92,7 +92,7 @@ class _EventiDetails extends Component {
 
       <section className="eventi-details flex margin container">
         <div className="close" onClick={this.onBack}>Go Back →</div>
-        <div className="details-photo-grid details-container flex justify-center">
+        <div className="details-photo-grid details-wrapper flex justify-center">
           <div className="photo-item-1">
             <img src={`https://res.cloudinary.com/dk67dcp9c/image/upload/v1601374151/${eventi.tags[1]}/${eventi.tags[2]}-5.jpg`} />
           </div>
@@ -114,41 +114,40 @@ class _EventiDetails extends Component {
             <img src={`https://res.cloudinary.com/dk67dcp9c/image/upload/v1601374151/${eventi.tags[1]}/${eventi.tags[2]}-4.jpg`} />
           </div>
         </div>
-        <div className="details-container flex">
-          <div className="eventi-title flex">
-            <i className="fa fa-tag" aria-hidden="true"></i><div className="">{eventi.tags[0]}</div>
-            <h2>{eventi.title}</h2>
-            <div className="eventi-subtitle flex">{eventi.subtitle}</div>
-            <div className="sub-text flex align-center">
+        <ul className="details-wrapper flex">
+          <ul className="details-container flex">
+            {/* <i className="fa fa-tag" aria-hidden="true"></i><div className="">{eventi.tags[0]}</div> */}
+            <li><h2>{eventi.title}</h2></li>
+            <li><div className="eventi-subtitle flex">{eventi.subtitle}</div></li>
+            <li className="sub-text flex align-center">
               <div className="stars flex align-center">
                 <StarRate rank={eventi.rank} />
               </div> • <div className="location fas fa-map-marker-alt "></div>  <span className="eventi-location">{eventi.location.city},{eventi.location.country}</span>
-            </div>
-            <div className="host-title flex">
+            </li>
+            <ul className="host-container">
               <span className="text"> This Event is hosted by:</span>
               <div className="avatar fas fa-user-circle">
-                <span> {eventi.createdBy.username}</span>
+                <span className="text"> {eventi.createdBy.username} </span>
               </div>
-
-            </div>
-            <div className="duration-area flex align-center">
-              <div className="far fa-clock"></div>
-              <span className="duration">{eventi.duration} hours</span>
-            </div>
-            <span><div class="globe far fa-comment-alt" aria-hidden="true"></div> Hosted in English and Hebrew</span>
-            <span><div className=" tablet fas fa-tablet-alt"></div> Join from your computer, phone, or tablet</span>
-            <div>{new Date(eventi.startsAt).toDateString()}</div>
-            <div>{new Date(eventi.startsAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
-            <p>{eventi.description}</p>
-            {this.state.isModal && <Modal onModal={this.onModal} _id={eventi._id} />}
-            <a className="flex justify-center" href='https://us02web.zoom.us'>Zoom Link <span className="zoom">(will be availible 30 mins before the meeting)</span></a>
-            <div className="chat flex">
+            <li><div className="globe far fa-comment-alt" aria-hidden="true"></div><span> Hosted in English and Hebrew</span></li>
+            <li><div className=" tablet fas fa-tablet-alt"></div><span> Join from your computer, phone, or tablet</span></li>
+            </ul>
+            <ul className="duration-container">
+              <li>{new Date(eventi.startsAt).toDateString()}</li>
+              <li><div className="far fa-clock"></div> {new Date(eventi.startsAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</li>
+              <li><div className="duration fas fa-hourglass-half"></div> {eventi.duration} hours</li>
+              <li>{this.state.isModal && <Modal onModal={this.onModal} _id={eventi._id} />}
+                <a className="flex justify-center" href='https://us02web.zoom.us'>Zoom Link <span className="zoom">(will be availible 30 mins before the meeting)</span></a></li>
+            </ul>
+            <li><p>{eventi.description}</p></li>
+            <li><div className="chat flex">
               {!this.state.isOpen && <div className="chat-btn" onClick={this.openChat}><i className="far fa-comment-dots"></i></div>}
             </div>
-            {this.state.isOpen && <Chat eventi={eventi} user={this.props.loggedInUser} openChat={this.openChat} />}
-          </div>
+              {this.state.isOpen && <Chat eventi={eventi} user={this.props.loggedInUser} openChat={this.openChat} />}
+            </li>
+          </ul>
 
-          <div className="participant-container flex justify-center align-center">
+          <li className="participant-container flex justify-center align-center">
             <div className="details-btn flex justify-center">
               <button className="join" style={this.getGoingStyle()}
                 onClick={this.addParticipant}>
@@ -168,9 +167,9 @@ class _EventiDetails extends Component {
                 })
               }
             </ul>
-          </div>
+          </li>
 
-        </div>
+        </ul>
 
       </section>
 

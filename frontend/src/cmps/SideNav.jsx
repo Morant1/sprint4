@@ -20,7 +20,7 @@ export class _SideNav extends Component {
         return (
             <section className="side-nav">
                 <ul className="tag-list">
-                    <li onClick={(ev) => { this.redirectClick('your_events') }}>My events</li>
+                    <li className="my-events" onClick={(ev) => { this.redirectClick('your_events') }}>My events</li>
                     <li onClick={(ev) => { this.redirectClick('TVShows') }}>TV shows</li>
                     <li onClick={(ev) => { this.redirectClick('Sport') }}>Sport</li>
                     <li onClick={(ev) => { this.redirectClick('Movies') }}>Movies</li>

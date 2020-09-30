@@ -39,4 +39,10 @@
     }
 }
 
-
+.my-events{
+    background-color: $clr2;
+    &:hover{
+        background-color: $clr1 !important;
+        color:$clr3 !important; 
+    }
+}

@@ -80,12 +80,12 @@
         opacity: 0.6;
     }
 
-    .details-container {
+    .details-wrapper {
         justify-content: space-between;
         max-width: 1280px;
         text-align: left;
         margin: 10px;
-        border-top: 1px solid #DDDDDD !important;
+       
     }
 
     .details-btn {
@@ -109,7 +109,7 @@
             }
         }
     }
-    .eventi-title {
+    .details-container {
         flex-direction: column;
 
         color: $clr3;
@@ -122,43 +122,8 @@
             width: 40ch;
             font-size: rem(16px);
         }
-    }
-
-    .participant-container {
-        flex-direction: column;
-        background-color: $clr2;
-        z-index:0; 
-     
-        .participant-title {
-            font-family: montserrat;
-            margin-top: 10px;
-            font-size: rem(24px);
-            color: $clr3;
-        }
-        .participant-list {
-            margin: 0;
-            padding: 10px 10px;
-            color: $clr3;
-            flex-direction: column;
-            align-content: flex-start;
-            li {
-                flex-direction: row;
-                margin-top: 10px;
-                .participant-name {
-                    margin-left: 5px;
-                
-                }
-            }
-        }
-    }
-
-    .comment-container {
-        background-color: rgb(242, 250, 167);
-        .list-item {
-            padding: 10px 10px;
-        }
-        .comment-section {
-            padding: 5px 5px;
+        ul{
+            padding: 20px; 
         }
     }
 }
@@ -182,12 +147,56 @@
     color: $clr3;
 }
 
-.host-title {
+.host-container {
+    border-top: 1px solid #DDDDDD !important;
     justify-content: space-between;
     align-items: center;
     width: 90%;
-    span {
+    .text {
         font-family: montserrat;
+    }
+}
+
+
+.duration-container{
+    border-top: 1px solid #DDDDDD !important;
+}
+.comment-container {
+    background-color: rgb(242, 250, 167);
+    .list-item {
+        padding: 10px 10px;
+    }
+    .comment-section {
+        padding: 5px 5px;
+    }
+}
+
+
+.participant-container {
+    flex-direction: column;
+    background-color: $clr2;
+    z-index:0; 
+ 
+    .participant-title {
+        font-family: montserrat;
+        margin-top: 10px;
+        font-size: rem(24px);
+        color: $clr3;
+    }
+    .participant-list {
+        margin: 0;
+        padding: 10px 10px;
+        color: $clr3;
+        flex-direction: column;
+        align-content: flex-start;
+        li {
+            flex-direction: row;
+            margin-top: 10px;
+            .participant-name {
+                margin-left: 5px;
+            
+            }
+        }
     }
 }
 .chat {
@@ -200,14 +209,6 @@
         cursor: pointer;
     }
 }
-
-
-.duration {
-    margin-left: 5px;
-}
-
-
-
 
 .star {
     cursor: pointer;
