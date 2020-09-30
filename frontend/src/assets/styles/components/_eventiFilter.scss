@@ -1,17 +1,5 @@
 .filter {
     display: flex;
     flex-direction: column;
-    margin: 20px 10px 40px 10px;
-
-    .MuiFormControl-root {
-        margin: 12px;
-        text-align: center;
-    }
-
-    .MuiInputBase-input {
-        font: inherit;
-        color: $clr3;
-        width: 100%;
-        border-color: $clr3;
-    }
+    margin: 50px 10px 40px 10px;
 }

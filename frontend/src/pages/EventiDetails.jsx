@@ -156,7 +156,7 @@ class _EventiDetails extends Component {
             </li>
           </ul>
 
-          <li className="participant-container flex justify-center align-center">
+          <li className="participant-container flex align-center">
             <div className="details-btn flex justify-center">
               <button className="join" style={this.getGoingStyle()}
                 onClick={this.addParticipant}>
