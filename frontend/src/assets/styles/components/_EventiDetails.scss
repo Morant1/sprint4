@@ -66,8 +66,9 @@
 .eventi-details {
     flex-direction: column;
     margin-top: 70px;
-
-    .sub-text {
+  
+    .second-line {
+      
         .location {
             margin-left: 5px;
         }
@@ -119,11 +120,16 @@
         }
         p {
             text-align: left;
-            width: 40ch;
+            width: 45ch;
             font-size: rem(16px);
         }
         ul{
-            padding: 20px; 
+            padding: 20px 0px; 
+        }
+        .description{
+            padding-top:10px;
+            font-weight: bold;
+            border-top: 1px solid #DDDDDD !important;
         }
     }
 }
@@ -151,14 +157,37 @@
     border-top: 1px solid #DDDDDD !important;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    width: 100%;
     .text {
         font-family: montserrat;
+    }
+    .host-name{
+        display:flex; 
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
     }
 }
 
 
 .duration-container{
+    padding:0px 10px 10px 0px !important; 
+    justify-content: space-between;
+    div:first-child{
+        padding-left:0; 
+    }
+    .inner-duration{
+        flex-direction: column; 
+        padding:10px; 
+        &.right{
+            padding-right:40px; 
+        }
+    }
+}
+.duration-title{
+    font-weight: bold;
+    padding-top: 20px;
+    display:inline-block; 
     border-top: 1px solid #DDDDDD !important;
 }
 .comment-container {
@@ -174,7 +203,8 @@
 
 .participant-container {
     flex-direction: column;
-    background-color: $clr2;
+    background-color: #f1f1f1;
+    border-radius:12px; 
     z-index:0; 
  
     .participant-title {

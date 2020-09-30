@@ -91,7 +91,7 @@ class _EventiDetails extends Component {
     return (
 
       <section className="eventi-details flex margin container">
-        <div className="close" onClick={this.onBack}>Go Back →</div>
+        <div className="close" onClick={this.onBack}>← Go Back </div>
         <div className="details-photo-grid details-wrapper flex justify-center">
           <div className="photo-item-1">
             <img src={`https://res.cloudinary.com/dk67dcp9c/image/upload/v1601374151/${eventi.tags[1]}/${eventi.tags[2]}-5.jpg`} />
@@ -117,29 +117,38 @@ class _EventiDetails extends Component {
         <ul className="details-wrapper flex">
           <ul className="details-container flex">
             {/* <i className="fa fa-tag" aria-hidden="true"></i><div className="">{eventi.tags[0]}</div> */}
-            <li><h2>{eventi.title}</h2></li>
-            <li><div className="eventi-subtitle flex">{eventi.subtitle}</div></li>
-            <li className="sub-text flex align-center">
+            <li className="bottom"><h2>{eventi.title}</h2></li>
+            <li className="second-line flex bottom">{eventi.subtitle}</li>
+            <li className="second-line flex align-center bottom">
               <div className="stars flex align-center">
                 <StarRate rank={eventi.rank} />
               </div> • <div className="location fas fa-map-marker-alt "></div>  <span className="eventi-location">{eventi.location.city},{eventi.location.country}</span>
             </li>
             <ul className="host-container">
-              <span className="text"> This Event is hosted by:</span>
-              <div className="avatar fas fa-user-circle">
-                <span className="text"> {eventi.createdBy.username} </span>
+              <div className="host-name bottom">
+                <span className="text"> This Event is hosted by:</span>
+                <div className="avatar fas fa-user-circle">
+                  <span className="text"> {eventi.createdBy.username} </span>
+                </div>
               </div>
-            <li><div className="globe far fa-comment-alt" aria-hidden="true"></div><span> Hosted in English and Hebrew</span></li>
-            <li><div className=" tablet fas fa-tablet-alt"></div><span> Join from your computer, phone, or tablet</span></li>
+              <li><div className="globe far fa-comment-alt" aria-hidden="true"></div><span> Hosted in English and Hebrew</span></li>
+              <li><div className=" tablet fas fa-tablet-alt"></div><span> Join from your computer, phone, or tablet</span></li>
             </ul>
-            <ul className="duration-container">
-              <li>{new Date(eventi.startsAt).toDateString()}</li>
-              <li><div className="far fa-clock"></div> {new Date(eventi.startsAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</li>
-              <li><div className="duration fas fa-hourglass-half"></div> {eventi.duration} hours</li>
-              <li>{this.state.isModal && <Modal onModal={this.onModal} _id={eventi._id} />}
-                <a className="flex justify-center" href='https://us02web.zoom.us'>Zoom Link <span className="zoom">(will be availible 30 mins before the meeting)</span></a></li>
+            <div className="duration-title">Some Technical Info</div>
+            <ul className="duration-container flex">
+              <div className="inner-duration flex">
+                <li><div className="far fa-clock"></div> {new Date(eventi.startsAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</li>
+                <li>{new Date(eventi.startsAt).toDateString()}</li>
+              </div>
+              <div className="inner-duration right flex">
+                <li><div className="duration fas fa-hourglass-half"></div> {eventi.duration} hours</li>
+                <li>{this.state.isModal && <Modal onModal={this.onModal} _id={eventi._id} />}
+                  <a className="zoom flex justify-center" href='https://us02web.zoom.us'>Zoom Link </a></li>
+                {/* <span className="zoom">(will be availible soon)</span> */}
+              </div>
             </ul>
-            <li><p>{eventi.description}</p></li>
+            <li className="description bottom">What it's all about?</li>
+            <li className="bottom"><p>{eventi.description}</p></li>
             <li><div className="chat flex">
               {!this.state.isOpen && <div className="chat-btn" onClick={this.openChat}><i className="far fa-comment-dots"></i></div>}
             </div>
