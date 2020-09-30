@@ -25,12 +25,12 @@ async function login(username, password) {
 
 
 
-async function signup(isGuest,isGoing, password, username) {
+async function signup(isGuest, password, username) {
     logger.debug(`auth.service - signup with username: ${username}`)
     if ( !password || !username) return Promise.reject('username and password are required!')
 
     const hash = await bcrypt.hash(password, saltRounds)
-    return userService.add({isGuest,isGoing, password: hash, username})
+    return userService.add({isGuest, password: hash, username})
 }
 
 module.exports = {

@@ -15,8 +15,6 @@ export function eventReducer(state = initialState, action = {}) {
       return {
         ...state,
         events: state.events.filter(eventi => {
-          console.log("action.eventId", action.eventiId);
-          console.log("event._id", eventi._id);
           return eventi._id !== action.eventiId
         })
       };

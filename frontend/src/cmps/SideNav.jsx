@@ -20,6 +20,18 @@ export class _SideNav extends Component {
         return (
             <section className="side-nav">
                 <ul className="tag-list">
+<<<<<<< HEAD
+                    <li  onClick={(ev) => { this.redirectClick('TVShows') }}>TV shows</li>
+                    <li  onClick={(ev) => { this.redirectClick('Sport') }}>Sport</li>
+                    <li  onClick={(ev) => { this.redirectClick('Movies') }}>Movies</li>
+                    <li  onClick={(ev) => { this.redirectClick('Comics') }}>Comics</li>
+                    <li  onClick={(ev) => { this.redirectClick('Books') }}>Books</li>
+                    <li  onClick={(ev) => { this.redirectClick('Art') }}>Art</li>
+                    <ul className="all-tag">
+                    <li className="tag-item" onClick={(ev) => { this.redirectClick('your_events') }}>Your events</li>
+                    <li className="tag-item" onClick={(ev) => { this.redirectClick('All') }}>All</li>
+                    </ul>
+=======
                     <li className="my-events" onClick={(ev) => { this.redirectClick('your_events') }}>My events</li>
                     <li onClick={(ev) => { this.redirectClick('TVShows') }}>TV shows</li>
                     <li onClick={(ev) => { this.redirectClick('Sport') }}>Sport</li>
@@ -29,6 +41,7 @@ export class _SideNav extends Component {
                     <li onClick={(ev) => { this.redirectClick('Art') }}>Art</li>
                     <li onClick={(ev) => { this.redirectClick('All') }}>All</li>
 
+>>>>>>> 89d9de2c354910cdaf2eeafcb1d81a2aa0d598a0
                 </ul>
                 <EventiFilter onSetFilter={onSetFilter} />
             </section>
