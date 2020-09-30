@@ -44,7 +44,6 @@ export class _EventiApp extends Component {
   
     for (let i = 0; i < events.length; i++) {
       for (let j = 0; j < events[i].participants.length; j++) {
-        console.log(events[i].participants[j],this.props.loggedInUser)
         if (events[i].participants[j]._id === this.props.loggedInUser._id)
           goingList.push(events[i])
       }

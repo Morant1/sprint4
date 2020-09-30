@@ -17,7 +17,6 @@ export class _HomePage extends Component {
       {
         password: '123456',
         username: `Guest-${utils.makeId()}`,
-        isGoing: false,
         isGuest: true
       };
 

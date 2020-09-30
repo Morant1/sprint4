@@ -27,12 +27,8 @@ export class _SideNav extends Component {
                     <li  onClick={(ev) => { this.redirectClick('Books') }}>Books</li>
                     <li  onClick={(ev) => { this.redirectClick('Art') }}>Art</li>
                     <ul className="all-tag">
-<<<<<<< HEAD
                     <li className="tag-item" onClick={(ev) => { this.redirectClick('your_events') }}>Your events</li>
                     <li className="tag-item" onClick={(ev) => { this.redirectClick('All') }}>All</li>
-=======
-                    <li  onClick={(ev) => { this.redirectClick('All') }}>All</li>
->>>>>>> f0d9086ae5ad0b9b3ef4306729066a39eac068e4
                     </ul>
                 </ul>
                 <EventiFilter onSetFilter={onSetFilter} />

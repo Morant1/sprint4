@@ -71,7 +71,7 @@ class _Login extends Component {
         if (!password || !username) {
             return this.setState({ msg: 'Username & password inputs are required!' });
         }
-        const signupCreds = { password, username ,isGoing: false, isGuest: false};
+        const signupCreds = { password, username , isGuest: false};
         const user = await this.props.signup(signupCreds);
         if (user) this.props.history.push('/');
 

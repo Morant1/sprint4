@@ -17,14 +17,12 @@ import { removeEventi } from '../store/actions/eventActions'
 class _EventiDetails extends Component {
   state = {
     eventi: null,
-    isGoing: false,
     isOpen: false,
     isModal: false
-    // isRankPressed: false
   }
   componentDidMount() {
     this.loadEventi()
-    console.log(this.props.loggedInUser)
+    console.log("loggedInUser:",this.props.loggedInUser)
   }
 
   loadEventi = () => {
@@ -44,27 +42,29 @@ class _EventiDetails extends Component {
     this.setState({ isOpen: !this.state.isOpen })
   }
 
+
+  isGoing = () => {
+      const participant = this.state.eventi.participants.find(participant => participant._id === this.props.loggedInUser._id);
+      return participant;
+  }
+
   addParticipant = () => {
-    let user = this.props.loggedInUser;
-    user.isGoing = !this.state.isGoing;
-    this.props.updateUser(user)
-    // this.props.toggleParticipation()
-    this.setState({
-      isGoing: !this.state.isGoing
-    }, () => {
-      let eventi = this.state.eventi;
-      if (this.state.isGoing) {
-        eventi.participants.push(user)
+      const participant = this.isGoing();
+      let eventi = {...this.state.eventi};
+
+      if (!participant) {
+        eventi.participants = [this.props.loggedInUser, ...eventi.participants]
         BusService.emit('notify', { msg: `You are going to ${eventi.title} event` })
       } else {
-        const idx = eventi.participants.findIndex(participant => participant === user);
-        if (idx) eventi.participants.splice(idx, 1)
+        eventi.participants = eventi.participants.filter(participant => {
+        return participant._id !==  this.props.loggedInUser._id})
+
         BusService.emit('notify', { msg: `You are not going to ${eventi.title} event anymore` })
       }
       this.props.updateEvent(eventi)
-      this.setState({ eventi },()=>{console.log(eventi)})
+      this.setState({ eventi })
 
-    })
+    
   }
 
   onModal = () => {
@@ -146,7 +146,7 @@ class _EventiDetails extends Component {
             <div className="details-btn flex justify-center">
               <button className="join" style={this.getGoingStyle()}
                 onClick={this.addParticipant}>
-                 {isGoing ? 'attending' : 'choose'}
+                 {this.isGoing() ? 'attending' : 'choose'}
               </button>
               <button onClick={this.onModal}>Edit</button>
               <button onClick={() => this.removeEventi(eventi._id)}>Delete</button>
