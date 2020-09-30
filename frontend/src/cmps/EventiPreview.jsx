@@ -26,7 +26,7 @@ class _EventiPreview extends Component {
                     <div className="preview-title">{eventi.title.length > 40 ? eventi.title.substr(0,40)+'...': eventi.title}</div>
                     <div className="preview-subtitle">{eventi.subtitle ? eventi.subtitle :''}</div>
                     <div className="time-container">
-                        <span className="calender far fa-calendar-alt fa-sm"></span><span className="preview-time"> {new Date(eventi.startsAt).toLocaleDateString()}</span>
+                        <span className="calender far fa-calendar-alt fa-sm"></span><span className="preview-time"> {new Date(eventi.startsAt).toLocaleDateString('he-IL')}</span>
                         <span className="clock far fa-clock fa-sm"></span><span className="preview-time"> {new Date(eventi.startsAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                     </div>
                         <div className="event-creator-section flex align-center">
