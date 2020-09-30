@@ -85,6 +85,7 @@
         max-width: 1280px;
         text-align: left;
         margin: 10px;
+        border-top: 1px solid #DDDDDD !important;
     }
 
     .details-btn {
@@ -110,7 +111,7 @@
     }
     .eventi-title {
         flex-direction: column;
-        margin-top: 10px;
+
         color: $clr3;
         h2 {
             font-family: PermanentMarker;
@@ -126,7 +127,8 @@
     .participant-container {
         flex-direction: column;
         background-color: $clr2;
-
+        z-index:0; 
+     
         .participant-title {
             font-family: montserrat;
             margin-top: 10px;
@@ -144,6 +146,7 @@
                 margin-top: 10px;
                 .participant-name {
                     margin-left: 5px;
+                
                 }
             }
         }
@@ -169,10 +172,14 @@
 }
 
 .close {
-    margin: 5px;
-    font-size: 22px;
-    color: $clr3;
     cursor: pointer;
+    margin: 12px 5px 10px 5px;
+    width: 10rem;
+    box-shadow: 0.5px 0.5px 1.5px $clr3;
+    text-align: center;
+    border-radius: 3.25rem;
+    font-size: 1rem;
+    color: $clr3;
 }
 
 .host-title {
@@ -184,6 +191,7 @@
     }
 }
 .chat {
+    z-index: 999;
     display: fixed;
     .chat-btn {
         padding: 9px 8px;

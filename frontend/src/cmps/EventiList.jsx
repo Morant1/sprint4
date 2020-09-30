@@ -19,6 +19,7 @@ export class _EventiList extends Component {
 
     render() {
         const { events ,currTag} = this.props;
+        // if (!"preview-grid") return <div className="">Oh no there is nothing to show</div>
     return (
         <ul className="preview-grid">
             {

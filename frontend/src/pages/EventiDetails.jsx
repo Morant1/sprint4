@@ -62,13 +62,13 @@ class _EventiDetails extends Component {
         BusService.emit('notify', { msg: `You are not going to ${eventi.title} event anymore` })
       }
       this.props.updateEvent(eventi)
-      this.setState({ eventi },()=>{console.log(eventi)})
+      this.setState({ eventi }, () => { console.log(eventi) })
 
     })
   }
 
   onModal = () => {
-    this.setState({ isModal: !this.state.isModal})
+    this.setState({ isModal: !this.state.isModal })
   }
 
   onFood = () => {
@@ -76,7 +76,7 @@ class _EventiDetails extends Component {
   }
   getGoingStyle = () => {
     if (this.state.isGoing) {
-      return { backgroundColor: '#272343',color:'#88E4E4' }
+      return { backgroundColor: '#272343', color: '#88E4E4' }
     }
   }
 
@@ -116,6 +116,7 @@ class _EventiDetails extends Component {
         </div>
         <div className="details-container flex">
           <div className="eventi-title flex">
+            <i className="fa fa-tag" aria-hidden="true"></i><div className="">{eventi.tags[0]}</div>
             <h2>{eventi.title}</h2>
             <div className="eventi-subtitle flex">{eventi.subtitle}</div>
             <div className="sub-text flex align-center">
@@ -134,17 +135,24 @@ class _EventiDetails extends Component {
               <div className="far fa-clock"></div>
               <span className="duration">{eventi.duration} hours</span>
             </div>
-
+            <span><div class="globe far fa-comment-alt" aria-hidden="true"></div> Hosted in English and Hebrew</span>
             <span><div className=" tablet fas fa-tablet-alt"></div> Join from your computer, phone, or tablet</span>
             <div>{new Date(eventi.startsAt).toDateString()}</div>
             <div>{new Date(eventi.startsAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
             <p>{eventi.description}</p>
+            {this.state.isModal && <Modal onModal={this.onModal} _id={eventi._id} />}
+            <a className="flex justify-center" href='https://us02web.zoom.us'>Zoom Link <span className="zoom">(will be availible 30 mins before the meeting)</span></a>
+            <div className="chat flex">
+              {!this.state.isOpen && <div className="chat-btn" onClick={this.openChat}><i className="far fa-comment-dots"></i></div>}
+            </div>
+            {this.state.isOpen && <Chat eventi={eventi} user={this.props.loggedInUser} openChat={this.openChat} />}
           </div>
+
           <div className="participant-container flex justify-center align-center">
             <div className="details-btn flex justify-center">
               <button className="join" style={this.getGoingStyle()}
                 onClick={this.addParticipant}>
-                 {isGoing ? 'attending' : 'choose'}
+                {isGoing ? 'attending' : 'choose'}
               </button>
               <button onClick={this.onModal}>Edit</button>
               <button onClick={() => this.removeEventi(eventi._id)}>Delete</button>
@@ -161,13 +169,9 @@ class _EventiDetails extends Component {
               }
             </ul>
           </div>
+
         </div>
-        {this.state.isModal && <Modal onModal={this.onModal} _id={eventi._id}/>}
-        <a className="flex justify-center" href='https://us02web.zoom.us'>Zoom Link <span className="zoom">(will be availible 30 mins before the meeting)</span></a>
-        <div className="chat flex">
-          {!this.state.isOpen && <div className="chat-btn" onClick={this.openChat}><i className="far fa-comment-dots"></i></div>}
-        </div>
-        {this.state.isOpen && <Chat eventi={eventi} user={this.props.loggedInUser} openChat={this.openChat} />}
+
       </section>
 
     )
@@ -188,52 +192,6 @@ const mapDispatchToProps = {
 
 export const EventiDetails = connect(mapStateToProps, mapDispatchToProps)(_EventiDetails)
 
-  //// in case site collapses you can use this for preview page + details
-  // / <div className="details-photo-grid details-container flex justify-center">
-  //   <div className="photo-item-1">
-  //     <img src={require(`../assets/img/${eventi.tags[0]}.jpg`)} />
-  //   </div>
-  //   <div className="photo-item-2">
-  //     <div className="photo-inline-grid">
-  //       <div className="inner-photo-1">
-  //         <img src={require(`../assets/img/${eventi.tags[0]}2.jpg`)} />
-  //       </div>
-
-  //       <div className="inner-photo-2">
-  //         <img src={require(`../assets/img/${eventi.tags[0]}3.jpg`)} />
-  //       </div>
-  //       <div className="inner-photo-3">
-  //         <img src={require(`../assets/img/${eventi.tags[0]}4.jpg`)} />
-  //       </div>
-  //     </div>
-  //   </div>
-  //   <div className="photo-item-3">
-  //     <img src={require(`../assets/img/${eventi.tags[0]}5.jpg`)} />
-  //   </div>
-  // </div>
-
-          {/* <div className="details-photo-grid details-container flex justify-center">
-          <div className="photo-item-1">
-            <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-5.jpg`)} />
-          </div>
-          <div className="photo-item-2">
-            <div className="photo-inline-grid">
-              <div className="inner-photo-1">
-                <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-1.jpg`)} />
-              </div>
-
-              <div className="inner-photo-2">
-                <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-2.jpg`)} />
-              </div>
-              <div className="inner-photo-3">
-                <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-4.jpg`)} />
-              </div>
-            </div>
-          </div>
-          <div className="photo-item-3">
-            <img src={require(`../assets/img/${eventi.tags[1]}/${eventi.tags[2]}-3.jpg`)} />
-          </div>
-        </div> */}
 
 
 

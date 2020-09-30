@@ -6,19 +6,28 @@
     color: $clr5;
     z-index: 50;
     .main-footer {
-        margin: 40px 20px 10px 40px;
+        margin: 20px 20px 0px 40px;
         justify-content: space-around;
     }
 }
 .social-container {
     flex-direction: column;
     align-items: center;
+    .logo a {
+        color: $clr3;
+        font-family: PermanentMarker;
+        font-size: rem(28px);
+        margin-left: rem(20px);
+        &:hover {
+            color: $clr1;
+        }
+    }
     .social-list {
         .fab {
             text-align: center;
             font-size: 100%;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             color: $clr4;
             display: inline-flex;
             align-items: center;

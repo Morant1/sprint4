@@ -124,3 +124,7 @@ Tue, 29 Sep 2020 17:06:16 GMT - Debug - auth.route - new account created: {"isGu
 Tue, 29 Sep 2020 17:06:16 GMT - Debug - auth.service - login with username: Guest-8752
 
 Tue, 29 Sep 2020 19:30:23 GMT - Info - Server is running on port: 3030
+Tue, 29 Sep 2020 19:32:58 GMT - Debug - true, false, Guest-1369, 123456
+Tue, 29 Sep 2020 19:32:58 GMT - Debug - auth.service - signup with username: Guest-1369
+Tue, 29 Sep 2020 19:32:58 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$.kvI44DzJj8cG8gmC0w1f.qmaXP61Bu4IzS.YILBelRavvr4hVAYy","username":"Guest-1369","_id":"5f738bea3fa61c0c1c94e36f"}
+Tue, 29 Sep 2020 19:32:58 GMT - Debug - auth.service - login with username: Guest-1369
