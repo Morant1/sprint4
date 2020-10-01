@@ -150,7 +150,7 @@ class _EventiDetails extends Component {
             <li className="description bottom">What it's all about?</li>
             <li className="bottom"><p>{eventi.description}</p></li>
             <li><div className="chat flex">
-              {!this.state.isOpen && <div className="chat-btn" onClick={this.openChat}><i className="far fa-comment-dots"></i></div>}
+              {!this.state.isOpen && <div className="chat-btn" onClick={this.openChat}><i className="far fa-comment-dots text"></i> Chat with your Host</div>}
             </div>
               {this.state.isOpen && <Chat eventi={eventi} user={this.props.loggedInUser} openChat={this.openChat} />}
             </li>
@@ -160,7 +160,7 @@ class _EventiDetails extends Component {
             <div className="details-btn flex justify-center">
               <button className="join" style={this.getGoingStyle()}
                 onClick={this.addParticipant}>
-                {isGoing ? 'attending' : 'choose'}
+                {this.isGoing() ? 'attending' : 'choose'}
               </button>
               <button onClick={this.onModal}>Edit</button>
               <button onClick={() => this.removeEventi(eventi._id)}>Delete</button>
